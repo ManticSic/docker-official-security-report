@@ -7,38 +7,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  nginx:
+  scan-by-matrix:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image: [nginx, python, postgres, node, httpd]
     steps:
       - name: Pull image
-        run: docker pull nginx
-      - name: Create report for nginx
+        run: docker pull ${{ matrix.image }}
+      - name: Create report ${{ matrix.image }}
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nginx'
+          image-ref: '${{ matrix.image }}'
           format: 'json'
-          output: 'nginx.report.json'
+          output: '${{ matrix.image }}.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nginx.report.json'
-          path: 'ninx.report.json'
-  python:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image
-        run: docker pull python
-      - name: Create report for python
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'python'
-          format: 'json'
-          output: 'python.report.json'
-          scanners: 'vuln,secret,config'
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'python.report.json'
-          path: 'python.report.json'
-        
+          name: '${{ matrix.image }}.report.json'
+          path: '${{ matrix.image }}.report.json'
