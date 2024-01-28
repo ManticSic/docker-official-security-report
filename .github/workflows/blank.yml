@@ -1,29 +1,3158 @@
 name: Report
 
-# Controls when the workflow will run
 on:
   schedule:
     - cron: "0 12 * * 0"
   workflow_dispatch:
 
 jobs:
-  scan-by-matrix:
+  centos:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        image: [nginx, python, postgres, node, httpd]
     steps:
       - name: Pull image
-        run: docker pull ${{ matrix.image }}
-      - name: Create report ${{ matrix.image }}
+        run: docker pull centos
+      - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ matrix.image }}'
+          image-ref: 'centos'
           format: 'json'
-          output: '${{ matrix.image }}.report.json'
+          output: 'centos.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: '${{ matrix.image }}.report.json'
-          path: '${{ matrix.image }}.report.json'
+          name: 'centos.report.json'
+          path: 'centos.report.json'
+
+  busybox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull busybox
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'busybox'
+          format: 'json'
+          output: 'busybox.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'busybox.report.json'
+          path: 'busybox.report.json'
+
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ubuntu
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ubuntu'
+          format: 'json'
+          output: 'ubuntu.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu.report.json'
+          path: 'ubuntu.report.json'
+
+  scratch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull scratch
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'scratch'
+          format: 'json'
+          output: 'scratch.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'scratch.report.json'
+          path: 'scratch.report.json'
+
+  fedora:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull fedora
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'fedora'
+          format: 'json'
+          output: 'fedora.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fedora.report.json'
+          path: 'fedora.report.json'
+
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull registry
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'registry'
+          format: 'json'
+          output: 'registry.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'registry.report.json'
+          path: 'registry.report.json'
+
+  hipache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hipache
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hipache'
+          format: 'json'
+          output: 'hipache.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hipache.report.json'
+          path: 'hipache.report.json'
+
+  docker-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull docker-dev
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker-dev'
+          format: 'json'
+          output: 'docker-dev.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker-dev.report.json'
+          path: 'docker-dev.report.json'
+
+  debian:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull debian
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'debian'
+          format: 'json'
+          output: 'debian.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'debian.report.json'
+          path: 'debian.report.json'
+
+  cirros:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull cirros
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'cirros'
+          format: 'json'
+          output: 'cirros.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cirros.report.json'
+          path: 'cirros.report.json'
+
+  crux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull crux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'crux'
+          format: 'json'
+          output: 'crux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crux.report.json'
+          path: 'crux.report.json'
+
+  ubuntu-upstart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ubuntu-upstart
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ubuntu-upstart'
+          format: 'json'
+          output: 'ubuntu-upstart.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-upstart.report.json'
+          path: 'ubuntu-upstart.report.json'
+
+  buildpack-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull buildpack-deps
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'buildpack-deps'
+          format: 'json'
+          output: 'buildpack-deps.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'buildpack-deps.report.json'
+          path: 'buildpack-deps.report.json'
+
+  nginx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull nginx
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'nginx'
+          format: 'json'
+          output: 'nginx.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nginx.report.json'
+          path: 'nginx.report.json'
+
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull node
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'node'
+          format: 'json'
+          output: 'node.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'node.report.json'
+          path: 'node.report.json'
+
+  mysql:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mysql
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mysql'
+          format: 'json'
+          output: 'mysql.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mysql.report.json'
+          path: 'mysql.report.json'
+
+  wordpress:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull wordpress
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'wordpress'
+          format: 'json'
+          output: 'wordpress.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'wordpress.report.json'
+          path: 'wordpress.report.json'
+
+  postgres:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull postgres
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'postgres'
+          format: 'json'
+          output: 'postgres.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postgres.report.json'
+          path: 'postgres.report.json'
+
+  redis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull redis
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'redis'
+          format: 'json'
+          output: 'redis.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redis.report.json'
+          path: 'redis.report.json'
+
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull java
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'java'
+          format: 'json'
+          output: 'java.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'java.report.json'
+          path: 'java.report.json'
+
+  mongo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mongo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mongo'
+          format: 'json'
+          output: 'mongo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo.report.json'
+          path: 'mongo.report.json'
+
+  rails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rails
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rails'
+          format: 'json'
+          output: 'rails.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rails.report.json'
+          path: 'rails.report.json'
+
+  ruby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ruby
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ruby'
+          format: 'json'
+          output: 'ruby.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ruby.report.json'
+          path: 'ruby.report.json'
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull python
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'python'
+          format: 'json'
+          output: 'python.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'python.report.json'
+          path: 'python.report.json'
+
+  ubuntu-debootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ubuntu-debootstrap
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ubuntu-debootstrap'
+          format: 'json'
+          output: 'ubuntu-debootstrap.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-debootstrap.report.json'
+          path: 'ubuntu-debootstrap.report.json'
+
+  perl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull perl
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'perl'
+          format: 'json'
+          output: 'perl.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'perl.report.json'
+          path: 'perl.report.json'
+
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hello-world
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hello-world'
+          format: 'json'
+          output: 'hello-world.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-world.report.json'
+          path: 'hello-world.report.json'
+
+  hylang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hylang
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hylang'
+          format: 'json'
+          output: 'hylang.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hylang.report.json'
+          path: 'hylang.report.json'
+
+  gcc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull gcc
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'gcc'
+          format: 'json'
+          output: 'gcc.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gcc.report.json'
+          path: 'gcc.report.json'
+
+  jenkins:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull jenkins
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'jenkins'
+          format: 'json'
+          output: 'jenkins.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jenkins.report.json'
+          path: 'jenkins.report.json'
+
+  opensuse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull opensuse
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'opensuse'
+          format: 'json'
+          output: 'opensuse.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'opensuse.report.json'
+          path: 'opensuse.report.json'
+
+  golang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull golang
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'golang'
+          format: 'json'
+          output: 'golang.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'golang.report.json'
+          path: 'golang.report.json'
+
+  neurodebian:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull neurodebian
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'neurodebian'
+          format: 'json'
+          output: 'neurodebian.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neurodebian.report.json'
+          path: 'neurodebian.report.json'
+
+  clojure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull clojure
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'clojure'
+          format: 'json'
+          output: 'clojure.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clojure.report.json'
+          path: 'clojure.report.json'
+
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull php
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'php'
+          format: 'json'
+          output: 'php.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php.report.json'
+          path: 'php.report.json'
+
+  jruby:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull jruby
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'jruby'
+          format: 'json'
+          output: 'jruby.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jruby.report.json'
+          path: 'jruby.report.json'
+
+  mageia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mageia
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mageia'
+          format: 'json'
+          output: 'mageia.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mageia.report.json'
+          path: 'mageia.report.json'
+
+  crate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull crate
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'crate'
+          format: 'json'
+          output: 'crate.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crate.report.json'
+          path: 'crate.report.json'
+
+  php-zendserver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull php-zendserver
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'php-zendserver'
+          format: 'json'
+          output: 'php-zendserver.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php-zendserver.report.json'
+          path: 'php-zendserver.report.json'
+
+  tomcat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull tomcat
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'tomcat'
+          format: 'json'
+          output: 'tomcat.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomcat.report.json'
+          path: 'tomcat.report.json'
+
+  mono:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mono
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mono'
+          format: 'json'
+          output: 'mono.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mono.report.json'
+          path: 'mono.report.json'
+
+  haskell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull haskell
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'haskell'
+          format: 'json'
+          output: 'haskell.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haskell.report.json'
+          path: 'haskell.report.json'
+
+  glassfish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull glassfish
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'glassfish'
+          format: 'json'
+          output: 'glassfish.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'glassfish.report.json'
+          path: 'glassfish.report.json'
+
+  maven:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull maven
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'maven'
+          format: 'json'
+          output: 'maven.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'maven.report.json'
+          path: 'maven.report.json'
+
+  httpd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull httpd
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'httpd'
+          format: 'json'
+          output: 'httpd.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'httpd.report.json'
+          path: 'httpd.report.json'
+
+  sentry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull sentry
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'sentry'
+          format: 'json'
+          output: 'sentry.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sentry.report.json'
+          path: 'sentry.report.json'
+
+  r-base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull r-base
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'r-base'
+          format: 'json'
+          output: 'r-base.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'r-base.report.json'
+          path: 'r-base.report.json'
+
+  mariadb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mariadb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mariadb'
+          format: 'json'
+          output: 'mariadb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mariadb.report.json'
+          path: 'mariadb.report.json'
+
+  thrift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull thrift
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'thrift'
+          format: 'json'
+          output: 'thrift.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'thrift.report.json'
+          path: 'thrift.report.json'
+
+  pypy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull pypy
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'pypy'
+          format: 'json'
+          output: 'pypy.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'pypy.report.json'
+          path: 'pypy.report.json'
+
+  django:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull django
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'django'
+          format: 'json'
+          output: 'django.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'django.report.json'
+          path: 'django.report.json'
+
+  haproxy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull haproxy
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'haproxy'
+          format: 'json'
+          output: 'haproxy.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haproxy.report.json'
+          path: 'haproxy.report.json'
+
+  memcached:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull memcached
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'memcached'
+          format: 'json'
+          output: 'memcached.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'memcached.report.json'
+          path: 'memcached.report.json'
+
+  rabbitmq:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rabbitmq
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rabbitmq'
+          format: 'json'
+          output: 'rabbitmq.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rabbitmq.report.json'
+          path: 'rabbitmq.report.json'
+
+  oraclelinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull oraclelinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'oraclelinux'
+          format: 'json'
+          output: 'oraclelinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'oraclelinux.report.json'
+          path: 'oraclelinux.report.json'
+
+  odoo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull odoo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'odoo'
+          format: 'json'
+          output: 'odoo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'odoo.report.json'
+          path: 'odoo.report.json'
+
+  rethinkdb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rethinkdb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rethinkdb'
+          format: 'json'
+          output: 'rethinkdb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rethinkdb.report.json'
+          path: 'rethinkdb.report.json'
+
+  iojs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull iojs
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'iojs'
+          format: 'json'
+          output: 'iojs.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'iojs.report.json'
+          path: 'iojs.report.json'
+
+  websphere-liberty:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull websphere-liberty
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'websphere-liberty'
+          format: 'json'
+          output: 'websphere-liberty.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'websphere-liberty.report.json'
+          path: 'websphere-liberty.report.json'
+
+  irssi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull irssi
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'irssi'
+          format: 'json'
+          output: 'irssi.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'irssi.report.json'
+          path: 'irssi.report.json'
+
+  swarm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull swarm
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'swarm'
+          format: 'json'
+          output: 'swarm.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swarm.report.json'
+          path: 'swarm.report.json'
+
+  elasticsearch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull elasticsearch
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'elasticsearch'
+          format: 'json'
+          output: 'elasticsearch.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elasticsearch.report.json'
+          path: 'elasticsearch.report.json'
+
+  jetty:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull jetty
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'jetty'
+          format: 'json'
+          output: 'jetty.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jetty.report.json'
+          path: 'jetty.report.json'
+
+  ghost:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ghost
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ghost'
+          format: 'json'
+          output: 'ghost.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ghost.report.json'
+          path: 'ghost.report.json'
+
+  celery:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull celery
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'celery'
+          format: 'json'
+          output: 'celery.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'celery.report.json'
+          path: 'celery.report.json'
+
+  percona:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull percona
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'percona'
+          format: 'json'
+          output: 'percona.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'percona.report.json'
+          path: 'percona.report.json'
+
+  aerospike:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull aerospike
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'aerospike'
+          format: 'json'
+          output: 'aerospike.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'aerospike.report.json'
+          path: 'aerospike.report.json'
+
+  logstash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull logstash
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'logstash'
+          format: 'json'
+          output: 'logstash.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'logstash.report.json'
+          path: 'logstash.report.json'
+
+  julia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull julia
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'julia'
+          format: 'json'
+          output: 'julia.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'julia.report.json'
+          path: 'julia.report.json'
+
+  alpine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull alpine
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'alpine'
+          format: 'json'
+          output: 'alpine.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alpine.report.json'
+          path: 'alpine.report.json'
+
+  rakudo-star:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rakudo-star
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rakudo-star'
+          format: 'json'
+          output: 'rakudo-star.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rakudo-star.report.json'
+          path: 'rakudo-star.report.json'
+
+  drupal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull drupal
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'drupal'
+          format: 'json'
+          output: 'drupal.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'drupal.report.json'
+          path: 'drupal.report.json'
+
+  cassandra:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull cassandra
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'cassandra'
+          format: 'json'
+          output: 'cassandra.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cassandra.report.json'
+          path: 'cassandra.report.json'
+
+  sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull sonarqube
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'sonarqube'
+          format: 'json'
+          output: 'sonarqube.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sonarqube.report.json'
+          path: 'sonarqube.report.json'
+
+  couchbase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull couchbase
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'couchbase'
+          format: 'json'
+          output: 'couchbase.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchbase.report.json'
+          path: 'couchbase.report.json'
+
+  ros:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ros
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ros'
+          format: 'json'
+          output: 'ros.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ros.report.json'
+          path: 'ros.report.json'
+
+  kibana:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull kibana
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'kibana'
+          format: 'json'
+          output: 'kibana.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kibana.report.json'
+          path: 'kibana.report.json'
+
+  kaazing-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull kaazing-gateway
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'kaazing-gateway'
+          format: 'json'
+          output: 'kaazing-gateway.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kaazing-gateway.report.json'
+          path: 'kaazing-gateway.report.json'
+
+  arangodb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull arangodb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'arangodb'
+          format: 'json'
+          output: 'arangodb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'arangodb.report.json'
+          path: 'arangodb.report.json'
+
+  owncloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull owncloud
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'owncloud'
+          format: 'json'
+          output: 'owncloud.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'owncloud.report.json'
+          path: 'owncloud.report.json'
+
+  gazebo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull gazebo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'gazebo'
+          format: 'json'
+          output: 'gazebo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gazebo.report.json'
+          path: 'gazebo.report.json'
+
+  joomla:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull joomla
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'joomla'
+          format: 'json'
+          output: 'joomla.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'joomla.report.json'
+          path: 'joomla.report.json'
+
+  redmine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull redmine
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'redmine'
+          format: 'json'
+          output: 'redmine.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redmine.report.json'
+          path: 'redmine.report.json'
+
+  nats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull nats
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'nats'
+          format: 'json'
+          output: 'nats.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats.report.json'
+          path: 'nats.report.json'
+
+  rocket.chat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rocket.chat
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rocket.chat'
+          format: 'json'
+          output: 'rocket.chat.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rocket.chat.report.json'
+          path: 'rocket.chat.report.json'
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull docker
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'docker'
+          format: 'json'
+          output: 'docker.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker.report.json'
+          path: 'docker.report.json'
+
+  tomee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull tomee
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'tomee'
+          format: 'json'
+          output: 'tomee.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomee.report.json'
+          path: 'tomee.report.json'
+
+  sourcemage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull sourcemage
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'sourcemage'
+          format: 'json'
+          output: 'sourcemage.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sourcemage.report.json'
+          path: 'sourcemage.report.json'
+
+  bonita:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull bonita
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'bonita'
+          format: 'json'
+          output: 'bonita.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bonita.report.json'
+          path: 'bonita.report.json'
+
+  solr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull solr
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'solr'
+          format: 'json'
+          output: 'solr.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'solr.report.json'
+          path: 'solr.report.json'
+
+  neo4j:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull neo4j
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'neo4j'
+          format: 'json'
+          output: 'neo4j.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neo4j.report.json'
+          path: 'neo4j.report.json'
+
+  erlang:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull erlang
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'erlang'
+          format: 'json'
+          output: 'erlang.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'erlang.report.json'
+          path: 'erlang.report.json'
+
+  nuxeo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull nuxeo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'nuxeo'
+          format: 'json'
+          output: 'nuxeo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nuxeo.report.json'
+          path: 'nuxeo.report.json'
+
+  photon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull photon
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'photon'
+          format: 'json'
+          output: 'photon.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'photon.report.json'
+          path: 'photon.report.json'
+
+  couchdb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull couchdb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'couchdb'
+          format: 'json'
+          output: 'couchdb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchdb.report.json'
+          path: 'couchdb.report.json'
+
+  notary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull notary
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'notary'
+          format: 'json'
+          output: 'notary.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'notary.report.json'
+          path: 'notary.report.json'
+
+  piwik:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull piwik
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'piwik'
+          format: 'json'
+          output: 'piwik.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'piwik.report.json'
+          path: 'piwik.report.json'
+
+  elixir:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull elixir
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'elixir'
+          format: 'json'
+          output: 'elixir.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elixir.report.json'
+          path: 'elixir.report.json'
+
+  lightstreamer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull lightstreamer
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'lightstreamer'
+          format: 'json'
+          output: 'lightstreamer.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'lightstreamer.report.json'
+          path: 'lightstreamer.report.json'
+
+  orientdb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull orientdb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'orientdb'
+          format: 'json'
+          output: 'orientdb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'orientdb.report.json'
+          path: 'orientdb.report.json'
+
+  mongo-express:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mongo-express
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mongo-express'
+          format: 'json'
+          output: 'mongo-express.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo-express.report.json'
+          path: 'mongo-express.report.json'
+
+  traefik:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull traefik
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'traefik'
+          format: 'json'
+          output: 'traefik.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'traefik.report.json'
+          path: 'traefik.report.json'
+
+  backdrop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull backdrop
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'backdrop'
+          format: 'json'
+          output: 'backdrop.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'backdrop.report.json'
+          path: 'backdrop.report.json'
+
+  consul:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull consul
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'consul'
+          format: 'json'
+          output: 'consul.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'consul.report.json'
+          path: 'consul.report.json'
+
+  chronograf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull chronograf
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'chronograf'
+          format: 'json'
+          output: 'chronograf.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'chronograf.report.json'
+          path: 'chronograf.report.json'
+
+  influxdb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull influxdb
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'influxdb'
+          format: 'json'
+          output: 'influxdb.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'influxdb.report.json'
+          path: 'influxdb.report.json'
+
+  kapacitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull kapacitor
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'kapacitor'
+          format: 'json'
+          output: 'kapacitor.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kapacitor.report.json'
+          path: 'kapacitor.report.json'
+
+  telegraf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull telegraf
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'telegraf'
+          format: 'json'
+          output: 'telegraf.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'telegraf.report.json'
+          path: 'telegraf.report.json'
+
+  hello-seattle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hello-seattle
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hello-seattle'
+          format: 'json'
+          output: 'hello-seattle.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-seattle.report.json'
+          path: 'hello-seattle.report.json'
+
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hola-mundo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hola-mundo'
+          format: 'json'
+          output: 'hola-mundo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hola-mundo.report.json'
+          path: 'hola-mundo.report.json'
+
+  fsharp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull fsharp
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'fsharp'
+          format: 'json'
+          output: 'fsharp.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fsharp.report.json'
+          path: 'fsharp.report.json'
+
+  spiped:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull spiped
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'spiped'
+          format: 'json'
+          output: 'spiped.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spiped.report.json'
+          path: 'spiped.report.json'
+
+  vault:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull vault
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'vault'
+          format: 'json'
+          output: 'vault.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'vault.report.json'
+          path: 'vault.report.json'
+
+  clearlinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull clearlinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'clearlinux'
+          format: 'json'
+          output: 'clearlinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clearlinux.report.json'
+          path: 'clearlinux.report.json'
+
+  eggdrop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull eggdrop
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'eggdrop'
+          format: 'json'
+          output: 'eggdrop.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eggdrop.report.json'
+          path: 'eggdrop.report.json'
+
+  ibmjava:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ibmjava
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ibmjava'
+          format: 'json'
+          output: 'ibmjava.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibmjava.report.json'
+          path: 'ibmjava.report.json'
+
+  openjdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull openjdk
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'openjdk'
+          format: 'json'
+          output: 'openjdk.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'openjdk.report.json'
+          path: 'openjdk.report.json'
+
+  kong:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull kong
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'kong'
+          format: 'json'
+          output: 'kong.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kong.report.json'
+          path: 'kong.report.json'
+
+  zookeeper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull zookeeper
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'zookeeper'
+          format: 'json'
+          output: 'zookeeper.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'zookeeper.report.json'
+          path: 'zookeeper.report.json'
+
+  nats-streaming:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull nats-streaming
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'nats-streaming'
+          format: 'json'
+          output: 'nats-streaming.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats-streaming.report.json'
+          path: 'nats-streaming.report.json'
+
+  storm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull storm
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'storm'
+          format: 'json'
+          output: 'storm.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'storm.report.json'
+          path: 'storm.report.json'
+
+  plone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull plone
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'plone'
+          format: 'json'
+          output: 'plone.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'plone.report.json'
+          path: 'plone.report.json'
+
+  bash:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull bash
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'bash'
+          format: 'json'
+          output: 'bash.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bash.report.json'
+          path: 'bash.report.json'
+
+  amazonlinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull amazonlinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'amazonlinux'
+          format: 'json'
+          output: 'amazonlinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazonlinux.report.json'
+          path: 'amazonlinux.report.json'
+
+  composer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull composer
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'composer'
+          format: 'json'
+          output: 'composer.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'composer.report.json'
+          path: 'composer.report.json'
+
+  known:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull known
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'known'
+          format: 'json'
+          output: 'known.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'known.report.json'
+          path: 'known.report.json'
+
+  eclipse-mosquitto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull eclipse-mosquitto
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'eclipse-mosquitto'
+          format: 'json'
+          output: 'eclipse-mosquitto.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-mosquitto.report.json'
+          path: 'eclipse-mosquitto.report.json'
+
+  nextcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull nextcloud
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'nextcloud'
+          format: 'json'
+          output: 'nextcloud.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nextcloud.report.json'
+          path: 'nextcloud.report.json'
+
+  silverpeas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull silverpeas
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'silverpeas'
+          format: 'json'
+          output: 'silverpeas.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'silverpeas.report.json'
+          path: 'silverpeas.report.json'
+
+  swift:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull swift
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'swift'
+          format: 'json'
+          output: 'swift.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swift.report.json'
+          path: 'swift.report.json'
+
+  haxe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull haxe
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'haxe'
+          format: 'json'
+          output: 'haxe.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haxe.report.json'
+          path: 'haxe.report.json'
+
+  rapidoid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rapidoid
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rapidoid'
+          format: 'json'
+          output: 'rapidoid.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rapidoid.report.json'
+          path: 'rapidoid.report.json'
+
+  adminer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull adminer
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'adminer'
+          format: 'json'
+          output: 'adminer.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adminer.report.json'
+          path: 'adminer.report.json'
+
+  geonetwork:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull geonetwork
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'geonetwork'
+          format: 'json'
+          output: 'geonetwork.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'geonetwork.report.json'
+          path: 'geonetwork.report.json'
+
+  xwiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull xwiki
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'xwiki'
+          format: 'json'
+          output: 'xwiki.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'xwiki.report.json'
+          path: 'xwiki.report.json'
+
+  groovy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull groovy
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'groovy'
+          format: 'json'
+          output: 'groovy.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'groovy.report.json'
+          path: 'groovy.report.json'
+
+  znc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull znc
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'znc'
+          format: 'json'
+          output: 'znc.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'znc.report.json'
+          path: 'znc.report.json'
+
+  gradle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull gradle
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'gradle'
+          format: 'json'
+          output: 'gradle.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gradle.report.json'
+          path: 'gradle.report.json'
+
+  convertigo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull convertigo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'convertigo'
+          format: 'json'
+          output: 'convertigo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'convertigo.report.json'
+          path: 'convertigo.report.json'
+
+  flink:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull flink
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'flink'
+          format: 'json'
+          output: 'flink.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'flink.report.json'
+          path: 'flink.report.json'
+
+  swipl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull swipl
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'swipl'
+          format: 'json'
+          output: 'swipl.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swipl.report.json'
+          path: 'swipl.report.json'
+
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rust
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rust'
+          format: 'json'
+          output: 'rust.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rust.report.json'
+          path: 'rust.report.json'
+
+  mediawiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull mediawiki
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'mediawiki'
+          format: 'json'
+          output: 'mediawiki.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mediawiki.report.json'
+          path: 'mediawiki.report.json'
+
+  euleros:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull euleros
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'euleros'
+          format: 'json'
+          output: 'euleros.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'euleros.report.json'
+          path: 'euleros.report.json'
+
+  sl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull sl
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'sl'
+          format: 'json'
+          output: 'sl.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sl.report.json'
+          path: 'sl.report.json'
+
+  open-liberty:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull open-liberty
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'open-liberty'
+          format: 'json'
+          output: 'open-liberty.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'open-liberty.report.json'
+          path: 'open-liberty.report.json'
+
+  clefos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull clefos
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'clefos'
+          format: 'json'
+          output: 'clefos.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clefos.report.json'
+          path: 'clefos.report.json'
+
+  teamspeak:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull teamspeak
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'teamspeak'
+          format: 'json'
+          output: 'teamspeak.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'teamspeak.report.json'
+          path: 'teamspeak.report.json'
+
+  matomo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull matomo
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'matomo'
+          format: 'json'
+          output: 'matomo.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'matomo.report.json'
+          path: 'matomo.report.json'
+
+  yourls:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull yourls
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'yourls'
+          format: 'json'
+          output: 'yourls.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'yourls.report.json'
+          path: 'yourls.report.json'
+
+  alt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull alt
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'alt'
+          format: 'json'
+          output: 'alt.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alt.report.json'
+          path: 'alt.report.json'
+
+  amazoncorretto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull amazoncorretto
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'amazoncorretto'
+          format: 'json'
+          output: 'amazoncorretto.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazoncorretto.report.json'
+          path: 'amazoncorretto.report.json'
+
+  express-gateway:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull express-gateway
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'express-gateway'
+          format: 'json'
+          output: 'express-gateway.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'express-gateway.report.json'
+          path: 'express-gateway.report.json'
+
+  postfixadmin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull postfixadmin
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'postfixadmin'
+          format: 'json'
+          output: 'postfixadmin.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postfixadmin.report.json'
+          path: 'postfixadmin.report.json'
+
+  fluentd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull fluentd
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'fluentd'
+          format: 'json'
+          output: 'fluentd.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fluentd.report.json'
+          path: 'fluentd.report.json'
+
+  adoptopenjdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull adoptopenjdk
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'adoptopenjdk'
+          format: 'json'
+          output: 'adoptopenjdk.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adoptopenjdk.report.json'
+          path: 'adoptopenjdk.report.json'
+
+  sapmachine:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull sapmachine
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'sapmachine'
+          format: 'json'
+          output: 'sapmachine.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sapmachine.report.json'
+          path: 'sapmachine.report.json'
+
+  varnish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull varnish
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'varnish'
+          format: 'json'
+          output: 'varnish.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'varnish.report.json'
+          path: 'varnish.report.json'
+
+  jobber:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull jobber
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'jobber'
+          format: 'json'
+          output: 'jobber.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jobber.report.json'
+          path: 'jobber.report.json'
+
+  archlinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull archlinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'archlinux'
+          format: 'json'
+          output: 'archlinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'archlinux.report.json'
+          path: 'archlinux.report.json'
+
+  friendica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull friendica
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'friendica'
+          format: 'json'
+          output: 'friendica.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'friendica.report.json'
+          path: 'friendica.report.json'
+
+  caddy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull caddy
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'caddy'
+          format: 'json'
+          output: 'caddy.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'caddy.report.json'
+          path: 'caddy.report.json'
+
+  monica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull monica
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'monica'
+          format: 'json'
+          output: 'monica.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'monica.report.json'
+          path: 'monica.report.json'
+
+  phpmyadmin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull phpmyadmin
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'phpmyadmin'
+          format: 'json'
+          output: 'phpmyadmin.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'phpmyadmin.report.json'
+          path: 'phpmyadmin.report.json'
+
+  hitch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull hitch
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'hitch'
+          format: 'json'
+          output: 'hitch.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hitch.report.json'
+          path: 'hitch.report.json'
+
+  almalinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull almalinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'almalinux'
+          format: 'json'
+          output: 'almalinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'almalinux.report.json'
+          path: 'almalinux.report.json'
+
+  dart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull dart
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'dart'
+          format: 'json'
+          output: 'dart.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'dart.report.json'
+          path: 'dart.report.json'
+
+  eclipse-temurin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull eclipse-temurin
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'eclipse-temurin'
+          format: 'json'
+          output: 'eclipse-temurin.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-temurin.report.json'
+          path: 'eclipse-temurin.report.json'
+
+  ibm-semeru-runtimes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull ibm-semeru-runtimes
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'ibm-semeru-runtimes'
+          format: 'json'
+          output: 'ibm-semeru-runtimes.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibm-semeru-runtimes.report.json'
+          path: 'ibm-semeru-runtimes.report.json'
+
+  rockylinux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull rockylinux
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'rockylinux'
+          format: 'json'
+          output: 'rockylinux.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rockylinux.report.json'
+          path: 'rockylinux.report.json'
+
+  api-firewall:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull api-firewall
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'api-firewall'
+          format: 'json'
+          output: 'api-firewall.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'api-firewall.report.json'
+          path: 'api-firewall.report.json'
+
+  emqx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull emqx
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'emqx'
+          format: 'json'
+          output: 'emqx.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'emqx.report.json'
+          path: 'emqx.report.json'
+
+  satosa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull satosa
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'satosa'
+          format: 'json'
+          output: 'satosa.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'satosa.report.json'
+          path: 'satosa.report.json'
+
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull unit
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'unit'
+          format: 'json'
+          output: 'unit.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'unit.report.json'
+          path: 'unit.report.json'
+
+  spark:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull spark
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'spark'
+          format: 'json'
+          output: 'spark.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spark.report.json'
+          path: 'spark.report.json'
+
