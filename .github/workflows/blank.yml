@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull centos
+        run: docker pull centos:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -23,12 +23,13 @@ jobs:
         with:
           name: 'centos.report.json'
           path: 'centos.report.json'
+          retention-days: 1
 
   busybox:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull busybox
+        run: docker pull busybox:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -41,12 +42,13 @@ jobs:
         with:
           name: 'busybox.report.json'
           path: 'busybox.report.json'
+          retention-days: 1
 
   ubuntu:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ubuntu
+        run: docker pull ubuntu:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -59,30 +61,13 @@ jobs:
         with:
           name: 'ubuntu.report.json'
           path: 'ubuntu.report.json'
-
-  scratch:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image
-        run: docker pull scratch
-      - name: Create report
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'scratch'
-          format: 'json'
-          output: 'scratch.report.json'
-          scanners: 'vuln,secret,config'
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'scratch.report.json'
-          path: 'scratch.report.json'
+          retention-days: 1
 
   fedora:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull fedora
+        run: docker pull fedora:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -95,12 +80,13 @@ jobs:
         with:
           name: 'fedora.report.json'
           path: 'fedora.report.json'
+          retention-days: 1
 
   registry:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull registry
+        run: docker pull registry:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -113,12 +99,13 @@ jobs:
         with:
           name: 'registry.report.json'
           path: 'registry.report.json'
+          retention-days: 1
 
   hipache:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hipache
+        run: docker pull hipache:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -131,12 +118,13 @@ jobs:
         with:
           name: 'hipache.report.json'
           path: 'hipache.report.json'
+          retention-days: 1
 
   docker-dev:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull docker-dev
+        run: docker pull docker-dev:1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -149,12 +137,13 @@ jobs:
         with:
           name: 'docker-dev.report.json'
           path: 'docker-dev.report.json'
+          retention-days: 1
 
   debian:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull debian
+        run: docker pull debian:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -167,12 +156,13 @@ jobs:
         with:
           name: 'debian.report.json'
           path: 'debian.report.json'
+          retention-days: 1
 
   cirros:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull cirros
+        run: docker pull cirros:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -185,12 +175,13 @@ jobs:
         with:
           name: 'cirros.report.json'
           path: 'cirros.report.json'
+          retention-days: 1
 
   crux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull crux
+        run: docker pull crux:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -203,12 +194,13 @@ jobs:
         with:
           name: 'crux.report.json'
           path: 'crux.report.json'
+          retention-days: 1
 
   ubuntu-upstart:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ubuntu-upstart
+        run: docker pull ubuntu-upstart:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -221,12 +213,13 @@ jobs:
         with:
           name: 'ubuntu-upstart.report.json'
           path: 'ubuntu-upstart.report.json'
+          retention-days: 1
 
   buildpack-deps:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull buildpack-deps
+        run: docker pull buildpack-deps:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -239,12 +232,13 @@ jobs:
         with:
           name: 'buildpack-deps.report.json'
           path: 'buildpack-deps.report.json'
+          retention-days: 1
 
   nginx:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull nginx
+        run: docker pull nginx:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -257,12 +251,13 @@ jobs:
         with:
           name: 'nginx.report.json'
           path: 'nginx.report.json'
+          retention-days: 1
 
   node:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull node
+        run: docker pull node:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -275,12 +270,13 @@ jobs:
         with:
           name: 'node.report.json'
           path: 'node.report.json'
+          retention-days: 1
 
   mysql:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mysql
+        run: docker pull mysql:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -293,12 +289,13 @@ jobs:
         with:
           name: 'mysql.report.json'
           path: 'mysql.report.json'
+          retention-days: 1
 
   wordpress:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull wordpress
+        run: docker pull wordpress:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -311,12 +308,13 @@ jobs:
         with:
           name: 'wordpress.report.json'
           path: 'wordpress.report.json'
+          retention-days: 1
 
   postgres:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull postgres
+        run: docker pull postgres:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -329,12 +327,13 @@ jobs:
         with:
           name: 'postgres.report.json'
           path: 'postgres.report.json'
+          retention-days: 1
 
   redis:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull redis
+        run: docker pull redis:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -347,12 +346,13 @@ jobs:
         with:
           name: 'redis.report.json'
           path: 'redis.report.json'
+          retention-days: 1
 
   java:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull java
+        run: docker pull java:6
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -365,12 +365,13 @@ jobs:
         with:
           name: 'java.report.json'
           path: 'java.report.json'
+          retention-days: 1
 
   mongo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mongo
+        run: docker pull mongo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -383,12 +384,13 @@ jobs:
         with:
           name: 'mongo.report.json'
           path: 'mongo.report.json'
+          retention-days: 1
 
   rails:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rails
+        run: docker pull rails:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -401,12 +403,13 @@ jobs:
         with:
           name: 'rails.report.json'
           path: 'rails.report.json'
+          retention-days: 1
 
   ruby:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ruby
+        run: docker pull ruby:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -419,12 +422,13 @@ jobs:
         with:
           name: 'ruby.report.json'
           path: 'ruby.report.json'
+          retention-days: 1
 
   python:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull python
+        run: docker pull python:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -437,12 +441,13 @@ jobs:
         with:
           name: 'python.report.json'
           path: 'python.report.json'
+          retention-days: 1
 
   ubuntu-debootstrap:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ubuntu-debootstrap
+        run: docker pull ubuntu-debootstrap:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -455,12 +460,13 @@ jobs:
         with:
           name: 'ubuntu-debootstrap.report.json'
           path: 'ubuntu-debootstrap.report.json'
+          retention-days: 1
 
   perl:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull perl
+        run: docker pull perl:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -473,12 +479,13 @@ jobs:
         with:
           name: 'perl.report.json'
           path: 'perl.report.json'
+          retention-days: 1
 
   hello-world:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hello-world
+        run: docker pull hello-world:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -491,12 +498,13 @@ jobs:
         with:
           name: 'hello-world.report.json'
           path: 'hello-world.report.json'
+          retention-days: 1
 
   hylang:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hylang
+        run: docker pull hylang:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -509,12 +517,13 @@ jobs:
         with:
           name: 'hylang.report.json'
           path: 'hylang.report.json'
+          retention-days: 1
 
   gcc:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull gcc
+        run: docker pull gcc:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -527,12 +536,13 @@ jobs:
         with:
           name: 'gcc.report.json'
           path: 'gcc.report.json'
+          retention-days: 1
 
   jenkins:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull jenkins
+        run: docker pull jenkins:2.60.3
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -545,30 +555,13 @@ jobs:
         with:
           name: 'jenkins.report.json'
           path: 'jenkins.report.json'
-
-  opensuse:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image
-        run: docker pull opensuse
-      - name: Create report
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'opensuse'
-          format: 'json'
-          output: 'opensuse.report.json'
-          scanners: 'vuln,secret,config'
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'opensuse.report.json'
-          path: 'opensuse.report.json'
+          retention-days: 1
 
   golang:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull golang
+        run: docker pull golang:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -581,12 +574,13 @@ jobs:
         with:
           name: 'golang.report.json'
           path: 'golang.report.json'
+          retention-days: 1
 
   neurodebian:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull neurodebian
+        run: docker pull neurodebian:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -599,12 +593,13 @@ jobs:
         with:
           name: 'neurodebian.report.json'
           path: 'neurodebian.report.json'
+          retention-days: 1
 
   clojure:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull clojure
+        run: docker pull clojure:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -617,12 +612,13 @@ jobs:
         with:
           name: 'clojure.report.json'
           path: 'clojure.report.json'
+          retention-days: 1
 
   php:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull php
+        run: docker pull php:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -635,12 +631,13 @@ jobs:
         with:
           name: 'php.report.json'
           path: 'php.report.json'
+          retention-days: 1
 
   jruby:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull jruby
+        run: docker pull jruby:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -653,12 +650,13 @@ jobs:
         with:
           name: 'jruby.report.json'
           path: 'jruby.report.json'
+          retention-days: 1
 
   mageia:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mageia
+        run: docker pull mageia:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -671,12 +669,13 @@ jobs:
         with:
           name: 'mageia.report.json'
           path: 'mageia.report.json'
+          retention-days: 1
 
   crate:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull crate
+        run: docker pull crate:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -689,12 +688,13 @@ jobs:
         with:
           name: 'crate.report.json'
           path: 'crate.report.json'
+          retention-days: 1
 
   php-zendserver:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull php-zendserver
+        run: docker pull php-zendserver:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -707,12 +707,13 @@ jobs:
         with:
           name: 'php-zendserver.report.json'
           path: 'php-zendserver.report.json'
+          retention-days: 1
 
   tomcat:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull tomcat
+        run: docker pull tomcat:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -725,12 +726,13 @@ jobs:
         with:
           name: 'tomcat.report.json'
           path: 'tomcat.report.json'
+          retention-days: 1
 
   mono:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mono
+        run: docker pull mono:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -743,12 +745,13 @@ jobs:
         with:
           name: 'mono.report.json'
           path: 'mono.report.json'
+          retention-days: 1
 
   haskell:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull haskell
+        run: docker pull haskell:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -761,12 +764,13 @@ jobs:
         with:
           name: 'haskell.report.json'
           path: 'haskell.report.json'
+          retention-days: 1
 
   glassfish:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull glassfish
+        run: docker pull glassfish:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -779,12 +783,13 @@ jobs:
         with:
           name: 'glassfish.report.json'
           path: 'glassfish.report.json'
+          retention-days: 1
 
   maven:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull maven
+        run: docker pull maven:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -797,12 +802,13 @@ jobs:
         with:
           name: 'maven.report.json'
           path: 'maven.report.json'
+          retention-days: 1
 
   httpd:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull httpd
+        run: docker pull httpd:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -815,12 +821,13 @@ jobs:
         with:
           name: 'httpd.report.json'
           path: 'httpd.report.json'
+          retention-days: 1
 
   sentry:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull sentry
+        run: docker pull sentry:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -833,12 +840,13 @@ jobs:
         with:
           name: 'sentry.report.json'
           path: 'sentry.report.json'
+          retention-days: 1
 
   r-base:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull r-base
+        run: docker pull r-base:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -851,12 +859,13 @@ jobs:
         with:
           name: 'r-base.report.json'
           path: 'r-base.report.json'
+          retention-days: 1
 
   mariadb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mariadb
+        run: docker pull mariadb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -869,12 +878,13 @@ jobs:
         with:
           name: 'mariadb.report.json'
           path: 'mariadb.report.json'
+          retention-days: 1
 
   thrift:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull thrift
+        run: docker pull thrift:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -887,12 +897,13 @@ jobs:
         with:
           name: 'thrift.report.json'
           path: 'thrift.report.json'
+          retention-days: 1
 
   pypy:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull pypy
+        run: docker pull pypy:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -905,12 +916,13 @@ jobs:
         with:
           name: 'pypy.report.json'
           path: 'pypy.report.json'
+          retention-days: 1
 
   django:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull django
+        run: docker pull django:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -923,12 +935,13 @@ jobs:
         with:
           name: 'django.report.json'
           path: 'django.report.json'
+          retention-days: 1
 
   haproxy:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull haproxy
+        run: docker pull haproxy:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -941,12 +954,13 @@ jobs:
         with:
           name: 'haproxy.report.json'
           path: 'haproxy.report.json'
+          retention-days: 1
 
   memcached:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull memcached
+        run: docker pull memcached:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -959,12 +973,13 @@ jobs:
         with:
           name: 'memcached.report.json'
           path: 'memcached.report.json'
+          retention-days: 1
 
   rabbitmq:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rabbitmq
+        run: docker pull rabbitmq:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -977,12 +992,13 @@ jobs:
         with:
           name: 'rabbitmq.report.json'
           path: 'rabbitmq.report.json'
+          retention-days: 1
 
   oraclelinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull oraclelinux
+        run: docker pull oraclelinux:9-slim
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -995,12 +1011,13 @@ jobs:
         with:
           name: 'oraclelinux.report.json'
           path: 'oraclelinux.report.json'
+          retention-days: 1
 
   odoo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull odoo
+        run: docker pull odoo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1013,12 +1030,13 @@ jobs:
         with:
           name: 'odoo.report.json'
           path: 'odoo.report.json'
+          retention-days: 1
 
   rethinkdb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rethinkdb
+        run: docker pull rethinkdb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1031,12 +1049,13 @@ jobs:
         with:
           name: 'rethinkdb.report.json'
           path: 'rethinkdb.report.json'
+          retention-days: 1
 
   iojs:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull iojs
+        run: docker pull iojs:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1049,12 +1068,13 @@ jobs:
         with:
           name: 'iojs.report.json'
           path: 'iojs.report.json'
+          retention-days: 1
 
   websphere-liberty:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull websphere-liberty
+        run: docker pull websphere-liberty:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1067,12 +1087,13 @@ jobs:
         with:
           name: 'websphere-liberty.report.json'
           path: 'websphere-liberty.report.json'
+          retention-days: 1
 
   irssi:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull irssi
+        run: docker pull irssi:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1085,12 +1106,13 @@ jobs:
         with:
           name: 'irssi.report.json'
           path: 'irssi.report.json'
+          retention-days: 1
 
   swarm:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull swarm
+        run: docker pull swarm:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1103,12 +1125,13 @@ jobs:
         with:
           name: 'swarm.report.json'
           path: 'swarm.report.json'
+          retention-days: 1
 
   elasticsearch:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull elasticsearch
+        run: docker pull elasticsearch:8.12.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1121,12 +1144,13 @@ jobs:
         with:
           name: 'elasticsearch.report.json'
           path: 'elasticsearch.report.json'
+          retention-days: 1
 
   jetty:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull jetty
+        run: docker pull jetty:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1139,12 +1163,13 @@ jobs:
         with:
           name: 'jetty.report.json'
           path: 'jetty.report.json'
+          retention-days: 1
 
   ghost:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ghost
+        run: docker pull ghost:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1157,12 +1182,13 @@ jobs:
         with:
           name: 'ghost.report.json'
           path: 'ghost.report.json'
+          retention-days: 1
 
   celery:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull celery
+        run: docker pull celery:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1175,12 +1201,13 @@ jobs:
         with:
           name: 'celery.report.json'
           path: 'celery.report.json'
+          retention-days: 1
 
   percona:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull percona
+        run: docker pull percona:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1193,12 +1220,13 @@ jobs:
         with:
           name: 'percona.report.json'
           path: 'percona.report.json'
+          retention-days: 1
 
   aerospike:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull aerospike
+        run: docker pull aerospike:ee-7.0.0.3_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1211,12 +1239,13 @@ jobs:
         with:
           name: 'aerospike.report.json'
           path: 'aerospike.report.json'
+          retention-days: 1
 
   logstash:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull logstash
+        run: docker pull logstash:8.12.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1229,12 +1258,13 @@ jobs:
         with:
           name: 'logstash.report.json'
           path: 'logstash.report.json'
+          retention-days: 1
 
   julia:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull julia
+        run: docker pull julia:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1247,12 +1277,13 @@ jobs:
         with:
           name: 'julia.report.json'
           path: 'julia.report.json'
+          retention-days: 1
 
   alpine:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull alpine
+        run: docker pull alpine:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1265,12 +1296,13 @@ jobs:
         with:
           name: 'alpine.report.json'
           path: 'alpine.report.json'
+          retention-days: 1
 
   rakudo-star:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rakudo-star
+        run: docker pull rakudo-star:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1283,12 +1315,13 @@ jobs:
         with:
           name: 'rakudo-star.report.json'
           path: 'rakudo-star.report.json'
+          retention-days: 1
 
   drupal:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull drupal
+        run: docker pull drupal:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1301,12 +1334,13 @@ jobs:
         with:
           name: 'drupal.report.json'
           path: 'drupal.report.json'
+          retention-days: 1
 
   cassandra:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull cassandra
+        run: docker pull cassandra:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1319,12 +1353,13 @@ jobs:
         with:
           name: 'cassandra.report.json'
           path: 'cassandra.report.json'
+          retention-days: 1
 
   sonarqube:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull sonarqube
+        run: docker pull sonarqube:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1337,12 +1372,13 @@ jobs:
         with:
           name: 'sonarqube.report.json'
           path: 'sonarqube.report.json'
+          retention-days: 1
 
   couchbase:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull couchbase
+        run: docker pull couchbase:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1355,12 +1391,13 @@ jobs:
         with:
           name: 'couchbase.report.json'
           path: 'couchbase.report.json'
+          retention-days: 1
 
   ros:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ros
+        run: docker pull ros:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1373,12 +1410,13 @@ jobs:
         with:
           name: 'ros.report.json'
           path: 'ros.report.json'
+          retention-days: 1
 
   kibana:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull kibana
+        run: docker pull kibana:8.12.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1391,12 +1429,13 @@ jobs:
         with:
           name: 'kibana.report.json'
           path: 'kibana.report.json'
+          retention-days: 1
 
   kaazing-gateway:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull kaazing-gateway
+        run: docker pull kaazing-gateway:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1409,12 +1448,13 @@ jobs:
         with:
           name: 'kaazing-gateway.report.json'
           path: 'kaazing-gateway.report.json'
+          retention-days: 1
 
   arangodb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull arangodb
+        run: docker pull arangodb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1427,12 +1467,13 @@ jobs:
         with:
           name: 'arangodb.report.json'
           path: 'arangodb.report.json'
+          retention-days: 1
 
   owncloud:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull owncloud
+        run: docker pull owncloud:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1445,12 +1486,13 @@ jobs:
         with:
           name: 'owncloud.report.json'
           path: 'owncloud.report.json'
+          retention-days: 1
 
   gazebo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull gazebo
+        run: docker pull gazebo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1463,12 +1505,13 @@ jobs:
         with:
           name: 'gazebo.report.json'
           path: 'gazebo.report.json'
+          retention-days: 1
 
   joomla:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull joomla
+        run: docker pull joomla:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1481,12 +1524,13 @@ jobs:
         with:
           name: 'joomla.report.json'
           path: 'joomla.report.json'
+          retention-days: 1
 
   redmine:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull redmine
+        run: docker pull redmine:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1499,12 +1543,13 @@ jobs:
         with:
           name: 'redmine.report.json'
           path: 'redmine.report.json'
+          retention-days: 1
 
   nats:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull nats
+        run: docker pull nats:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1517,12 +1562,13 @@ jobs:
         with:
           name: 'nats.report.json'
           path: 'nats.report.json'
+          retention-days: 1
 
   rocket_chat:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rocket.chat
+        run: docker pull rocket.chat:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1535,12 +1581,13 @@ jobs:
         with:
           name: 'rocket.chat.report.json'
           path: 'rocket.chat.report.json'
+          retention-days: 1
 
   docker:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull docker
+        run: docker pull docker:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1553,12 +1600,13 @@ jobs:
         with:
           name: 'docker.report.json'
           path: 'docker.report.json'
+          retention-days: 1
 
   tomee:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull tomee
+        run: docker pull tomee:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1571,12 +1619,13 @@ jobs:
         with:
           name: 'tomee.report.json'
           path: 'tomee.report.json'
+          retention-days: 1
 
   sourcemage:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull sourcemage
+        run: docker pull sourcemage:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1589,12 +1638,13 @@ jobs:
         with:
           name: 'sourcemage.report.json'
           path: 'sourcemage.report.json'
+          retention-days: 1
 
   bonita:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull bonita
+        run: docker pull bonita:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1607,12 +1657,13 @@ jobs:
         with:
           name: 'bonita.report.json'
           path: 'bonita.report.json'
+          retention-days: 1
 
   solr:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull solr
+        run: docker pull solr:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1625,12 +1676,13 @@ jobs:
         with:
           name: 'solr.report.json'
           path: 'solr.report.json'
+          retention-days: 1
 
   neo4j:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull neo4j
+        run: docker pull neo4j:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1643,12 +1695,13 @@ jobs:
         with:
           name: 'neo4j.report.json'
           path: 'neo4j.report.json'
+          retention-days: 1
 
   erlang:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull erlang
+        run: docker pull erlang:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1661,12 +1714,13 @@ jobs:
         with:
           name: 'erlang.report.json'
           path: 'erlang.report.json'
+          retention-days: 1
 
   nuxeo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull nuxeo
+        run: docker pull nuxeo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1679,12 +1733,13 @@ jobs:
         with:
           name: 'nuxeo.report.json'
           path: 'nuxeo.report.json'
+          retention-days: 1
 
   photon:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull photon
+        run: docker pull photon:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1697,12 +1752,13 @@ jobs:
         with:
           name: 'photon.report.json'
           path: 'photon.report.json'
+          retention-days: 1
 
   couchdb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull couchdb
+        run: docker pull couchdb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1715,12 +1771,13 @@ jobs:
         with:
           name: 'couchdb.report.json'
           path: 'couchdb.report.json'
+          retention-days: 1
 
   notary:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull notary
+        run: docker pull notary:signer-0.7.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1733,12 +1790,13 @@ jobs:
         with:
           name: 'notary.report.json'
           path: 'notary.report.json'
+          retention-days: 1
 
   piwik:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull piwik
+        run: docker pull piwik:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1751,12 +1809,13 @@ jobs:
         with:
           name: 'piwik.report.json'
           path: 'piwik.report.json'
+          retention-days: 1
 
   elixir:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull elixir
+        run: docker pull elixir:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1769,12 +1828,13 @@ jobs:
         with:
           name: 'elixir.report.json'
           path: 'elixir.report.json'
+          retention-days: 1
 
   lightstreamer:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull lightstreamer
+        run: docker pull lightstreamer:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1787,12 +1847,13 @@ jobs:
         with:
           name: 'lightstreamer.report.json'
           path: 'lightstreamer.report.json'
+          retention-days: 1
 
   orientdb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull orientdb
+        run: docker pull orientdb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1805,12 +1866,13 @@ jobs:
         with:
           name: 'orientdb.report.json'
           path: 'orientdb.report.json'
+          retention-days: 1
 
   mongo-express:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mongo-express
+        run: docker pull mongo-express:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1823,12 +1885,13 @@ jobs:
         with:
           name: 'mongo-express.report.json'
           path: 'mongo-express.report.json'
+          retention-days: 1
 
   traefik:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull traefik
+        run: docker pull traefik:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1841,12 +1904,13 @@ jobs:
         with:
           name: 'traefik.report.json'
           path: 'traefik.report.json'
+          retention-days: 1
 
   backdrop:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull backdrop
+        run: docker pull backdrop:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1859,12 +1923,13 @@ jobs:
         with:
           name: 'backdrop.report.json'
           path: 'backdrop.report.json'
+          retention-days: 1
 
   consul:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull consul
+        run: docker pull consul:1.15.4
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1877,12 +1942,13 @@ jobs:
         with:
           name: 'consul.report.json'
           path: 'consul.report.json'
+          retention-days: 1
 
   chronograf:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull chronograf
+        run: docker pull chronograf:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1895,12 +1961,13 @@ jobs:
         with:
           name: 'chronograf.report.json'
           path: 'chronograf.report.json'
+          retention-days: 1
 
   influxdb:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull influxdb
+        run: docker pull influxdb:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1913,12 +1980,13 @@ jobs:
         with:
           name: 'influxdb.report.json'
           path: 'influxdb.report.json'
+          retention-days: 1
 
   kapacitor:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull kapacitor
+        run: docker pull kapacitor:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1931,12 +1999,13 @@ jobs:
         with:
           name: 'kapacitor.report.json'
           path: 'kapacitor.report.json'
+          retention-days: 1
 
   telegraf:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull telegraf
+        run: docker pull telegraf:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1949,12 +2018,13 @@ jobs:
         with:
           name: 'telegraf.report.json'
           path: 'telegraf.report.json'
+          retention-days: 1
 
   hello-seattle:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hello-seattle
+        run: docker pull hello-seattle:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1967,12 +2037,13 @@ jobs:
         with:
           name: 'hello-seattle.report.json'
           path: 'hello-seattle.report.json'
+          retention-days: 1
 
   hola-mundo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hola-mundo
+        run: docker pull hola-mundo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -1985,12 +2056,13 @@ jobs:
         with:
           name: 'hola-mundo.report.json'
           path: 'hola-mundo.report.json'
+          retention-days: 1
 
   fsharp:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull fsharp
+        run: docker pull fsharp:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2003,12 +2075,13 @@ jobs:
         with:
           name: 'fsharp.report.json'
           path: 'fsharp.report.json'
+          retention-days: 1
 
   spiped:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull spiped
+        run: docker pull spiped:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2021,12 +2094,13 @@ jobs:
         with:
           name: 'spiped.report.json'
           path: 'spiped.report.json'
+          retention-days: 1
 
   vault:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull vault
+        run: docker pull vault:1.13.3
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2039,12 +2113,13 @@ jobs:
         with:
           name: 'vault.report.json'
           path: 'vault.report.json'
+          retention-days: 1
 
   clearlinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull clearlinux
+        run: docker pull clearlinux:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2057,12 +2132,13 @@ jobs:
         with:
           name: 'clearlinux.report.json'
           path: 'clearlinux.report.json'
+          retention-days: 1
 
   eggdrop:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull eggdrop
+        run: docker pull eggdrop:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2075,12 +2151,13 @@ jobs:
         with:
           name: 'eggdrop.report.json'
           path: 'eggdrop.report.json'
+          retention-days: 1
 
   ibmjava:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ibmjava
+        run: docker pull ibmjava:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2093,12 +2170,13 @@ jobs:
         with:
           name: 'ibmjava.report.json'
           path: 'ibmjava.report.json'
+          retention-days: 1
 
   openjdk:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull openjdk
+        run: docker pull openjdk:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2111,12 +2189,13 @@ jobs:
         with:
           name: 'openjdk.report.json'
           path: 'openjdk.report.json'
+          retention-days: 1
 
   kong:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull kong
+        run: docker pull kong:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2129,12 +2208,13 @@ jobs:
         with:
           name: 'kong.report.json'
           path: 'kong.report.json'
+          retention-days: 1
 
   zookeeper:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull zookeeper
+        run: docker pull zookeeper:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2147,12 +2227,13 @@ jobs:
         with:
           name: 'zookeeper.report.json'
           path: 'zookeeper.report.json'
+          retention-days: 1
 
   nats-streaming:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull nats-streaming
+        run: docker pull nats-streaming:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2165,12 +2246,13 @@ jobs:
         with:
           name: 'nats-streaming.report.json'
           path: 'nats-streaming.report.json'
+          retention-days: 1
 
   storm:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull storm
+        run: docker pull storm:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2183,12 +2265,13 @@ jobs:
         with:
           name: 'storm.report.json'
           path: 'storm.report.json'
+          retention-days: 1
 
   plone:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull plone
+        run: docker pull plone:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2201,12 +2284,13 @@ jobs:
         with:
           name: 'plone.report.json'
           path: 'plone.report.json'
+          retention-days: 1
 
   bash:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull bash
+        run: docker pull bash:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2219,12 +2303,13 @@ jobs:
         with:
           name: 'bash.report.json'
           path: 'bash.report.json'
+          retention-days: 1
 
   amazonlinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull amazonlinux
+        run: docker pull amazonlinux:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2237,12 +2322,13 @@ jobs:
         with:
           name: 'amazonlinux.report.json'
           path: 'amazonlinux.report.json'
+          retention-days: 1
 
   composer:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull composer
+        run: docker pull composer:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2255,12 +2341,13 @@ jobs:
         with:
           name: 'composer.report.json'
           path: 'composer.report.json'
+          retention-days: 1
 
   known:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull known
+        run: docker pull known:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2273,12 +2360,13 @@ jobs:
         with:
           name: 'known.report.json'
           path: 'known.report.json'
+          retention-days: 1
 
   eclipse-mosquitto:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull eclipse-mosquitto
+        run: docker pull eclipse-mosquitto:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2291,12 +2379,13 @@ jobs:
         with:
           name: 'eclipse-mosquitto.report.json'
           path: 'eclipse-mosquitto.report.json'
+          retention-days: 1
 
   nextcloud:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull nextcloud
+        run: docker pull nextcloud:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2309,12 +2398,13 @@ jobs:
         with:
           name: 'nextcloud.report.json'
           path: 'nextcloud.report.json'
+          retention-days: 1
 
   silverpeas:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull silverpeas
+        run: docker pull silverpeas:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2327,12 +2417,13 @@ jobs:
         with:
           name: 'silverpeas.report.json'
           path: 'silverpeas.report.json'
+          retention-days: 1
 
   swift:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull swift
+        run: docker pull swift:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2345,12 +2436,13 @@ jobs:
         with:
           name: 'swift.report.json'
           path: 'swift.report.json'
+          retention-days: 1
 
   haxe:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull haxe
+        run: docker pull haxe:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2363,12 +2455,13 @@ jobs:
         with:
           name: 'haxe.report.json'
           path: 'haxe.report.json'
+          retention-days: 1
 
   rapidoid:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rapidoid
+        run: docker pull rapidoid:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2381,12 +2474,13 @@ jobs:
         with:
           name: 'rapidoid.report.json'
           path: 'rapidoid.report.json'
+          retention-days: 1
 
   adminer:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull adminer
+        run: docker pull adminer:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2399,12 +2493,13 @@ jobs:
         with:
           name: 'adminer.report.json'
           path: 'adminer.report.json'
+          retention-days: 1
 
   geonetwork:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull geonetwork
+        run: docker pull geonetwork:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2417,12 +2512,13 @@ jobs:
         with:
           name: 'geonetwork.report.json'
           path: 'geonetwork.report.json'
+          retention-days: 1
 
   xwiki:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull xwiki
+        run: docker pull xwiki:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2435,12 +2531,13 @@ jobs:
         with:
           name: 'xwiki.report.json'
           path: 'xwiki.report.json'
+          retention-days: 1
 
   groovy:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull groovy
+        run: docker pull groovy:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2453,12 +2550,13 @@ jobs:
         with:
           name: 'groovy.report.json'
           path: 'groovy.report.json'
+          retention-days: 1
 
   znc:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull znc
+        run: docker pull znc:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2471,12 +2569,13 @@ jobs:
         with:
           name: 'znc.report.json'
           path: 'znc.report.json'
+          retention-days: 1
 
   gradle:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull gradle
+        run: docker pull gradle:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2489,12 +2588,13 @@ jobs:
         with:
           name: 'gradle.report.json'
           path: 'gradle.report.json'
+          retention-days: 1
 
   convertigo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull convertigo
+        run: docker pull convertigo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2507,12 +2607,13 @@ jobs:
         with:
           name: 'convertigo.report.json'
           path: 'convertigo.report.json'
+          retention-days: 1
 
   flink:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull flink
+        run: docker pull flink:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2525,12 +2626,13 @@ jobs:
         with:
           name: 'flink.report.json'
           path: 'flink.report.json'
+          retention-days: 1
 
   swipl:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull swipl
+        run: docker pull swipl:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2543,12 +2645,13 @@ jobs:
         with:
           name: 'swipl.report.json'
           path: 'swipl.report.json'
+          retention-days: 1
 
   rust:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rust
+        run: docker pull rust:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2561,12 +2664,13 @@ jobs:
         with:
           name: 'rust.report.json'
           path: 'rust.report.json'
+          retention-days: 1
 
   mediawiki:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull mediawiki
+        run: docker pull mediawiki:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2579,12 +2683,13 @@ jobs:
         with:
           name: 'mediawiki.report.json'
           path: 'mediawiki.report.json'
+          retention-days: 1
 
   euleros:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull euleros
+        run: docker pull euleros:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2597,12 +2702,13 @@ jobs:
         with:
           name: 'euleros.report.json'
           path: 'euleros.report.json'
+          retention-days: 1
 
   sl:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull sl
+        run: docker pull sl:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2615,12 +2721,13 @@ jobs:
         with:
           name: 'sl.report.json'
           path: 'sl.report.json'
+          retention-days: 1
 
   open-liberty:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull open-liberty
+        run: docker pull open-liberty:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2633,12 +2740,13 @@ jobs:
         with:
           name: 'open-liberty.report.json'
           path: 'open-liberty.report.json'
+          retention-days: 1
 
   clefos:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull clefos
+        run: docker pull clefos:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2651,12 +2759,13 @@ jobs:
         with:
           name: 'clefos.report.json'
           path: 'clefos.report.json'
+          retention-days: 1
 
   teamspeak:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull teamspeak
+        run: docker pull teamspeak:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2669,12 +2778,13 @@ jobs:
         with:
           name: 'teamspeak.report.json'
           path: 'teamspeak.report.json'
+          retention-days: 1
 
   matomo:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull matomo
+        run: docker pull matomo:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2687,12 +2797,13 @@ jobs:
         with:
           name: 'matomo.report.json'
           path: 'matomo.report.json'
+          retention-days: 1
 
   yourls:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull yourls
+        run: docker pull yourls:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2705,12 +2816,13 @@ jobs:
         with:
           name: 'yourls.report.json'
           path: 'yourls.report.json'
+          retention-days: 1
 
   alt:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull alt
+        run: docker pull alt:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2723,12 +2835,13 @@ jobs:
         with:
           name: 'alt.report.json'
           path: 'alt.report.json'
+          retention-days: 1
 
   amazoncorretto:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull amazoncorretto
+        run: docker pull amazoncorretto:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2741,12 +2854,13 @@ jobs:
         with:
           name: 'amazoncorretto.report.json'
           path: 'amazoncorretto.report.json'
+          retention-days: 1
 
   express-gateway:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull express-gateway
+        run: docker pull express-gateway:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2759,12 +2873,13 @@ jobs:
         with:
           name: 'express-gateway.report.json'
           path: 'express-gateway.report.json'
+          retention-days: 1
 
   postfixadmin:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull postfixadmin
+        run: docker pull postfixadmin:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2777,12 +2892,13 @@ jobs:
         with:
           name: 'postfixadmin.report.json'
           path: 'postfixadmin.report.json'
+          retention-days: 1
 
   fluentd:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull fluentd
+        run: docker pull fluentd:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2795,12 +2911,13 @@ jobs:
         with:
           name: 'fluentd.report.json'
           path: 'fluentd.report.json'
+          retention-days: 1
 
   adoptopenjdk:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull adoptopenjdk
+        run: docker pull adoptopenjdk:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2813,12 +2930,13 @@ jobs:
         with:
           name: 'adoptopenjdk.report.json'
           path: 'adoptopenjdk.report.json'
+          retention-days: 1
 
   sapmachine:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull sapmachine
+        run: docker pull sapmachine:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2831,12 +2949,13 @@ jobs:
         with:
           name: 'sapmachine.report.json'
           path: 'sapmachine.report.json'
+          retention-days: 1
 
   varnish:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull varnish
+        run: docker pull varnish:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2849,12 +2968,13 @@ jobs:
         with:
           name: 'varnish.report.json'
           path: 'varnish.report.json'
+          retention-days: 1
 
   jobber:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull jobber
+        run: docker pull jobber:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2867,12 +2987,13 @@ jobs:
         with:
           name: 'jobber.report.json'
           path: 'jobber.report.json'
+          retention-days: 1
 
   archlinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull archlinux
+        run: docker pull archlinux:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2885,12 +3006,13 @@ jobs:
         with:
           name: 'archlinux.report.json'
           path: 'archlinux.report.json'
+          retention-days: 1
 
   friendica:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull friendica
+        run: docker pull friendica:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2903,12 +3025,13 @@ jobs:
         with:
           name: 'friendica.report.json'
           path: 'friendica.report.json'
+          retention-days: 1
 
   caddy:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull caddy
+        run: docker pull caddy:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2921,12 +3044,13 @@ jobs:
         with:
           name: 'caddy.report.json'
           path: 'caddy.report.json'
+          retention-days: 1
 
   monica:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull monica
+        run: docker pull monica:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2939,12 +3063,13 @@ jobs:
         with:
           name: 'monica.report.json'
           path: 'monica.report.json'
+          retention-days: 1
 
   phpmyadmin:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull phpmyadmin
+        run: docker pull phpmyadmin:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2957,12 +3082,13 @@ jobs:
         with:
           name: 'phpmyadmin.report.json'
           path: 'phpmyadmin.report.json'
+          retention-days: 1
 
   hitch:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull hitch
+        run: docker pull hitch:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2975,12 +3101,13 @@ jobs:
         with:
           name: 'hitch.report.json'
           path: 'hitch.report.json'
+          retention-days: 1
 
   almalinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull almalinux
+        run: docker pull almalinux:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -2993,12 +3120,13 @@ jobs:
         with:
           name: 'almalinux.report.json'
           path: 'almalinux.report.json'
+          retention-days: 1
 
   dart:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull dart
+        run: docker pull dart:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3011,12 +3139,13 @@ jobs:
         with:
           name: 'dart.report.json'
           path: 'dart.report.json'
+          retention-days: 1
 
   eclipse-temurin:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull eclipse-temurin
+        run: docker pull eclipse-temurin:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3029,12 +3158,13 @@ jobs:
         with:
           name: 'eclipse-temurin.report.json'
           path: 'eclipse-temurin.report.json'
+          retention-days: 1
 
   ibm-semeru-runtimes:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull ibm-semeru-runtimes
+        run: docker pull ibm-semeru-runtimes:open-8u392-b08-jre-jammy
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3047,12 +3177,13 @@ jobs:
         with:
           name: 'ibm-semeru-runtimes.report.json'
           path: 'ibm-semeru-runtimes.report.json'
+          retention-days: 1
 
   rockylinux:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull rockylinux
+        run: docker pull rockylinux:9.3.20231119-minimal
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3065,12 +3196,13 @@ jobs:
         with:
           name: 'rockylinux.report.json'
           path: 'rockylinux.report.json'
+          retention-days: 1
 
   api-firewall:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull api-firewall
+        run: docker pull api-firewall:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3083,12 +3215,13 @@ jobs:
         with:
           name: 'api-firewall.report.json'
           path: 'api-firewall.report.json'
+          retention-days: 1
 
   emqx:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull emqx
+        run: docker pull emqx:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3101,12 +3234,13 @@ jobs:
         with:
           name: 'emqx.report.json'
           path: 'emqx.report.json'
+          retention-days: 1
 
   satosa:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull satosa
+        run: docker pull satosa:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3119,12 +3253,13 @@ jobs:
         with:
           name: 'satosa.report.json'
           path: 'satosa.report.json'
+          retention-days: 1
 
   unit:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull unit
+        run: docker pull unit:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3137,12 +3272,13 @@ jobs:
         with:
           name: 'unit.report.json'
           path: 'unit.report.json'
+          retention-days: 1
 
   spark:
     runs-on: ubuntu-latest
     steps:
       - name: Pull image
-        run: docker pull spark
+        run: docker pull spark:latest
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
@@ -3155,4 +3291,19 @@ jobs:
         with:
           name: 'spark.report.json'
           path: 'spark.report.json'
+          retention-days: 1
 
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*.report.json'
+      - name: Create archive
+        run: tar cvzf reports.tar.gz *.report.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'reports.tar.gz'
+          path: 'reports.tar.gz'
