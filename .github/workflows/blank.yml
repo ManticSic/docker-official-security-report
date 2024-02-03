@@ -14,15 +14,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'centos'
+          image-ref: 'centos:latest'
           format: 'json'
-          output: 'centos.report.json'
+          output: 'centos.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'centos.report.json'
-          path: 'centos.report.json'
+          name: 'centos.latest.report.json'
+          path: 'centos.latest.report.json'
           retention-days: 1
 
   busybox:
@@ -33,15 +33,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'busybox'
+          image-ref: 'busybox:latest'
           format: 'json'
-          output: 'busybox.report.json'
+          output: 'busybox.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'busybox.report.json'
-          path: 'busybox.report.json'
+          name: 'busybox.latest.report.json'
+          path: 'busybox.latest.report.json'
           retention-days: 1
 
   ubuntu:
@@ -52,15 +52,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ubuntu'
+          image-ref: 'ubuntu:latest'
           format: 'json'
-          output: 'ubuntu.report.json'
+          output: 'ubuntu.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ubuntu.report.json'
-          path: 'ubuntu.report.json'
+          name: 'ubuntu.latest.report.json'
+          path: 'ubuntu.latest.report.json'
           retention-days: 1
 
   fedora:
@@ -71,15 +71,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'fedora'
+          image-ref: 'fedora:latest'
           format: 'json'
-          output: 'fedora.report.json'
+          output: 'fedora.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'fedora.report.json'
-          path: 'fedora.report.json'
+          name: 'fedora.latest.report.json'
+          path: 'fedora.latest.report.json'
           retention-days: 1
 
   registry:
@@ -90,15 +90,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'registry'
+          image-ref: 'registry:latest'
           format: 'json'
-          output: 'registry.report.json'
+          output: 'registry.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'registry.report.json'
-          path: 'registry.report.json'
+          name: 'registry.latest.report.json'
+          path: 'registry.latest.report.json'
           retention-days: 1
 
   hipache:
@@ -109,15 +109,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hipache'
+          image-ref: 'hipache:latest'
           format: 'json'
-          output: 'hipache.report.json'
+          output: 'hipache.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hipache.report.json'
-          path: 'hipache.report.json'
+          name: 'hipache.latest.report.json'
+          path: 'hipache.latest.report.json'
           retention-days: 1
 
   docker-dev:
@@ -128,15 +128,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker-dev'
+          image-ref: 'docker-dev:1'
           format: 'json'
-          output: 'docker-dev.report.json'
+          output: 'docker-dev.1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'docker-dev.report.json'
-          path: 'docker-dev.report.json'
+          name: 'docker-dev.1.report.json'
+          path: 'docker-dev.1.report.json'
           retention-days: 1
 
   debian:
@@ -147,15 +147,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'debian'
+          image-ref: 'debian:latest'
           format: 'json'
-          output: 'debian.report.json'
+          output: 'debian.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'debian.report.json'
-          path: 'debian.report.json'
+          name: 'debian.latest.report.json'
+          path: 'debian.latest.report.json'
           retention-days: 1
 
   cirros:
@@ -166,15 +166,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'cirros'
+          image-ref: 'cirros:latest'
           format: 'json'
-          output: 'cirros.report.json'
+          output: 'cirros.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'cirros.report.json'
-          path: 'cirros.report.json'
+          name: 'cirros.latest.report.json'
+          path: 'cirros.latest.report.json'
           retention-days: 1
 
   crux:
@@ -185,15 +185,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'crux'
+          image-ref: 'crux:latest'
           format: 'json'
-          output: 'crux.report.json'
+          output: 'crux.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'crux.report.json'
-          path: 'crux.report.json'
+          name: 'crux.latest.report.json'
+          path: 'crux.latest.report.json'
           retention-days: 1
 
   ubuntu-upstart:
@@ -204,15 +204,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ubuntu-upstart'
+          image-ref: 'ubuntu-upstart:latest'
           format: 'json'
-          output: 'ubuntu-upstart.report.json'
+          output: 'ubuntu-upstart.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ubuntu-upstart.report.json'
-          path: 'ubuntu-upstart.report.json'
+          name: 'ubuntu-upstart.latest.report.json'
+          path: 'ubuntu-upstart.latest.report.json'
           retention-days: 1
 
   buildpack-deps:
@@ -223,15 +223,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'buildpack-deps'
+          image-ref: 'buildpack-deps:latest'
           format: 'json'
-          output: 'buildpack-deps.report.json'
+          output: 'buildpack-deps.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'buildpack-deps.report.json'
-          path: 'buildpack-deps.report.json'
+          name: 'buildpack-deps.latest.report.json'
+          path: 'buildpack-deps.latest.report.json'
           retention-days: 1
 
   nginx:
@@ -242,15 +242,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nginx'
+          image-ref: 'nginx:latest'
           format: 'json'
-          output: 'nginx.report.json'
+          output: 'nginx.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nginx.report.json'
-          path: 'nginx.report.json'
+          name: 'nginx.latest.report.json'
+          path: 'nginx.latest.report.json'
           retention-days: 1
 
   node:
@@ -261,15 +261,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'node'
+          image-ref: 'node:latest'
           format: 'json'
-          output: 'node.report.json'
+          output: 'node.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'node.report.json'
-          path: 'node.report.json'
+          name: 'node.latest.report.json'
+          path: 'node.latest.report.json'
           retention-days: 1
 
   mysql:
@@ -280,15 +280,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mysql'
+          image-ref: 'mysql:latest'
           format: 'json'
-          output: 'mysql.report.json'
+          output: 'mysql.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mysql.report.json'
-          path: 'mysql.report.json'
+          name: 'mysql.latest.report.json'
+          path: 'mysql.latest.report.json'
           retention-days: 1
 
   wordpress:
@@ -299,15 +299,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'wordpress'
+          image-ref: 'wordpress:latest'
           format: 'json'
-          output: 'wordpress.report.json'
+          output: 'wordpress.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'wordpress.report.json'
-          path: 'wordpress.report.json'
+          name: 'wordpress.latest.report.json'
+          path: 'wordpress.latest.report.json'
           retention-days: 1
 
   postgres:
@@ -318,15 +318,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'postgres'
+          image-ref: 'postgres:latest'
           format: 'json'
-          output: 'postgres.report.json'
+          output: 'postgres.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'postgres.report.json'
-          path: 'postgres.report.json'
+          name: 'postgres.latest.report.json'
+          path: 'postgres.latest.report.json'
           retention-days: 1
 
   redis:
@@ -337,15 +337,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'redis'
+          image-ref: 'redis:latest'
           format: 'json'
-          output: 'redis.report.json'
+          output: 'redis.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'redis.report.json'
-          path: 'redis.report.json'
+          name: 'redis.latest.report.json'
+          path: 'redis.latest.report.json'
           retention-days: 1
 
   java:
@@ -356,15 +356,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'java'
+          image-ref: 'java:6'
           format: 'json'
-          output: 'java.report.json'
+          output: 'java.6.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'java.report.json'
-          path: 'java.report.json'
+          name: 'java.6.report.json'
+          path: 'java.6.report.json'
           retention-days: 1
 
   mongo:
@@ -375,15 +375,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mongo'
+          image-ref: 'mongo:latest'
           format: 'json'
-          output: 'mongo.report.json'
+          output: 'mongo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mongo.report.json'
-          path: 'mongo.report.json'
+          name: 'mongo.latest.report.json'
+          path: 'mongo.latest.report.json'
           retention-days: 1
 
   rails:
@@ -394,15 +394,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rails'
+          image-ref: 'rails:latest'
           format: 'json'
-          output: 'rails.report.json'
+          output: 'rails.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rails.report.json'
-          path: 'rails.report.json'
+          name: 'rails.latest.report.json'
+          path: 'rails.latest.report.json'
           retention-days: 1
 
   ruby:
@@ -413,15 +413,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ruby'
+          image-ref: 'ruby:latest'
           format: 'json'
-          output: 'ruby.report.json'
+          output: 'ruby.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ruby.report.json'
-          path: 'ruby.report.json'
+          name: 'ruby.latest.report.json'
+          path: 'ruby.latest.report.json'
           retention-days: 1
 
   python:
@@ -432,15 +432,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'python'
+          image-ref: 'python:latest'
           format: 'json'
-          output: 'python.report.json'
+          output: 'python.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'python.report.json'
-          path: 'python.report.json'
+          name: 'python.latest.report.json'
+          path: 'python.latest.report.json'
           retention-days: 1
 
   ubuntu-debootstrap:
@@ -451,15 +451,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ubuntu-debootstrap'
+          image-ref: 'ubuntu-debootstrap:latest'
           format: 'json'
-          output: 'ubuntu-debootstrap.report.json'
+          output: 'ubuntu-debootstrap.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ubuntu-debootstrap.report.json'
-          path: 'ubuntu-debootstrap.report.json'
+          name: 'ubuntu-debootstrap.latest.report.json'
+          path: 'ubuntu-debootstrap.latest.report.json'
           retention-days: 1
 
   perl:
@@ -470,15 +470,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'perl'
+          image-ref: 'perl:latest'
           format: 'json'
-          output: 'perl.report.json'
+          output: 'perl.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'perl.report.json'
-          path: 'perl.report.json'
+          name: 'perl.latest.report.json'
+          path: 'perl.latest.report.json'
           retention-days: 1
 
   hello-world:
@@ -489,15 +489,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hello-world'
+          image-ref: 'hello-world:latest'
           format: 'json'
-          output: 'hello-world.report.json'
+          output: 'hello-world.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hello-world.report.json'
-          path: 'hello-world.report.json'
+          name: 'hello-world.latest.report.json'
+          path: 'hello-world.latest.report.json'
           retention-days: 1
 
   hylang:
@@ -508,15 +508,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hylang'
+          image-ref: 'hylang:latest'
           format: 'json'
-          output: 'hylang.report.json'
+          output: 'hylang.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hylang.report.json'
-          path: 'hylang.report.json'
+          name: 'hylang.latest.report.json'
+          path: 'hylang.latest.report.json'
           retention-days: 1
 
   gcc:
@@ -527,15 +527,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'gcc'
+          image-ref: 'gcc:latest'
           format: 'json'
-          output: 'gcc.report.json'
+          output: 'gcc.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'gcc.report.json'
-          path: 'gcc.report.json'
+          name: 'gcc.latest.report.json'
+          path: 'gcc.latest.report.json'
           retention-days: 1
 
   jenkins:
@@ -546,15 +546,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'jenkins'
+          image-ref: 'jenkins:2.60.3'
           format: 'json'
-          output: 'jenkins.report.json'
+          output: 'jenkins.2.60.3.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'jenkins.report.json'
-          path: 'jenkins.report.json'
+          name: 'jenkins.2.60.3.report.json'
+          path: 'jenkins.2.60.3.report.json'
           retention-days: 1
 
   golang:
@@ -565,15 +565,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'golang'
+          image-ref: 'golang:latest'
           format: 'json'
-          output: 'golang.report.json'
+          output: 'golang.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'golang.report.json'
-          path: 'golang.report.json'
+          name: 'golang.latest.report.json'
+          path: 'golang.latest.report.json'
           retention-days: 1
 
   neurodebian:
@@ -584,15 +584,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'neurodebian'
+          image-ref: 'neurodebian:latest'
           format: 'json'
-          output: 'neurodebian.report.json'
+          output: 'neurodebian.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'neurodebian.report.json'
-          path: 'neurodebian.report.json'
+          name: 'neurodebian.latest.report.json'
+          path: 'neurodebian.latest.report.json'
           retention-days: 1
 
   clojure:
@@ -603,15 +603,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'clojure'
+          image-ref: 'clojure:latest'
           format: 'json'
-          output: 'clojure.report.json'
+          output: 'clojure.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'clojure.report.json'
-          path: 'clojure.report.json'
+          name: 'clojure.latest.report.json'
+          path: 'clojure.latest.report.json'
           retention-days: 1
 
   php:
@@ -622,15 +622,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'php'
+          image-ref: 'php:latest'
           format: 'json'
-          output: 'php.report.json'
+          output: 'php.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'php.report.json'
-          path: 'php.report.json'
+          name: 'php.latest.report.json'
+          path: 'php.latest.report.json'
           retention-days: 1
 
   jruby:
@@ -641,15 +641,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'jruby'
+          image-ref: 'jruby:latest'
           format: 'json'
-          output: 'jruby.report.json'
+          output: 'jruby.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'jruby.report.json'
-          path: 'jruby.report.json'
+          name: 'jruby.latest.report.json'
+          path: 'jruby.latest.report.json'
           retention-days: 1
 
   mageia:
@@ -660,15 +660,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mageia'
+          image-ref: 'mageia:latest'
           format: 'json'
-          output: 'mageia.report.json'
+          output: 'mageia.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mageia.report.json'
-          path: 'mageia.report.json'
+          name: 'mageia.latest.report.json'
+          path: 'mageia.latest.report.json'
           retention-days: 1
 
   crate:
@@ -679,15 +679,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'crate'
+          image-ref: 'crate:latest'
           format: 'json'
-          output: 'crate.report.json'
+          output: 'crate.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'crate.report.json'
-          path: 'crate.report.json'
+          name: 'crate.latest.report.json'
+          path: 'crate.latest.report.json'
           retention-days: 1
 
   php-zendserver:
@@ -698,15 +698,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'php-zendserver'
+          image-ref: 'php-zendserver:latest'
           format: 'json'
-          output: 'php-zendserver.report.json'
+          output: 'php-zendserver.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'php-zendserver.report.json'
-          path: 'php-zendserver.report.json'
+          name: 'php-zendserver.latest.report.json'
+          path: 'php-zendserver.latest.report.json'
           retention-days: 1
 
   tomcat:
@@ -717,15 +717,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'tomcat'
+          image-ref: 'tomcat:latest'
           format: 'json'
-          output: 'tomcat.report.json'
+          output: 'tomcat.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'tomcat.report.json'
-          path: 'tomcat.report.json'
+          name: 'tomcat.latest.report.json'
+          path: 'tomcat.latest.report.json'
           retention-days: 1
 
   mono:
@@ -736,15 +736,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mono'
+          image-ref: 'mono:latest'
           format: 'json'
-          output: 'mono.report.json'
+          output: 'mono.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mono.report.json'
-          path: 'mono.report.json'
+          name: 'mono.latest.report.json'
+          path: 'mono.latest.report.json'
           retention-days: 1
 
   haskell:
@@ -755,15 +755,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'haskell'
+          image-ref: 'haskell:latest'
           format: 'json'
-          output: 'haskell.report.json'
+          output: 'haskell.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'haskell.report.json'
-          path: 'haskell.report.json'
+          name: 'haskell.latest.report.json'
+          path: 'haskell.latest.report.json'
           retention-days: 1
 
   glassfish:
@@ -774,15 +774,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'glassfish'
+          image-ref: 'glassfish:latest'
           format: 'json'
-          output: 'glassfish.report.json'
+          output: 'glassfish.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'glassfish.report.json'
-          path: 'glassfish.report.json'
+          name: 'glassfish.latest.report.json'
+          path: 'glassfish.latest.report.json'
           retention-days: 1
 
   maven:
@@ -793,15 +793,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'maven'
+          image-ref: 'maven:latest'
           format: 'json'
-          output: 'maven.report.json'
+          output: 'maven.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'maven.report.json'
-          path: 'maven.report.json'
+          name: 'maven.latest.report.json'
+          path: 'maven.latest.report.json'
           retention-days: 1
 
   httpd:
@@ -812,15 +812,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'httpd'
+          image-ref: 'httpd:latest'
           format: 'json'
-          output: 'httpd.report.json'
+          output: 'httpd.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'httpd.report.json'
-          path: 'httpd.report.json'
+          name: 'httpd.latest.report.json'
+          path: 'httpd.latest.report.json'
           retention-days: 1
 
   sentry:
@@ -831,15 +831,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'sentry'
+          image-ref: 'sentry:latest'
           format: 'json'
-          output: 'sentry.report.json'
+          output: 'sentry.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'sentry.report.json'
-          path: 'sentry.report.json'
+          name: 'sentry.latest.report.json'
+          path: 'sentry.latest.report.json'
           retention-days: 1
 
   r-base:
@@ -850,15 +850,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'r-base'
+          image-ref: 'r-base:latest'
           format: 'json'
-          output: 'r-base.report.json'
+          output: 'r-base.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'r-base.report.json'
-          path: 'r-base.report.json'
+          name: 'r-base.latest.report.json'
+          path: 'r-base.latest.report.json'
           retention-days: 1
 
   mariadb:
@@ -869,15 +869,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mariadb'
+          image-ref: 'mariadb:latest'
           format: 'json'
-          output: 'mariadb.report.json'
+          output: 'mariadb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mariadb.report.json'
-          path: 'mariadb.report.json'
+          name: 'mariadb.latest.report.json'
+          path: 'mariadb.latest.report.json'
           retention-days: 1
 
   thrift:
@@ -888,15 +888,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'thrift'
+          image-ref: 'thrift:latest'
           format: 'json'
-          output: 'thrift.report.json'
+          output: 'thrift.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'thrift.report.json'
-          path: 'thrift.report.json'
+          name: 'thrift.latest.report.json'
+          path: 'thrift.latest.report.json'
           retention-days: 1
 
   pypy:
@@ -907,15 +907,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'pypy'
+          image-ref: 'pypy:latest'
           format: 'json'
-          output: 'pypy.report.json'
+          output: 'pypy.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'pypy.report.json'
-          path: 'pypy.report.json'
+          name: 'pypy.latest.report.json'
+          path: 'pypy.latest.report.json'
           retention-days: 1
 
   django:
@@ -926,15 +926,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'django'
+          image-ref: 'django:latest'
           format: 'json'
-          output: 'django.report.json'
+          output: 'django.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'django.report.json'
-          path: 'django.report.json'
+          name: 'django.latest.report.json'
+          path: 'django.latest.report.json'
           retention-days: 1
 
   haproxy:
@@ -945,15 +945,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'haproxy'
+          image-ref: 'haproxy:latest'
           format: 'json'
-          output: 'haproxy.report.json'
+          output: 'haproxy.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'haproxy.report.json'
-          path: 'haproxy.report.json'
+          name: 'haproxy.latest.report.json'
+          path: 'haproxy.latest.report.json'
           retention-days: 1
 
   memcached:
@@ -964,15 +964,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'memcached'
+          image-ref: 'memcached:latest'
           format: 'json'
-          output: 'memcached.report.json'
+          output: 'memcached.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'memcached.report.json'
-          path: 'memcached.report.json'
+          name: 'memcached.latest.report.json'
+          path: 'memcached.latest.report.json'
           retention-days: 1
 
   rabbitmq:
@@ -983,15 +983,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rabbitmq'
+          image-ref: 'rabbitmq:latest'
           format: 'json'
-          output: 'rabbitmq.report.json'
+          output: 'rabbitmq.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rabbitmq.report.json'
-          path: 'rabbitmq.report.json'
+          name: 'rabbitmq.latest.report.json'
+          path: 'rabbitmq.latest.report.json'
           retention-days: 1
 
   oraclelinux:
@@ -1002,15 +1002,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'oraclelinux'
+          image-ref: 'oraclelinux:9-slim'
           format: 'json'
-          output: 'oraclelinux.report.json'
+          output: 'oraclelinux.9-slim.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'oraclelinux.report.json'
-          path: 'oraclelinux.report.json'
+          name: 'oraclelinux.9-slim.report.json'
+          path: 'oraclelinux.9-slim.report.json'
           retention-days: 1
 
   odoo:
@@ -1021,15 +1021,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'odoo'
+          image-ref: 'odoo:latest'
           format: 'json'
-          output: 'odoo.report.json'
+          output: 'odoo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'odoo.report.json'
-          path: 'odoo.report.json'
+          name: 'odoo.latest.report.json'
+          path: 'odoo.latest.report.json'
           retention-days: 1
 
   rethinkdb:
@@ -1040,15 +1040,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rethinkdb'
+          image-ref: 'rethinkdb:latest'
           format: 'json'
-          output: 'rethinkdb.report.json'
+          output: 'rethinkdb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rethinkdb.report.json'
-          path: 'rethinkdb.report.json'
+          name: 'rethinkdb.latest.report.json'
+          path: 'rethinkdb.latest.report.json'
           retention-days: 1
 
   iojs:
@@ -1059,15 +1059,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'iojs'
+          image-ref: 'iojs:latest'
           format: 'json'
-          output: 'iojs.report.json'
+          output: 'iojs.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'iojs.report.json'
-          path: 'iojs.report.json'
+          name: 'iojs.latest.report.json'
+          path: 'iojs.latest.report.json'
           retention-days: 1
 
   websphere-liberty:
@@ -1078,15 +1078,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'websphere-liberty'
+          image-ref: 'websphere-liberty:latest'
           format: 'json'
-          output: 'websphere-liberty.report.json'
+          output: 'websphere-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'websphere-liberty.report.json'
-          path: 'websphere-liberty.report.json'
+          name: 'websphere-liberty.latest.report.json'
+          path: 'websphere-liberty.latest.report.json'
           retention-days: 1
 
   irssi:
@@ -1097,15 +1097,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'irssi'
+          image-ref: 'irssi:latest'
           format: 'json'
-          output: 'irssi.report.json'
+          output: 'irssi.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'irssi.report.json'
-          path: 'irssi.report.json'
+          name: 'irssi.latest.report.json'
+          path: 'irssi.latest.report.json'
           retention-days: 1
 
   swarm:
@@ -1116,15 +1116,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'swarm'
+          image-ref: 'swarm:latest'
           format: 'json'
-          output: 'swarm.report.json'
+          output: 'swarm.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'swarm.report.json'
-          path: 'swarm.report.json'
+          name: 'swarm.latest.report.json'
+          path: 'swarm.latest.report.json'
           retention-days: 1
 
   elasticsearch:
@@ -1135,15 +1135,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elasticsearch'
+          image-ref: 'elasticsearch:8.12.0'
           format: 'json'
-          output: 'elasticsearch.report.json'
+          output: 'elasticsearch.8.12.0.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'elasticsearch.report.json'
-          path: 'elasticsearch.report.json'
+          name: 'elasticsearch.8.12.0.report.json'
+          path: 'elasticsearch.8.12.0.report.json'
           retention-days: 1
 
   jetty:
@@ -1154,15 +1154,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'jetty'
+          image-ref: 'jetty:latest'
           format: 'json'
-          output: 'jetty.report.json'
+          output: 'jetty.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'jetty.report.json'
-          path: 'jetty.report.json'
+          name: 'jetty.latest.report.json'
+          path: 'jetty.latest.report.json'
           retention-days: 1
 
   ghost:
@@ -1173,15 +1173,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ghost'
+          image-ref: 'ghost:latest'
           format: 'json'
-          output: 'ghost.report.json'
+          output: 'ghost.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ghost.report.json'
-          path: 'ghost.report.json'
+          name: 'ghost.latest.report.json'
+          path: 'ghost.latest.report.json'
           retention-days: 1
 
   celery:
@@ -1192,15 +1192,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'celery'
+          image-ref: 'celery:latest'
           format: 'json'
-          output: 'celery.report.json'
+          output: 'celery.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'celery.report.json'
-          path: 'celery.report.json'
+          name: 'celery.latest.report.json'
+          path: 'celery.latest.report.json'
           retention-days: 1
 
   percona:
@@ -1211,15 +1211,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'percona'
+          image-ref: 'percona:latest'
           format: 'json'
-          output: 'percona.report.json'
+          output: 'percona.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'percona.report.json'
-          path: 'percona.report.json'
+          name: 'percona.latest.report.json'
+          path: 'percona.latest.report.json'
           retention-days: 1
 
   aerospike:
@@ -1230,15 +1230,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike'
+          image-ref: 'aerospike:ee-7.0.0.3_1'
           format: 'json'
-          output: 'aerospike.report.json'
+          output: 'aerospike.ee-7.0.0.3_1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'aerospike.report.json'
-          path: 'aerospike.report.json'
+          name: 'aerospike.ee-7.0.0.3_1.report.json'
+          path: 'aerospike.ee-7.0.0.3_1.report.json'
           retention-days: 1
 
   logstash:
@@ -1249,15 +1249,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'logstash'
+          image-ref: 'logstash:8.12.0'
           format: 'json'
-          output: 'logstash.report.json'
+          output: 'logstash.8.12.0.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'logstash.report.json'
-          path: 'logstash.report.json'
+          name: 'logstash.8.12.0.report.json'
+          path: 'logstash.8.12.0.report.json'
           retention-days: 1
 
   julia:
@@ -1268,15 +1268,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'julia'
+          image-ref: 'julia:latest'
           format: 'json'
-          output: 'julia.report.json'
+          output: 'julia.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'julia.report.json'
-          path: 'julia.report.json'
+          name: 'julia.latest.report.json'
+          path: 'julia.latest.report.json'
           retention-days: 1
 
   alpine:
@@ -1287,15 +1287,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'alpine'
+          image-ref: 'alpine:latest'
           format: 'json'
-          output: 'alpine.report.json'
+          output: 'alpine.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'alpine.report.json'
-          path: 'alpine.report.json'
+          name: 'alpine.latest.report.json'
+          path: 'alpine.latest.report.json'
           retention-days: 1
 
   rakudo-star:
@@ -1306,15 +1306,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rakudo-star'
+          image-ref: 'rakudo-star:latest'
           format: 'json'
-          output: 'rakudo-star.report.json'
+          output: 'rakudo-star.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rakudo-star.report.json'
-          path: 'rakudo-star.report.json'
+          name: 'rakudo-star.latest.report.json'
+          path: 'rakudo-star.latest.report.json'
           retention-days: 1
 
   drupal:
@@ -1325,15 +1325,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'drupal'
+          image-ref: 'drupal:latest'
           format: 'json'
-          output: 'drupal.report.json'
+          output: 'drupal.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'drupal.report.json'
-          path: 'drupal.report.json'
+          name: 'drupal.latest.report.json'
+          path: 'drupal.latest.report.json'
           retention-days: 1
 
   cassandra:
@@ -1344,15 +1344,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'cassandra'
+          image-ref: 'cassandra:latest'
           format: 'json'
-          output: 'cassandra.report.json'
+          output: 'cassandra.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'cassandra.report.json'
-          path: 'cassandra.report.json'
+          name: 'cassandra.latest.report.json'
+          path: 'cassandra.latest.report.json'
           retention-days: 1
 
   sonarqube:
@@ -1363,15 +1363,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'sonarqube'
+          image-ref: 'sonarqube:latest'
           format: 'json'
-          output: 'sonarqube.report.json'
+          output: 'sonarqube.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'sonarqube.report.json'
-          path: 'sonarqube.report.json'
+          name: 'sonarqube.latest.report.json'
+          path: 'sonarqube.latest.report.json'
           retention-days: 1
 
   couchbase:
@@ -1382,15 +1382,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'couchbase'
+          image-ref: 'couchbase:latest'
           format: 'json'
-          output: 'couchbase.report.json'
+          output: 'couchbase.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'couchbase.report.json'
-          path: 'couchbase.report.json'
+          name: 'couchbase.latest.report.json'
+          path: 'couchbase.latest.report.json'
           retention-days: 1
 
   ros:
@@ -1401,15 +1401,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ros'
+          image-ref: 'ros:latest'
           format: 'json'
-          output: 'ros.report.json'
+          output: 'ros.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ros.report.json'
-          path: 'ros.report.json'
+          name: 'ros.latest.report.json'
+          path: 'ros.latest.report.json'
           retention-days: 1
 
   kibana:
@@ -1420,15 +1420,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kibana'
+          image-ref: 'kibana:8.12.0'
           format: 'json'
-          output: 'kibana.report.json'
+          output: 'kibana.8.12.0.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'kibana.report.json'
-          path: 'kibana.report.json'
+          name: 'kibana.8.12.0.report.json'
+          path: 'kibana.8.12.0.report.json'
           retention-days: 1
 
   kaazing-gateway:
@@ -1439,15 +1439,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kaazing-gateway'
+          image-ref: 'kaazing-gateway:latest'
           format: 'json'
-          output: 'kaazing-gateway.report.json'
+          output: 'kaazing-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'kaazing-gateway.report.json'
-          path: 'kaazing-gateway.report.json'
+          name: 'kaazing-gateway.latest.report.json'
+          path: 'kaazing-gateway.latest.report.json'
           retention-days: 1
 
   arangodb:
@@ -1458,15 +1458,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'arangodb'
+          image-ref: 'arangodb:latest'
           format: 'json'
-          output: 'arangodb.report.json'
+          output: 'arangodb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'arangodb.report.json'
-          path: 'arangodb.report.json'
+          name: 'arangodb.latest.report.json'
+          path: 'arangodb.latest.report.json'
           retention-days: 1
 
   owncloud:
@@ -1477,15 +1477,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'owncloud'
+          image-ref: 'owncloud:latest'
           format: 'json'
-          output: 'owncloud.report.json'
+          output: 'owncloud.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'owncloud.report.json'
-          path: 'owncloud.report.json'
+          name: 'owncloud.latest.report.json'
+          path: 'owncloud.latest.report.json'
           retention-days: 1
 
   gazebo:
@@ -1496,15 +1496,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'gazebo'
+          image-ref: 'gazebo:latest'
           format: 'json'
-          output: 'gazebo.report.json'
+          output: 'gazebo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'gazebo.report.json'
-          path: 'gazebo.report.json'
+          name: 'gazebo.latest.report.json'
+          path: 'gazebo.latest.report.json'
           retention-days: 1
 
   joomla:
@@ -1515,15 +1515,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'joomla'
+          image-ref: 'joomla:latest'
           format: 'json'
-          output: 'joomla.report.json'
+          output: 'joomla.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'joomla.report.json'
-          path: 'joomla.report.json'
+          name: 'joomla.latest.report.json'
+          path: 'joomla.latest.report.json'
           retention-days: 1
 
   redmine:
@@ -1534,15 +1534,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'redmine'
+          image-ref: 'redmine:latest'
           format: 'json'
-          output: 'redmine.report.json'
+          output: 'redmine.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'redmine.report.json'
-          path: 'redmine.report.json'
+          name: 'redmine.latest.report.json'
+          path: 'redmine.latest.report.json'
           retention-days: 1
 
   nats:
@@ -1553,15 +1553,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nats'
+          image-ref: 'nats:latest'
           format: 'json'
-          output: 'nats.report.json'
+          output: 'nats.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nats.report.json'
-          path: 'nats.report.json'
+          name: 'nats.latest.report.json'
+          path: 'nats.latest.report.json'
           retention-days: 1
 
   rocket_chat:
@@ -1572,15 +1572,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rocket.chat'
+          image-ref: 'rocket.chat:latest'
           format: 'json'
-          output: 'rocket.chat.report.json'
+          output: 'rocket.chat.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rocket.chat.report.json'
-          path: 'rocket.chat.report.json'
+          name: 'rocket.chat.latest.report.json'
+          path: 'rocket.chat.latest.report.json'
           retention-days: 1
 
   docker:
@@ -1591,15 +1591,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker'
+          image-ref: 'docker:latest'
           format: 'json'
-          output: 'docker.report.json'
+          output: 'docker.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'docker.report.json'
-          path: 'docker.report.json'
+          name: 'docker.latest.report.json'
+          path: 'docker.latest.report.json'
           retention-days: 1
 
   tomee:
@@ -1610,15 +1610,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'tomee'
+          image-ref: 'tomee:latest'
           format: 'json'
-          output: 'tomee.report.json'
+          output: 'tomee.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'tomee.report.json'
-          path: 'tomee.report.json'
+          name: 'tomee.latest.report.json'
+          path: 'tomee.latest.report.json'
           retention-days: 1
 
   sourcemage:
@@ -1629,15 +1629,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'sourcemage'
+          image-ref: 'sourcemage:latest'
           format: 'json'
-          output: 'sourcemage.report.json'
+          output: 'sourcemage.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'sourcemage.report.json'
-          path: 'sourcemage.report.json'
+          name: 'sourcemage.latest.report.json'
+          path: 'sourcemage.latest.report.json'
           retention-days: 1
 
   bonita:
@@ -1648,15 +1648,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'bonita'
+          image-ref: 'bonita:latest'
           format: 'json'
-          output: 'bonita.report.json'
+          output: 'bonita.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'bonita.report.json'
-          path: 'bonita.report.json'
+          name: 'bonita.latest.report.json'
+          path: 'bonita.latest.report.json'
           retention-days: 1
 
   solr:
@@ -1667,15 +1667,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'solr'
+          image-ref: 'solr:latest'
           format: 'json'
-          output: 'solr.report.json'
+          output: 'solr.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'solr.report.json'
-          path: 'solr.report.json'
+          name: 'solr.latest.report.json'
+          path: 'solr.latest.report.json'
           retention-days: 1
 
   neo4j:
@@ -1686,15 +1686,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'neo4j'
+          image-ref: 'neo4j:latest'
           format: 'json'
-          output: 'neo4j.report.json'
+          output: 'neo4j.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'neo4j.report.json'
-          path: 'neo4j.report.json'
+          name: 'neo4j.latest.report.json'
+          path: 'neo4j.latest.report.json'
           retention-days: 1
 
   erlang:
@@ -1705,15 +1705,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'erlang'
+          image-ref: 'erlang:latest'
           format: 'json'
-          output: 'erlang.report.json'
+          output: 'erlang.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'erlang.report.json'
-          path: 'erlang.report.json'
+          name: 'erlang.latest.report.json'
+          path: 'erlang.latest.report.json'
           retention-days: 1
 
   nuxeo:
@@ -1724,15 +1724,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nuxeo'
+          image-ref: 'nuxeo:latest'
           format: 'json'
-          output: 'nuxeo.report.json'
+          output: 'nuxeo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nuxeo.report.json'
-          path: 'nuxeo.report.json'
+          name: 'nuxeo.latest.report.json'
+          path: 'nuxeo.latest.report.json'
           retention-days: 1
 
   photon:
@@ -1743,15 +1743,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'photon'
+          image-ref: 'photon:latest'
           format: 'json'
-          output: 'photon.report.json'
+          output: 'photon.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'photon.report.json'
-          path: 'photon.report.json'
+          name: 'photon.latest.report.json'
+          path: 'photon.latest.report.json'
           retention-days: 1
 
   couchdb:
@@ -1762,15 +1762,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'couchdb'
+          image-ref: 'couchdb:latest'
           format: 'json'
-          output: 'couchdb.report.json'
+          output: 'couchdb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'couchdb.report.json'
-          path: 'couchdb.report.json'
+          name: 'couchdb.latest.report.json'
+          path: 'couchdb.latest.report.json'
           retention-days: 1
 
   notary:
@@ -1781,15 +1781,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'notary'
+          image-ref: 'notary:signer-0.7.0'
           format: 'json'
-          output: 'notary.report.json'
+          output: 'notary.signer-0.7.0.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'notary.report.json'
-          path: 'notary.report.json'
+          name: 'notary.signer-0.7.0.report.json'
+          path: 'notary.signer-0.7.0.report.json'
           retention-days: 1
 
   piwik:
@@ -1800,15 +1800,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'piwik'
+          image-ref: 'piwik:latest'
           format: 'json'
-          output: 'piwik.report.json'
+          output: 'piwik.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'piwik.report.json'
-          path: 'piwik.report.json'
+          name: 'piwik.latest.report.json'
+          path: 'piwik.latest.report.json'
           retention-days: 1
 
   elixir:
@@ -1819,15 +1819,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elixir'
+          image-ref: 'elixir:latest'
           format: 'json'
-          output: 'elixir.report.json'
+          output: 'elixir.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'elixir.report.json'
-          path: 'elixir.report.json'
+          name: 'elixir.latest.report.json'
+          path: 'elixir.latest.report.json'
           retention-days: 1
 
   lightstreamer:
@@ -1838,15 +1838,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'lightstreamer'
+          image-ref: 'lightstreamer:latest'
           format: 'json'
-          output: 'lightstreamer.report.json'
+          output: 'lightstreamer.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'lightstreamer.report.json'
-          path: 'lightstreamer.report.json'
+          name: 'lightstreamer.latest.report.json'
+          path: 'lightstreamer.latest.report.json'
           retention-days: 1
 
   orientdb:
@@ -1857,15 +1857,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'orientdb'
+          image-ref: 'orientdb:latest'
           format: 'json'
-          output: 'orientdb.report.json'
+          output: 'orientdb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'orientdb.report.json'
-          path: 'orientdb.report.json'
+          name: 'orientdb.latest.report.json'
+          path: 'orientdb.latest.report.json'
           retention-days: 1
 
   mongo-express:
@@ -1876,15 +1876,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mongo-express'
+          image-ref: 'mongo-express:latest'
           format: 'json'
-          output: 'mongo-express.report.json'
+          output: 'mongo-express.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mongo-express.report.json'
-          path: 'mongo-express.report.json'
+          name: 'mongo-express.latest.report.json'
+          path: 'mongo-express.latest.report.json'
           retention-days: 1
 
   traefik:
@@ -1895,15 +1895,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'traefik'
+          image-ref: 'traefik:latest'
           format: 'json'
-          output: 'traefik.report.json'
+          output: 'traefik.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'traefik.report.json'
-          path: 'traefik.report.json'
+          name: 'traefik.latest.report.json'
+          path: 'traefik.latest.report.json'
           retention-days: 1
 
   backdrop:
@@ -1914,15 +1914,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'backdrop'
+          image-ref: 'backdrop:latest'
           format: 'json'
-          output: 'backdrop.report.json'
+          output: 'backdrop.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'backdrop.report.json'
-          path: 'backdrop.report.json'
+          name: 'backdrop.latest.report.json'
+          path: 'backdrop.latest.report.json'
           retention-days: 1
 
   consul:
@@ -1933,15 +1933,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'consul'
+          image-ref: 'consul:1.15.4'
           format: 'json'
-          output: 'consul.report.json'
+          output: 'consul.1.15.4.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'consul.report.json'
-          path: 'consul.report.json'
+          name: 'consul.1.15.4.report.json'
+          path: 'consul.1.15.4.report.json'
           retention-days: 1
 
   chronograf:
@@ -1952,15 +1952,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'chronograf'
+          image-ref: 'chronograf:latest'
           format: 'json'
-          output: 'chronograf.report.json'
+          output: 'chronograf.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'chronograf.report.json'
-          path: 'chronograf.report.json'
+          name: 'chronograf.latest.report.json'
+          path: 'chronograf.latest.report.json'
           retention-days: 1
 
   influxdb:
@@ -1971,15 +1971,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'influxdb'
+          image-ref: 'influxdb:latest'
           format: 'json'
-          output: 'influxdb.report.json'
+          output: 'influxdb.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'influxdb.report.json'
-          path: 'influxdb.report.json'
+          name: 'influxdb.latest.report.json'
+          path: 'influxdb.latest.report.json'
           retention-days: 1
 
   kapacitor:
@@ -1990,15 +1990,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kapacitor'
+          image-ref: 'kapacitor:latest'
           format: 'json'
-          output: 'kapacitor.report.json'
+          output: 'kapacitor.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'kapacitor.report.json'
-          path: 'kapacitor.report.json'
+          name: 'kapacitor.latest.report.json'
+          path: 'kapacitor.latest.report.json'
           retention-days: 1
 
   telegraf:
@@ -2009,15 +2009,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'telegraf'
+          image-ref: 'telegraf:latest'
           format: 'json'
-          output: 'telegraf.report.json'
+          output: 'telegraf.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'telegraf.report.json'
-          path: 'telegraf.report.json'
+          name: 'telegraf.latest.report.json'
+          path: 'telegraf.latest.report.json'
           retention-days: 1
 
   hello-seattle:
@@ -2028,15 +2028,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hello-seattle'
+          image-ref: 'hello-seattle:latest'
           format: 'json'
-          output: 'hello-seattle.report.json'
+          output: 'hello-seattle.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hello-seattle.report.json'
-          path: 'hello-seattle.report.json'
+          name: 'hello-seattle.latest.report.json'
+          path: 'hello-seattle.latest.report.json'
           retention-days: 1
 
   hola-mundo:
@@ -2047,15 +2047,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hola-mundo'
+          image-ref: 'hola-mundo:latest'
           format: 'json'
-          output: 'hola-mundo.report.json'
+          output: 'hola-mundo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hola-mundo.report.json'
-          path: 'hola-mundo.report.json'
+          name: 'hola-mundo.latest.report.json'
+          path: 'hola-mundo.latest.report.json'
           retention-days: 1
 
   fsharp:
@@ -2066,15 +2066,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'fsharp'
+          image-ref: 'fsharp:latest'
           format: 'json'
-          output: 'fsharp.report.json'
+          output: 'fsharp.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'fsharp.report.json'
-          path: 'fsharp.report.json'
+          name: 'fsharp.latest.report.json'
+          path: 'fsharp.latest.report.json'
           retention-days: 1
 
   spiped:
@@ -2085,15 +2085,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'spiped'
+          image-ref: 'spiped:latest'
           format: 'json'
-          output: 'spiped.report.json'
+          output: 'spiped.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'spiped.report.json'
-          path: 'spiped.report.json'
+          name: 'spiped.latest.report.json'
+          path: 'spiped.latest.report.json'
           retention-days: 1
 
   vault:
@@ -2104,15 +2104,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'vault'
+          image-ref: 'vault:1.13.3'
           format: 'json'
-          output: 'vault.report.json'
+          output: 'vault.1.13.3.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'vault.report.json'
-          path: 'vault.report.json'
+          name: 'vault.1.13.3.report.json'
+          path: 'vault.1.13.3.report.json'
           retention-days: 1
 
   clearlinux:
@@ -2123,15 +2123,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'clearlinux'
+          image-ref: 'clearlinux:latest'
           format: 'json'
-          output: 'clearlinux.report.json'
+          output: 'clearlinux.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'clearlinux.report.json'
-          path: 'clearlinux.report.json'
+          name: 'clearlinux.latest.report.json'
+          path: 'clearlinux.latest.report.json'
           retention-days: 1
 
   eggdrop:
@@ -2142,15 +2142,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'eggdrop'
+          image-ref: 'eggdrop:latest'
           format: 'json'
-          output: 'eggdrop.report.json'
+          output: 'eggdrop.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'eggdrop.report.json'
-          path: 'eggdrop.report.json'
+          name: 'eggdrop.latest.report.json'
+          path: 'eggdrop.latest.report.json'
           retention-days: 1
 
   ibmjava:
@@ -2161,15 +2161,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibmjava'
+          image-ref: 'ibmjava:latest'
           format: 'json'
-          output: 'ibmjava.report.json'
+          output: 'ibmjava.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ibmjava.report.json'
-          path: 'ibmjava.report.json'
+          name: 'ibmjava.latest.report.json'
+          path: 'ibmjava.latest.report.json'
           retention-days: 1
 
   openjdk:
@@ -2180,15 +2180,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'openjdk'
+          image-ref: 'openjdk:latest'
           format: 'json'
-          output: 'openjdk.report.json'
+          output: 'openjdk.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'openjdk.report.json'
-          path: 'openjdk.report.json'
+          name: 'openjdk.latest.report.json'
+          path: 'openjdk.latest.report.json'
           retention-days: 1
 
   kong:
@@ -2199,15 +2199,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kong'
+          image-ref: 'kong:latest'
           format: 'json'
-          output: 'kong.report.json'
+          output: 'kong.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'kong.report.json'
-          path: 'kong.report.json'
+          name: 'kong.latest.report.json'
+          path: 'kong.latest.report.json'
           retention-days: 1
 
   zookeeper:
@@ -2218,15 +2218,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'zookeeper'
+          image-ref: 'zookeeper:latest'
           format: 'json'
-          output: 'zookeeper.report.json'
+          output: 'zookeeper.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'zookeeper.report.json'
-          path: 'zookeeper.report.json'
+          name: 'zookeeper.latest.report.json'
+          path: 'zookeeper.latest.report.json'
           retention-days: 1
 
   nats-streaming:
@@ -2237,15 +2237,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nats-streaming'
+          image-ref: 'nats-streaming:latest'
           format: 'json'
-          output: 'nats-streaming.report.json'
+          output: 'nats-streaming.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nats-streaming.report.json'
-          path: 'nats-streaming.report.json'
+          name: 'nats-streaming.latest.report.json'
+          path: 'nats-streaming.latest.report.json'
           retention-days: 1
 
   storm:
@@ -2256,15 +2256,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'storm'
+          image-ref: 'storm:latest'
           format: 'json'
-          output: 'storm.report.json'
+          output: 'storm.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'storm.report.json'
-          path: 'storm.report.json'
+          name: 'storm.latest.report.json'
+          path: 'storm.latest.report.json'
           retention-days: 1
 
   plone:
@@ -2275,15 +2275,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'plone'
+          image-ref: 'plone:latest'
           format: 'json'
-          output: 'plone.report.json'
+          output: 'plone.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'plone.report.json'
-          path: 'plone.report.json'
+          name: 'plone.latest.report.json'
+          path: 'plone.latest.report.json'
           retention-days: 1
 
   bash:
@@ -2294,15 +2294,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'bash'
+          image-ref: 'bash:latest'
           format: 'json'
-          output: 'bash.report.json'
+          output: 'bash.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'bash.report.json'
-          path: 'bash.report.json'
+          name: 'bash.latest.report.json'
+          path: 'bash.latest.report.json'
           retention-days: 1
 
   amazonlinux:
@@ -2313,15 +2313,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'amazonlinux'
+          image-ref: 'amazonlinux:latest'
           format: 'json'
-          output: 'amazonlinux.report.json'
+          output: 'amazonlinux.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'amazonlinux.report.json'
-          path: 'amazonlinux.report.json'
+          name: 'amazonlinux.latest.report.json'
+          path: 'amazonlinux.latest.report.json'
           retention-days: 1
 
   composer:
@@ -2332,15 +2332,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'composer'
+          image-ref: 'composer:latest'
           format: 'json'
-          output: 'composer.report.json'
+          output: 'composer.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'composer.report.json'
-          path: 'composer.report.json'
+          name: 'composer.latest.report.json'
+          path: 'composer.latest.report.json'
           retention-days: 1
 
   known:
@@ -2351,15 +2351,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'known'
+          image-ref: 'known:latest'
           format: 'json'
-          output: 'known.report.json'
+          output: 'known.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'known.report.json'
-          path: 'known.report.json'
+          name: 'known.latest.report.json'
+          path: 'known.latest.report.json'
           retention-days: 1
 
   eclipse-mosquitto:
@@ -2370,15 +2370,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'eclipse-mosquitto'
+          image-ref: 'eclipse-mosquitto:latest'
           format: 'json'
-          output: 'eclipse-mosquitto.report.json'
+          output: 'eclipse-mosquitto.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'eclipse-mosquitto.report.json'
-          path: 'eclipse-mosquitto.report.json'
+          name: 'eclipse-mosquitto.latest.report.json'
+          path: 'eclipse-mosquitto.latest.report.json'
           retention-days: 1
 
   nextcloud:
@@ -2389,15 +2389,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nextcloud'
+          image-ref: 'nextcloud:latest'
           format: 'json'
-          output: 'nextcloud.report.json'
+          output: 'nextcloud.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'nextcloud.report.json'
-          path: 'nextcloud.report.json'
+          name: 'nextcloud.latest.report.json'
+          path: 'nextcloud.latest.report.json'
           retention-days: 1
 
   silverpeas:
@@ -2408,15 +2408,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'silverpeas'
+          image-ref: 'silverpeas:latest'
           format: 'json'
-          output: 'silverpeas.report.json'
+          output: 'silverpeas.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'silverpeas.report.json'
-          path: 'silverpeas.report.json'
+          name: 'silverpeas.latest.report.json'
+          path: 'silverpeas.latest.report.json'
           retention-days: 1
 
   swift:
@@ -2427,15 +2427,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'swift'
+          image-ref: 'swift:latest'
           format: 'json'
-          output: 'swift.report.json'
+          output: 'swift.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'swift.report.json'
-          path: 'swift.report.json'
+          name: 'swift.latest.report.json'
+          path: 'swift.latest.report.json'
           retention-days: 1
 
   haxe:
@@ -2446,15 +2446,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'haxe'
+          image-ref: 'haxe:latest'
           format: 'json'
-          output: 'haxe.report.json'
+          output: 'haxe.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'haxe.report.json'
-          path: 'haxe.report.json'
+          name: 'haxe.latest.report.json'
+          path: 'haxe.latest.report.json'
           retention-days: 1
 
   rapidoid:
@@ -2465,15 +2465,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rapidoid'
+          image-ref: 'rapidoid:latest'
           format: 'json'
-          output: 'rapidoid.report.json'
+          output: 'rapidoid.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rapidoid.report.json'
-          path: 'rapidoid.report.json'
+          name: 'rapidoid.latest.report.json'
+          path: 'rapidoid.latest.report.json'
           retention-days: 1
 
   adminer:
@@ -2484,15 +2484,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'adminer'
+          image-ref: 'adminer:latest'
           format: 'json'
-          output: 'adminer.report.json'
+          output: 'adminer.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'adminer.report.json'
-          path: 'adminer.report.json'
+          name: 'adminer.latest.report.json'
+          path: 'adminer.latest.report.json'
           retention-days: 1
 
   geonetwork:
@@ -2503,15 +2503,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'geonetwork'
+          image-ref: 'geonetwork:latest'
           format: 'json'
-          output: 'geonetwork.report.json'
+          output: 'geonetwork.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'geonetwork.report.json'
-          path: 'geonetwork.report.json'
+          name: 'geonetwork.latest.report.json'
+          path: 'geonetwork.latest.report.json'
           retention-days: 1
 
   xwiki:
@@ -2522,15 +2522,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'xwiki'
+          image-ref: 'xwiki:latest'
           format: 'json'
-          output: 'xwiki.report.json'
+          output: 'xwiki.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'xwiki.report.json'
-          path: 'xwiki.report.json'
+          name: 'xwiki.latest.report.json'
+          path: 'xwiki.latest.report.json'
           retention-days: 1
 
   groovy:
@@ -2541,15 +2541,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'groovy'
+          image-ref: 'groovy:latest'
           format: 'json'
-          output: 'groovy.report.json'
+          output: 'groovy.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'groovy.report.json'
-          path: 'groovy.report.json'
+          name: 'groovy.latest.report.json'
+          path: 'groovy.latest.report.json'
           retention-days: 1
 
   znc:
@@ -2560,15 +2560,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'znc'
+          image-ref: 'znc:latest'
           format: 'json'
-          output: 'znc.report.json'
+          output: 'znc.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'znc.report.json'
-          path: 'znc.report.json'
+          name: 'znc.latest.report.json'
+          path: 'znc.latest.report.json'
           retention-days: 1
 
   gradle:
@@ -2579,15 +2579,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'gradle'
+          image-ref: 'gradle:latest'
           format: 'json'
-          output: 'gradle.report.json'
+          output: 'gradle.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'gradle.report.json'
-          path: 'gradle.report.json'
+          name: 'gradle.latest.report.json'
+          path: 'gradle.latest.report.json'
           retention-days: 1
 
   convertigo:
@@ -2598,15 +2598,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'convertigo'
+          image-ref: 'convertigo:latest'
           format: 'json'
-          output: 'convertigo.report.json'
+          output: 'convertigo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'convertigo.report.json'
-          path: 'convertigo.report.json'
+          name: 'convertigo.latest.report.json'
+          path: 'convertigo.latest.report.json'
           retention-days: 1
 
   flink:
@@ -2617,15 +2617,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'flink'
+          image-ref: 'flink:latest'
           format: 'json'
-          output: 'flink.report.json'
+          output: 'flink.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'flink.report.json'
-          path: 'flink.report.json'
+          name: 'flink.latest.report.json'
+          path: 'flink.latest.report.json'
           retention-days: 1
 
   swipl:
@@ -2636,15 +2636,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'swipl'
+          image-ref: 'swipl:latest'
           format: 'json'
-          output: 'swipl.report.json'
+          output: 'swipl.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'swipl.report.json'
-          path: 'swipl.report.json'
+          name: 'swipl.latest.report.json'
+          path: 'swipl.latest.report.json'
           retention-days: 1
 
   rust:
@@ -2655,15 +2655,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rust'
+          image-ref: 'rust:latest'
           format: 'json'
-          output: 'rust.report.json'
+          output: 'rust.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rust.report.json'
-          path: 'rust.report.json'
+          name: 'rust.latest.report.json'
+          path: 'rust.latest.report.json'
           retention-days: 1
 
   mediawiki:
@@ -2674,15 +2674,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'mediawiki'
+          image-ref: 'mediawiki:latest'
           format: 'json'
-          output: 'mediawiki.report.json'
+          output: 'mediawiki.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'mediawiki.report.json'
-          path: 'mediawiki.report.json'
+          name: 'mediawiki.latest.report.json'
+          path: 'mediawiki.latest.report.json'
           retention-days: 1
 
   euleros:
@@ -2693,15 +2693,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'euleros'
+          image-ref: 'euleros:latest'
           format: 'json'
-          output: 'euleros.report.json'
+          output: 'euleros.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'euleros.report.json'
-          path: 'euleros.report.json'
+          name: 'euleros.latest.report.json'
+          path: 'euleros.latest.report.json'
           retention-days: 1
 
   sl:
@@ -2712,15 +2712,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'sl'
+          image-ref: 'sl:latest'
           format: 'json'
-          output: 'sl.report.json'
+          output: 'sl.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'sl.report.json'
-          path: 'sl.report.json'
+          name: 'sl.latest.report.json'
+          path: 'sl.latest.report.json'
           retention-days: 1
 
   open-liberty:
@@ -2731,15 +2731,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'open-liberty'
+          image-ref: 'open-liberty:latest'
           format: 'json'
-          output: 'open-liberty.report.json'
+          output: 'open-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'open-liberty.report.json'
-          path: 'open-liberty.report.json'
+          name: 'open-liberty.latest.report.json'
+          path: 'open-liberty.latest.report.json'
           retention-days: 1
 
   clefos:
@@ -2750,15 +2750,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'clefos'
+          image-ref: 'clefos:latest'
           format: 'json'
-          output: 'clefos.report.json'
+          output: 'clefos.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'clefos.report.json'
-          path: 'clefos.report.json'
+          name: 'clefos.latest.report.json'
+          path: 'clefos.latest.report.json'
           retention-days: 1
 
   teamspeak:
@@ -2769,15 +2769,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'teamspeak'
+          image-ref: 'teamspeak:latest'
           format: 'json'
-          output: 'teamspeak.report.json'
+          output: 'teamspeak.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'teamspeak.report.json'
-          path: 'teamspeak.report.json'
+          name: 'teamspeak.latest.report.json'
+          path: 'teamspeak.latest.report.json'
           retention-days: 1
 
   matomo:
@@ -2788,15 +2788,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'matomo'
+          image-ref: 'matomo:latest'
           format: 'json'
-          output: 'matomo.report.json'
+          output: 'matomo.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'matomo.report.json'
-          path: 'matomo.report.json'
+          name: 'matomo.latest.report.json'
+          path: 'matomo.latest.report.json'
           retention-days: 1
 
   yourls:
@@ -2807,15 +2807,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'yourls'
+          image-ref: 'yourls:latest'
           format: 'json'
-          output: 'yourls.report.json'
+          output: 'yourls.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'yourls.report.json'
-          path: 'yourls.report.json'
+          name: 'yourls.latest.report.json'
+          path: 'yourls.latest.report.json'
           retention-days: 1
 
   alt:
@@ -2826,15 +2826,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'alt'
+          image-ref: 'alt:latest'
           format: 'json'
-          output: 'alt.report.json'
+          output: 'alt.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'alt.report.json'
-          path: 'alt.report.json'
+          name: 'alt.latest.report.json'
+          path: 'alt.latest.report.json'
           retention-days: 1
 
   amazoncorretto:
@@ -2845,15 +2845,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'amazoncorretto'
+          image-ref: 'amazoncorretto:latest'
           format: 'json'
-          output: 'amazoncorretto.report.json'
+          output: 'amazoncorretto.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'amazoncorretto.report.json'
-          path: 'amazoncorretto.report.json'
+          name: 'amazoncorretto.latest.report.json'
+          path: 'amazoncorretto.latest.report.json'
           retention-days: 1
 
   express-gateway:
@@ -2864,15 +2864,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'express-gateway'
+          image-ref: 'express-gateway:latest'
           format: 'json'
-          output: 'express-gateway.report.json'
+          output: 'express-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'express-gateway.report.json'
-          path: 'express-gateway.report.json'
+          name: 'express-gateway.latest.report.json'
+          path: 'express-gateway.latest.report.json'
           retention-days: 1
 
   postfixadmin:
@@ -2883,15 +2883,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'postfixadmin'
+          image-ref: 'postfixadmin:latest'
           format: 'json'
-          output: 'postfixadmin.report.json'
+          output: 'postfixadmin.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'postfixadmin.report.json'
-          path: 'postfixadmin.report.json'
+          name: 'postfixadmin.latest.report.json'
+          path: 'postfixadmin.latest.report.json'
           retention-days: 1
 
   fluentd:
@@ -2902,15 +2902,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'fluentd'
+          image-ref: 'fluentd:latest'
           format: 'json'
-          output: 'fluentd.report.json'
+          output: 'fluentd.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'fluentd.report.json'
-          path: 'fluentd.report.json'
+          name: 'fluentd.latest.report.json'
+          path: 'fluentd.latest.report.json'
           retention-days: 1
 
   adoptopenjdk:
@@ -2921,15 +2921,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'adoptopenjdk'
+          image-ref: 'adoptopenjdk:latest'
           format: 'json'
-          output: 'adoptopenjdk.report.json'
+          output: 'adoptopenjdk.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'adoptopenjdk.report.json'
-          path: 'adoptopenjdk.report.json'
+          name: 'adoptopenjdk.latest.report.json'
+          path: 'adoptopenjdk.latest.report.json'
           retention-days: 1
 
   sapmachine:
@@ -2940,15 +2940,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'sapmachine'
+          image-ref: 'sapmachine:latest'
           format: 'json'
-          output: 'sapmachine.report.json'
+          output: 'sapmachine.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'sapmachine.report.json'
-          path: 'sapmachine.report.json'
+          name: 'sapmachine.latest.report.json'
+          path: 'sapmachine.latest.report.json'
           retention-days: 1
 
   varnish:
@@ -2959,15 +2959,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'varnish'
+          image-ref: 'varnish:latest'
           format: 'json'
-          output: 'varnish.report.json'
+          output: 'varnish.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'varnish.report.json'
-          path: 'varnish.report.json'
+          name: 'varnish.latest.report.json'
+          path: 'varnish.latest.report.json'
           retention-days: 1
 
   jobber:
@@ -2978,15 +2978,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'jobber'
+          image-ref: 'jobber:latest'
           format: 'json'
-          output: 'jobber.report.json'
+          output: 'jobber.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'jobber.report.json'
-          path: 'jobber.report.json'
+          name: 'jobber.latest.report.json'
+          path: 'jobber.latest.report.json'
           retention-days: 1
 
   archlinux:
@@ -2997,15 +2997,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'archlinux'
+          image-ref: 'archlinux:latest'
           format: 'json'
-          output: 'archlinux.report.json'
+          output: 'archlinux.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'archlinux.report.json'
-          path: 'archlinux.report.json'
+          name: 'archlinux.latest.report.json'
+          path: 'archlinux.latest.report.json'
           retention-days: 1
 
   friendica:
@@ -3016,15 +3016,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'friendica'
+          image-ref: 'friendica:latest'
           format: 'json'
-          output: 'friendica.report.json'
+          output: 'friendica.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'friendica.report.json'
-          path: 'friendica.report.json'
+          name: 'friendica.latest.report.json'
+          path: 'friendica.latest.report.json'
           retention-days: 1
 
   caddy:
@@ -3035,15 +3035,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'caddy'
+          image-ref: 'caddy:latest'
           format: 'json'
-          output: 'caddy.report.json'
+          output: 'caddy.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'caddy.report.json'
-          path: 'caddy.report.json'
+          name: 'caddy.latest.report.json'
+          path: 'caddy.latest.report.json'
           retention-days: 1
 
   monica:
@@ -3054,15 +3054,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'monica'
+          image-ref: 'monica:latest'
           format: 'json'
-          output: 'monica.report.json'
+          output: 'monica.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'monica.report.json'
-          path: 'monica.report.json'
+          name: 'monica.latest.report.json'
+          path: 'monica.latest.report.json'
           retention-days: 1
 
   phpmyadmin:
@@ -3073,15 +3073,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'phpmyadmin'
+          image-ref: 'phpmyadmin:latest'
           format: 'json'
-          output: 'phpmyadmin.report.json'
+          output: 'phpmyadmin.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'phpmyadmin.report.json'
-          path: 'phpmyadmin.report.json'
+          name: 'phpmyadmin.latest.report.json'
+          path: 'phpmyadmin.latest.report.json'
           retention-days: 1
 
   hitch:
@@ -3092,15 +3092,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'hitch'
+          image-ref: 'hitch:latest'
           format: 'json'
-          output: 'hitch.report.json'
+          output: 'hitch.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'hitch.report.json'
-          path: 'hitch.report.json'
+          name: 'hitch.latest.report.json'
+          path: 'hitch.latest.report.json'
           retention-days: 1
 
   almalinux:
@@ -3111,15 +3111,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'almalinux'
+          image-ref: 'almalinux:latest'
           format: 'json'
-          output: 'almalinux.report.json'
+          output: 'almalinux.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'almalinux.report.json'
-          path: 'almalinux.report.json'
+          name: 'almalinux.latest.report.json'
+          path: 'almalinux.latest.report.json'
           retention-days: 1
 
   dart:
@@ -3130,15 +3130,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'dart'
+          image-ref: 'dart:latest'
           format: 'json'
-          output: 'dart.report.json'
+          output: 'dart.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'dart.report.json'
-          path: 'dart.report.json'
+          name: 'dart.latest.report.json'
+          path: 'dart.latest.report.json'
           retention-days: 1
 
   eclipse-temurin:
@@ -3149,15 +3149,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'eclipse-temurin'
+          image-ref: 'eclipse-temurin:latest'
           format: 'json'
-          output: 'eclipse-temurin.report.json'
+          output: 'eclipse-temurin.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'eclipse-temurin.report.json'
-          path: 'eclipse-temurin.report.json'
+          name: 'eclipse-temurin.latest.report.json'
+          path: 'eclipse-temurin.latest.report.json'
           retention-days: 1
 
   ibm-semeru-runtimes:
@@ -3168,15 +3168,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibm-semeru-runtimes'
+          image-ref: 'ibm-semeru-runtimes:open-8u392-b08-jre-jammy'
           format: 'json'
-          output: 'ibm-semeru-runtimes.report.json'
+          output: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ibm-semeru-runtimes.report.json'
-          path: 'ibm-semeru-runtimes.report.json'
+          name: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
+          path: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
           retention-days: 1
 
   rockylinux:
@@ -3187,15 +3187,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'rockylinux'
+          image-ref: 'rockylinux:9.3.20231119-minimal'
           format: 'json'
-          output: 'rockylinux.report.json'
+          output: 'rockylinux.9.3.20231119-minimal.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'rockylinux.report.json'
-          path: 'rockylinux.report.json'
+          name: 'rockylinux.9.3.20231119-minimal.report.json'
+          path: 'rockylinux.9.3.20231119-minimal.report.json'
           retention-days: 1
 
   api-firewall:
@@ -3206,15 +3206,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'api-firewall'
+          image-ref: 'api-firewall:latest'
           format: 'json'
-          output: 'api-firewall.report.json'
+          output: 'api-firewall.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'api-firewall.report.json'
-          path: 'api-firewall.report.json'
+          name: 'api-firewall.latest.report.json'
+          path: 'api-firewall.latest.report.json'
           retention-days: 1
 
   emqx:
@@ -3225,15 +3225,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'emqx'
+          image-ref: 'emqx:latest'
           format: 'json'
-          output: 'emqx.report.json'
+          output: 'emqx.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'emqx.report.json'
-          path: 'emqx.report.json'
+          name: 'emqx.latest.report.json'
+          path: 'emqx.latest.report.json'
           retention-days: 1
 
   satosa:
@@ -3244,15 +3244,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'satosa'
+          image-ref: 'satosa:latest'
           format: 'json'
-          output: 'satosa.report.json'
+          output: 'satosa.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'satosa.report.json'
-          path: 'satosa.report.json'
+          name: 'satosa.latest.report.json'
+          path: 'satosa.latest.report.json'
           retention-days: 1
 
   unit:
@@ -3263,15 +3263,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'unit'
+          image-ref: 'unit:latest'
           format: 'json'
-          output: 'unit.report.json'
+          output: 'unit.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'unit.report.json'
-          path: 'unit.report.json'
+          name: 'unit.latest.report.json'
+          path: 'unit.latest.report.json'
           retention-days: 1
 
   spark:
@@ -3282,15 +3282,15 @@ jobs:
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'spark'
+          image-ref: 'spark:latest'
           format: 'json'
-          output: 'spark.report.json'
+          output: 'spark.latest.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload report
         uses: actions/upload-artifact@v4
         with:
-          name: 'spark.report.json'
-          path: 'spark.report.json'
+          name: 'spark.latest.report.json'
+          path: 'spark.latest.report.json'
           retention-days: 1
 
   collect:
