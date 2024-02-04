@@ -51,7 +51,7 @@ jobs:{% for image in images %}
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: '*.report.json'
+          pattern: '*.json'
       - name: Create archive
         run: |
          mkdir files
