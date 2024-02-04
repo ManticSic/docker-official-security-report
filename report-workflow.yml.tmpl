@@ -1,0 +1,41 @@
+name: Generate Report
+
+on:
+  schedule:
+    - cron: "0 12 * * 0"
+  workflow_dispatch:
+
+jobs:{% for image in images %}
+  {{ image.name | replace(".", "_") }}:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull image
+        run: docker pull {{ image.name }}:{{ image.tag }}
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '{{ image.name }}:{{ image.tag }}'
+          format: 'json'
+          output: '{{ image.name }}.{{ image.tag }}.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: '{{ image.name }}.{{ image.tag }}.report.json'
+          path: '{{ image.name }}.{{ image.tag }}.report.json'
+          retention-days: 1
+{% endfor %}
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*.report.json'
+      - name: Create archive
+        run: tar cvzf reports.tar.gz *.report.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'reports.tar.gz'
+          path: 'reports.tar.gz'
