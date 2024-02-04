@@ -43,6 +43,7 @@ jobs:{% for image in images %}
 {% endfor %}
   collect:
     runs-on: ubuntu-latest
+    needs: [{% for image in images %}{{ image.name | replace(".", "_") }}{{ ", " if not loop.last else "" }}{% endfor %}]
     steps:
       - name: Get current date
         id: date
