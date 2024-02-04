@@ -348,25 +348,6 @@ jobs:
           path: 'redis.latest.report.json'
           retention-days: 1
 
-  java:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image
-        run: docker pull java:6
-      - name: Create report
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'java:6'
-          format: 'json'
-          output: 'java.6.report.json'
-          scanners: 'vuln,secret,config'
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'java.6.report.json'
-          path: 'java.6.report.json'
-          retention-days: 1
-
   mongo:
     runs-on: ubuntu-latest
     steps:
@@ -2740,25 +2721,6 @@ jobs:
         with:
           name: 'open-liberty.latest.report.json'
           path: 'open-liberty.latest.report.json'
-          retention-days: 1
-
-  clefos:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Pull image
-        run: docker pull clefos:latest
-      - name: Create report
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: 'clefos:latest'
-          format: 'json'
-          output: 'clefos.latest.report.json'
-          scanners: 'vuln,secret,config'
-      - name: Upload report
-        uses: actions/upload-artifact@v4
-        with:
-          name: 'clefos.latest.report.json'
-          path: 'clefos.latest.report.json'
           retention-days: 1
 
   teamspeak:
