@@ -18,11 +18,27 @@ jobs:{% for image in images %}
           format: 'json'
           output: '{{ image.name }}.{{ image.tag }}.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o {{ image.name  }}.image.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}'
+      - name: Fetch additional data about the tag
+        run: curl -L -o {{ image.name  }}.{{ image.tag }}.tag.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}/tags/{{ image.tag }}'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: '{{ image.name }}.{{ image.tag }}.report.json'
           path: '{{ image.name }}.{{ image.tag }}.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: '{{ image.name  }}.image.json'
+          path: '{{ image.name  }}.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: '{{ image.name  }}.{{ image.tag }}.tag.json'
+          path: '{{ image.name  }}.{{ image.tag }}.tag.json'
           retention-days: 1
 {% endfor %}
   collect:
@@ -33,7 +49,7 @@ jobs:{% for image in images %}
         with:
           pattern: '*.report.json'
       - name: Create archive
-        run: tar cvzf reports.tar.gz *.report.json
+        run: tar cvzf reports.tar.gz *.json
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:

@@ -18,11 +18,27 @@ jobs:
           format: 'json'
           output: 'centos.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o centos.image.json -s 'https://hub.docker.com/v2/repositories/library/centos'
+      - name: Fetch additional data about the tag
+        run: curl -L -o centos.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/centos/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'centos.latest.report.json'
           path: 'centos.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'centos.image.json'
+          path: 'centos.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'centos.latest.tag.json'
+          path: 'centos.latest.tag.json'
           retention-days: 1
 
   busybox:
@@ -37,11 +53,27 @@ jobs:
           format: 'json'
           output: 'busybox.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o busybox.image.json -s 'https://hub.docker.com/v2/repositories/library/busybox'
+      - name: Fetch additional data about the tag
+        run: curl -L -o busybox.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/busybox/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'busybox.latest.report.json'
           path: 'busybox.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'busybox.image.json'
+          path: 'busybox.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'busybox.latest.tag.json'
+          path: 'busybox.latest.tag.json'
           retention-days: 1
 
   ubuntu:
@@ -56,11 +88,27 @@ jobs:
           format: 'json'
           output: 'ubuntu.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ubuntu.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ubuntu.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ubuntu.latest.report.json'
           path: 'ubuntu.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu.image.json'
+          path: 'ubuntu.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu.latest.tag.json'
+          path: 'ubuntu.latest.tag.json'
           retention-days: 1
 
   fedora:
@@ -75,11 +123,27 @@ jobs:
           format: 'json'
           output: 'fedora.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o fedora.image.json -s 'https://hub.docker.com/v2/repositories/library/fedora'
+      - name: Fetch additional data about the tag
+        run: curl -L -o fedora.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fedora/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'fedora.latest.report.json'
           path: 'fedora.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fedora.image.json'
+          path: 'fedora.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fedora.latest.tag.json'
+          path: 'fedora.latest.tag.json'
           retention-days: 1
 
   registry:
@@ -94,11 +158,27 @@ jobs:
           format: 'json'
           output: 'registry.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o registry.image.json -s 'https://hub.docker.com/v2/repositories/library/registry'
+      - name: Fetch additional data about the tag
+        run: curl -L -o registry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/registry/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'registry.latest.report.json'
           path: 'registry.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'registry.image.json'
+          path: 'registry.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'registry.latest.tag.json'
+          path: 'registry.latest.tag.json'
           retention-days: 1
 
   hipache:
@@ -113,11 +193,27 @@ jobs:
           format: 'json'
           output: 'hipache.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hipache.image.json -s 'https://hub.docker.com/v2/repositories/library/hipache'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hipache.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hipache/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hipache.latest.report.json'
           path: 'hipache.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hipache.image.json'
+          path: 'hipache.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hipache.latest.tag.json'
+          path: 'hipache.latest.tag.json'
           retention-days: 1
 
   docker-dev:
@@ -132,11 +228,27 @@ jobs:
           format: 'json'
           output: 'docker-dev.1.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o docker-dev.image.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev'
+      - name: Fetch additional data about the tag
+        run: curl -L -o docker-dev.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev/tags/1'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'docker-dev.1.report.json'
           path: 'docker-dev.1.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker-dev.image.json'
+          path: 'docker-dev.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker-dev.1.tag.json'
+          path: 'docker-dev.1.tag.json'
           retention-days: 1
 
   debian:
@@ -151,11 +263,27 @@ jobs:
           format: 'json'
           output: 'debian.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o debian.image.json -s 'https://hub.docker.com/v2/repositories/library/debian'
+      - name: Fetch additional data about the tag
+        run: curl -L -o debian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/debian/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'debian.latest.report.json'
           path: 'debian.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'debian.image.json'
+          path: 'debian.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'debian.latest.tag.json'
+          path: 'debian.latest.tag.json'
           retention-days: 1
 
   cirros:
@@ -170,11 +298,27 @@ jobs:
           format: 'json'
           output: 'cirros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o cirros.image.json -s 'https://hub.docker.com/v2/repositories/library/cirros'
+      - name: Fetch additional data about the tag
+        run: curl -L -o cirros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cirros/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'cirros.latest.report.json'
           path: 'cirros.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cirros.image.json'
+          path: 'cirros.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cirros.latest.tag.json'
+          path: 'cirros.latest.tag.json'
           retention-days: 1
 
   crux:
@@ -189,11 +333,27 @@ jobs:
           format: 'json'
           output: 'crux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o crux.image.json -s 'https://hub.docker.com/v2/repositories/library/crux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o crux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crux/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'crux.latest.report.json'
           path: 'crux.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crux.image.json'
+          path: 'crux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crux.latest.tag.json'
+          path: 'crux.latest.tag.json'
           retention-days: 1
 
   ubuntu-upstart:
@@ -208,11 +368,27 @@ jobs:
           format: 'json'
           output: 'ubuntu-upstart.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ubuntu-upstart.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ubuntu-upstart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ubuntu-upstart.latest.report.json'
           path: 'ubuntu-upstart.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-upstart.image.json'
+          path: 'ubuntu-upstart.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-upstart.latest.tag.json'
+          path: 'ubuntu-upstart.latest.tag.json'
           retention-days: 1
 
   buildpack-deps:
@@ -227,11 +403,27 @@ jobs:
           format: 'json'
           output: 'buildpack-deps.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o buildpack-deps.image.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps'
+      - name: Fetch additional data about the tag
+        run: curl -L -o buildpack-deps.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'buildpack-deps.latest.report.json'
           path: 'buildpack-deps.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'buildpack-deps.image.json'
+          path: 'buildpack-deps.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'buildpack-deps.latest.tag.json'
+          path: 'buildpack-deps.latest.tag.json'
           retention-days: 1
 
   nginx:
@@ -246,11 +438,27 @@ jobs:
           format: 'json'
           output: 'nginx.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o nginx.image.json -s 'https://hub.docker.com/v2/repositories/library/nginx'
+      - name: Fetch additional data about the tag
+        run: curl -L -o nginx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nginx/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'nginx.latest.report.json'
           path: 'nginx.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nginx.image.json'
+          path: 'nginx.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nginx.latest.tag.json'
+          path: 'nginx.latest.tag.json'
           retention-days: 1
 
   node:
@@ -265,11 +473,27 @@ jobs:
           format: 'json'
           output: 'node.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o node.image.json -s 'https://hub.docker.com/v2/repositories/library/node'
+      - name: Fetch additional data about the tag
+        run: curl -L -o node.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/node/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'node.latest.report.json'
           path: 'node.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'node.image.json'
+          path: 'node.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'node.latest.tag.json'
+          path: 'node.latest.tag.json'
           retention-days: 1
 
   mysql:
@@ -284,11 +508,27 @@ jobs:
           format: 'json'
           output: 'mysql.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mysql.image.json -s 'https://hub.docker.com/v2/repositories/library/mysql'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mysql.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mysql/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mysql.latest.report.json'
           path: 'mysql.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mysql.image.json'
+          path: 'mysql.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mysql.latest.tag.json'
+          path: 'mysql.latest.tag.json'
           retention-days: 1
 
   wordpress:
@@ -303,11 +543,27 @@ jobs:
           format: 'json'
           output: 'wordpress.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o wordpress.image.json -s 'https://hub.docker.com/v2/repositories/library/wordpress'
+      - name: Fetch additional data about the tag
+        run: curl -L -o wordpress.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/wordpress/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'wordpress.latest.report.json'
           path: 'wordpress.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'wordpress.image.json'
+          path: 'wordpress.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'wordpress.latest.tag.json'
+          path: 'wordpress.latest.tag.json'
           retention-days: 1
 
   postgres:
@@ -322,11 +578,27 @@ jobs:
           format: 'json'
           output: 'postgres.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o postgres.image.json -s 'https://hub.docker.com/v2/repositories/library/postgres'
+      - name: Fetch additional data about the tag
+        run: curl -L -o postgres.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postgres/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'postgres.latest.report.json'
           path: 'postgres.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postgres.image.json'
+          path: 'postgres.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postgres.latest.tag.json'
+          path: 'postgres.latest.tag.json'
           retention-days: 1
 
   redis:
@@ -341,11 +613,27 @@ jobs:
           format: 'json'
           output: 'redis.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o redis.image.json -s 'https://hub.docker.com/v2/repositories/library/redis'
+      - name: Fetch additional data about the tag
+        run: curl -L -o redis.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redis/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'redis.latest.report.json'
           path: 'redis.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redis.image.json'
+          path: 'redis.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redis.latest.tag.json'
+          path: 'redis.latest.tag.json'
           retention-days: 1
 
   mongo:
@@ -360,11 +648,27 @@ jobs:
           format: 'json'
           output: 'mongo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mongo.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mongo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mongo.latest.report.json'
           path: 'mongo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo.image.json'
+          path: 'mongo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo.latest.tag.json'
+          path: 'mongo.latest.tag.json'
           retention-days: 1
 
   rails:
@@ -379,11 +683,27 @@ jobs:
           format: 'json'
           output: 'rails.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rails.image.json -s 'https://hub.docker.com/v2/repositories/library/rails'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rails.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rails/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rails.latest.report.json'
           path: 'rails.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rails.image.json'
+          path: 'rails.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rails.latest.tag.json'
+          path: 'rails.latest.tag.json'
           retention-days: 1
 
   ruby:
@@ -398,11 +718,27 @@ jobs:
           format: 'json'
           output: 'ruby.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ruby.image.json -s 'https://hub.docker.com/v2/repositories/library/ruby'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ruby/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ruby.latest.report.json'
           path: 'ruby.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ruby.image.json'
+          path: 'ruby.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ruby.latest.tag.json'
+          path: 'ruby.latest.tag.json'
           retention-days: 1
 
   python:
@@ -417,11 +753,27 @@ jobs:
           format: 'json'
           output: 'python.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o python.image.json -s 'https://hub.docker.com/v2/repositories/library/python'
+      - name: Fetch additional data about the tag
+        run: curl -L -o python.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/python/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'python.latest.report.json'
           path: 'python.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'python.image.json'
+          path: 'python.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'python.latest.tag.json'
+          path: 'python.latest.tag.json'
           retention-days: 1
 
   ubuntu-debootstrap:
@@ -436,11 +788,27 @@ jobs:
           format: 'json'
           output: 'ubuntu-debootstrap.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ubuntu-debootstrap.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ubuntu-debootstrap.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ubuntu-debootstrap.latest.report.json'
           path: 'ubuntu-debootstrap.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-debootstrap.image.json'
+          path: 'ubuntu-debootstrap.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ubuntu-debootstrap.latest.tag.json'
+          path: 'ubuntu-debootstrap.latest.tag.json'
           retention-days: 1
 
   perl:
@@ -455,11 +823,27 @@ jobs:
           format: 'json'
           output: 'perl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o perl.image.json -s 'https://hub.docker.com/v2/repositories/library/perl'
+      - name: Fetch additional data about the tag
+        run: curl -L -o perl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/perl/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'perl.latest.report.json'
           path: 'perl.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'perl.image.json'
+          path: 'perl.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'perl.latest.tag.json'
+          path: 'perl.latest.tag.json'
           retention-days: 1
 
   hello-world:
@@ -474,11 +858,27 @@ jobs:
           format: 'json'
           output: 'hello-world.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hello-world.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-world'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hello-world.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-world/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hello-world.latest.report.json'
           path: 'hello-world.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-world.image.json'
+          path: 'hello-world.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-world.latest.tag.json'
+          path: 'hello-world.latest.tag.json'
           retention-days: 1
 
   hylang:
@@ -493,11 +893,27 @@ jobs:
           format: 'json'
           output: 'hylang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hylang.image.json -s 'https://hub.docker.com/v2/repositories/library/hylang'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hylang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hylang/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hylang.latest.report.json'
           path: 'hylang.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hylang.image.json'
+          path: 'hylang.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hylang.latest.tag.json'
+          path: 'hylang.latest.tag.json'
           retention-days: 1
 
   gcc:
@@ -512,11 +928,27 @@ jobs:
           format: 'json'
           output: 'gcc.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o gcc.image.json -s 'https://hub.docker.com/v2/repositories/library/gcc'
+      - name: Fetch additional data about the tag
+        run: curl -L -o gcc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gcc/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'gcc.latest.report.json'
           path: 'gcc.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gcc.image.json'
+          path: 'gcc.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gcc.latest.tag.json'
+          path: 'gcc.latest.tag.json'
           retention-days: 1
 
   jenkins:
@@ -531,11 +963,27 @@ jobs:
           format: 'json'
           output: 'jenkins.2.60.3.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o jenkins.image.json -s 'https://hub.docker.com/v2/repositories/library/jenkins'
+      - name: Fetch additional data about the tag
+        run: curl -L -o jenkins.2.60.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/jenkins/tags/2.60.3'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'jenkins.2.60.3.report.json'
           path: 'jenkins.2.60.3.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jenkins.image.json'
+          path: 'jenkins.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jenkins.2.60.3.tag.json'
+          path: 'jenkins.2.60.3.tag.json'
           retention-days: 1
 
   golang:
@@ -550,11 +998,27 @@ jobs:
           format: 'json'
           output: 'golang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o golang.image.json -s 'https://hub.docker.com/v2/repositories/library/golang'
+      - name: Fetch additional data about the tag
+        run: curl -L -o golang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/golang/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'golang.latest.report.json'
           path: 'golang.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'golang.image.json'
+          path: 'golang.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'golang.latest.tag.json'
+          path: 'golang.latest.tag.json'
           retention-days: 1
 
   neurodebian:
@@ -569,11 +1033,27 @@ jobs:
           format: 'json'
           output: 'neurodebian.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o neurodebian.image.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian'
+      - name: Fetch additional data about the tag
+        run: curl -L -o neurodebian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'neurodebian.latest.report.json'
           path: 'neurodebian.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neurodebian.image.json'
+          path: 'neurodebian.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neurodebian.latest.tag.json'
+          path: 'neurodebian.latest.tag.json'
           retention-days: 1
 
   clojure:
@@ -588,11 +1068,27 @@ jobs:
           format: 'json'
           output: 'clojure.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o clojure.image.json -s 'https://hub.docker.com/v2/repositories/library/clojure'
+      - name: Fetch additional data about the tag
+        run: curl -L -o clojure.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clojure/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'clojure.latest.report.json'
           path: 'clojure.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clojure.image.json'
+          path: 'clojure.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clojure.latest.tag.json'
+          path: 'clojure.latest.tag.json'
           retention-days: 1
 
   php:
@@ -607,11 +1103,27 @@ jobs:
           format: 'json'
           output: 'php.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o php.image.json -s 'https://hub.docker.com/v2/repositories/library/php'
+      - name: Fetch additional data about the tag
+        run: curl -L -o php.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'php.latest.report.json'
           path: 'php.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php.image.json'
+          path: 'php.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php.latest.tag.json'
+          path: 'php.latest.tag.json'
           retention-days: 1
 
   jruby:
@@ -626,11 +1138,27 @@ jobs:
           format: 'json'
           output: 'jruby.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o jruby.image.json -s 'https://hub.docker.com/v2/repositories/library/jruby'
+      - name: Fetch additional data about the tag
+        run: curl -L -o jruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jruby/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'jruby.latest.report.json'
           path: 'jruby.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jruby.image.json'
+          path: 'jruby.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jruby.latest.tag.json'
+          path: 'jruby.latest.tag.json'
           retention-days: 1
 
   mageia:
@@ -645,11 +1173,27 @@ jobs:
           format: 'json'
           output: 'mageia.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mageia.image.json -s 'https://hub.docker.com/v2/repositories/library/mageia'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mageia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mageia/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mageia.latest.report.json'
           path: 'mageia.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mageia.image.json'
+          path: 'mageia.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mageia.latest.tag.json'
+          path: 'mageia.latest.tag.json'
           retention-days: 1
 
   crate:
@@ -664,11 +1208,27 @@ jobs:
           format: 'json'
           output: 'crate.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o crate.image.json -s 'https://hub.docker.com/v2/repositories/library/crate'
+      - name: Fetch additional data about the tag
+        run: curl -L -o crate.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crate/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'crate.latest.report.json'
           path: 'crate.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crate.image.json'
+          path: 'crate.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'crate.latest.tag.json'
+          path: 'crate.latest.tag.json'
           retention-days: 1
 
   php-zendserver:
@@ -683,11 +1243,27 @@ jobs:
           format: 'json'
           output: 'php-zendserver.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o php-zendserver.image.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver'
+      - name: Fetch additional data about the tag
+        run: curl -L -o php-zendserver.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'php-zendserver.latest.report.json'
           path: 'php-zendserver.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php-zendserver.image.json'
+          path: 'php-zendserver.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'php-zendserver.latest.tag.json'
+          path: 'php-zendserver.latest.tag.json'
           retention-days: 1
 
   tomcat:
@@ -702,11 +1278,27 @@ jobs:
           format: 'json'
           output: 'tomcat.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o tomcat.image.json -s 'https://hub.docker.com/v2/repositories/library/tomcat'
+      - name: Fetch additional data about the tag
+        run: curl -L -o tomcat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomcat/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'tomcat.latest.report.json'
           path: 'tomcat.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomcat.image.json'
+          path: 'tomcat.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomcat.latest.tag.json'
+          path: 'tomcat.latest.tag.json'
           retention-days: 1
 
   mono:
@@ -721,11 +1313,27 @@ jobs:
           format: 'json'
           output: 'mono.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mono.image.json -s 'https://hub.docker.com/v2/repositories/library/mono'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mono.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mono/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mono.latest.report.json'
           path: 'mono.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mono.image.json'
+          path: 'mono.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mono.latest.tag.json'
+          path: 'mono.latest.tag.json'
           retention-days: 1
 
   haskell:
@@ -740,11 +1348,27 @@ jobs:
           format: 'json'
           output: 'haskell.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o haskell.image.json -s 'https://hub.docker.com/v2/repositories/library/haskell'
+      - name: Fetch additional data about the tag
+        run: curl -L -o haskell.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haskell/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'haskell.latest.report.json'
           path: 'haskell.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haskell.image.json'
+          path: 'haskell.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haskell.latest.tag.json'
+          path: 'haskell.latest.tag.json'
           retention-days: 1
 
   glassfish:
@@ -759,11 +1383,27 @@ jobs:
           format: 'json'
           output: 'glassfish.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o glassfish.image.json -s 'https://hub.docker.com/v2/repositories/library/glassfish'
+      - name: Fetch additional data about the tag
+        run: curl -L -o glassfish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/glassfish/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'glassfish.latest.report.json'
           path: 'glassfish.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'glassfish.image.json'
+          path: 'glassfish.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'glassfish.latest.tag.json'
+          path: 'glassfish.latest.tag.json'
           retention-days: 1
 
   maven:
@@ -778,11 +1418,27 @@ jobs:
           format: 'json'
           output: 'maven.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o maven.image.json -s 'https://hub.docker.com/v2/repositories/library/maven'
+      - name: Fetch additional data about the tag
+        run: curl -L -o maven.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/maven/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'maven.latest.report.json'
           path: 'maven.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'maven.image.json'
+          path: 'maven.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'maven.latest.tag.json'
+          path: 'maven.latest.tag.json'
           retention-days: 1
 
   httpd:
@@ -797,11 +1453,27 @@ jobs:
           format: 'json'
           output: 'httpd.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o httpd.image.json -s 'https://hub.docker.com/v2/repositories/library/httpd'
+      - name: Fetch additional data about the tag
+        run: curl -L -o httpd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/httpd/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'httpd.latest.report.json'
           path: 'httpd.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'httpd.image.json'
+          path: 'httpd.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'httpd.latest.tag.json'
+          path: 'httpd.latest.tag.json'
           retention-days: 1
 
   sentry:
@@ -816,11 +1488,27 @@ jobs:
           format: 'json'
           output: 'sentry.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o sentry.image.json -s 'https://hub.docker.com/v2/repositories/library/sentry'
+      - name: Fetch additional data about the tag
+        run: curl -L -o sentry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sentry/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'sentry.latest.report.json'
           path: 'sentry.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sentry.image.json'
+          path: 'sentry.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sentry.latest.tag.json'
+          path: 'sentry.latest.tag.json'
           retention-days: 1
 
   r-base:
@@ -835,11 +1523,27 @@ jobs:
           format: 'json'
           output: 'r-base.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o r-base.image.json -s 'https://hub.docker.com/v2/repositories/library/r-base'
+      - name: Fetch additional data about the tag
+        run: curl -L -o r-base.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/r-base/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'r-base.latest.report.json'
           path: 'r-base.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'r-base.image.json'
+          path: 'r-base.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'r-base.latest.tag.json'
+          path: 'r-base.latest.tag.json'
           retention-days: 1
 
   mariadb:
@@ -854,11 +1558,27 @@ jobs:
           format: 'json'
           output: 'mariadb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mariadb.image.json -s 'https://hub.docker.com/v2/repositories/library/mariadb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mariadb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mariadb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mariadb.latest.report.json'
           path: 'mariadb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mariadb.image.json'
+          path: 'mariadb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mariadb.latest.tag.json'
+          path: 'mariadb.latest.tag.json'
           retention-days: 1
 
   thrift:
@@ -873,11 +1593,27 @@ jobs:
           format: 'json'
           output: 'thrift.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o thrift.image.json -s 'https://hub.docker.com/v2/repositories/library/thrift'
+      - name: Fetch additional data about the tag
+        run: curl -L -o thrift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/thrift/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'thrift.latest.report.json'
           path: 'thrift.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'thrift.image.json'
+          path: 'thrift.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'thrift.latest.tag.json'
+          path: 'thrift.latest.tag.json'
           retention-days: 1
 
   pypy:
@@ -892,11 +1628,27 @@ jobs:
           format: 'json'
           output: 'pypy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o pypy.image.json -s 'https://hub.docker.com/v2/repositories/library/pypy'
+      - name: Fetch additional data about the tag
+        run: curl -L -o pypy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/pypy/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'pypy.latest.report.json'
           path: 'pypy.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'pypy.image.json'
+          path: 'pypy.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'pypy.latest.tag.json'
+          path: 'pypy.latest.tag.json'
           retention-days: 1
 
   django:
@@ -911,11 +1663,27 @@ jobs:
           format: 'json'
           output: 'django.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o django.image.json -s 'https://hub.docker.com/v2/repositories/library/django'
+      - name: Fetch additional data about the tag
+        run: curl -L -o django.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/django/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'django.latest.report.json'
           path: 'django.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'django.image.json'
+          path: 'django.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'django.latest.tag.json'
+          path: 'django.latest.tag.json'
           retention-days: 1
 
   haproxy:
@@ -930,11 +1698,27 @@ jobs:
           format: 'json'
           output: 'haproxy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o haproxy.image.json -s 'https://hub.docker.com/v2/repositories/library/haproxy'
+      - name: Fetch additional data about the tag
+        run: curl -L -o haproxy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haproxy/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'haproxy.latest.report.json'
           path: 'haproxy.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haproxy.image.json'
+          path: 'haproxy.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haproxy.latest.tag.json'
+          path: 'haproxy.latest.tag.json'
           retention-days: 1
 
   memcached:
@@ -949,11 +1733,27 @@ jobs:
           format: 'json'
           output: 'memcached.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o memcached.image.json -s 'https://hub.docker.com/v2/repositories/library/memcached'
+      - name: Fetch additional data about the tag
+        run: curl -L -o memcached.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/memcached/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'memcached.latest.report.json'
           path: 'memcached.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'memcached.image.json'
+          path: 'memcached.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'memcached.latest.tag.json'
+          path: 'memcached.latest.tag.json'
           retention-days: 1
 
   rabbitmq:
@@ -968,11 +1768,27 @@ jobs:
           format: 'json'
           output: 'rabbitmq.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rabbitmq.image.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rabbitmq.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rabbitmq.latest.report.json'
           path: 'rabbitmq.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rabbitmq.image.json'
+          path: 'rabbitmq.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rabbitmq.latest.tag.json'
+          path: 'rabbitmq.latest.tag.json'
           retention-days: 1
 
   oraclelinux:
@@ -987,11 +1803,27 @@ jobs:
           format: 'json'
           output: 'oraclelinux.9-slim.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o oraclelinux.image.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o oraclelinux.9-slim.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9-slim'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'oraclelinux.9-slim.report.json'
           path: 'oraclelinux.9-slim.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'oraclelinux.image.json'
+          path: 'oraclelinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'oraclelinux.9-slim.tag.json'
+          path: 'oraclelinux.9-slim.tag.json'
           retention-days: 1
 
   odoo:
@@ -1006,11 +1838,27 @@ jobs:
           format: 'json'
           output: 'odoo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o odoo.image.json -s 'https://hub.docker.com/v2/repositories/library/odoo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o odoo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/odoo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'odoo.latest.report.json'
           path: 'odoo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'odoo.image.json'
+          path: 'odoo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'odoo.latest.tag.json'
+          path: 'odoo.latest.tag.json'
           retention-days: 1
 
   rethinkdb:
@@ -1025,11 +1873,27 @@ jobs:
           format: 'json'
           output: 'rethinkdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rethinkdb.image.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rethinkdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rethinkdb.latest.report.json'
           path: 'rethinkdb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rethinkdb.image.json'
+          path: 'rethinkdb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rethinkdb.latest.tag.json'
+          path: 'rethinkdb.latest.tag.json'
           retention-days: 1
 
   iojs:
@@ -1044,11 +1908,27 @@ jobs:
           format: 'json'
           output: 'iojs.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o iojs.image.json -s 'https://hub.docker.com/v2/repositories/library/iojs'
+      - name: Fetch additional data about the tag
+        run: curl -L -o iojs.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/iojs/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'iojs.latest.report.json'
           path: 'iojs.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'iojs.image.json'
+          path: 'iojs.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'iojs.latest.tag.json'
+          path: 'iojs.latest.tag.json'
           retention-days: 1
 
   websphere-liberty:
@@ -1063,11 +1943,27 @@ jobs:
           format: 'json'
           output: 'websphere-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o websphere-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty'
+      - name: Fetch additional data about the tag
+        run: curl -L -o websphere-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'websphere-liberty.latest.report.json'
           path: 'websphere-liberty.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'websphere-liberty.image.json'
+          path: 'websphere-liberty.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'websphere-liberty.latest.tag.json'
+          path: 'websphere-liberty.latest.tag.json'
           retention-days: 1
 
   irssi:
@@ -1082,11 +1978,27 @@ jobs:
           format: 'json'
           output: 'irssi.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o irssi.image.json -s 'https://hub.docker.com/v2/repositories/library/irssi'
+      - name: Fetch additional data about the tag
+        run: curl -L -o irssi.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/irssi/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'irssi.latest.report.json'
           path: 'irssi.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'irssi.image.json'
+          path: 'irssi.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'irssi.latest.tag.json'
+          path: 'irssi.latest.tag.json'
           retention-days: 1
 
   swarm:
@@ -1101,11 +2013,27 @@ jobs:
           format: 'json'
           output: 'swarm.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o swarm.image.json -s 'https://hub.docker.com/v2/repositories/library/swarm'
+      - name: Fetch additional data about the tag
+        run: curl -L -o swarm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swarm/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'swarm.latest.report.json'
           path: 'swarm.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swarm.image.json'
+          path: 'swarm.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swarm.latest.tag.json'
+          path: 'swarm.latest.tag.json'
           retention-days: 1
 
   elasticsearch:
@@ -1120,11 +2048,27 @@ jobs:
           format: 'json'
           output: 'elasticsearch.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o elasticsearch.image.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
+      - name: Fetch additional data about the tag
+        run: curl -L -o elasticsearch.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.12.0'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'elasticsearch.8.12.0.report.json'
           path: 'elasticsearch.8.12.0.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elasticsearch.image.json'
+          path: 'elasticsearch.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elasticsearch.8.12.0.tag.json'
+          path: 'elasticsearch.8.12.0.tag.json'
           retention-days: 1
 
   jetty:
@@ -1139,11 +2083,27 @@ jobs:
           format: 'json'
           output: 'jetty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o jetty.image.json -s 'https://hub.docker.com/v2/repositories/library/jetty'
+      - name: Fetch additional data about the tag
+        run: curl -L -o jetty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jetty/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'jetty.latest.report.json'
           path: 'jetty.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jetty.image.json'
+          path: 'jetty.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jetty.latest.tag.json'
+          path: 'jetty.latest.tag.json'
           retention-days: 1
 
   ghost:
@@ -1158,11 +2118,27 @@ jobs:
           format: 'json'
           output: 'ghost.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ghost.image.json -s 'https://hub.docker.com/v2/repositories/library/ghost'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ghost.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ghost/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ghost.latest.report.json'
           path: 'ghost.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ghost.image.json'
+          path: 'ghost.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ghost.latest.tag.json'
+          path: 'ghost.latest.tag.json'
           retention-days: 1
 
   celery:
@@ -1177,11 +2153,27 @@ jobs:
           format: 'json'
           output: 'celery.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o celery.image.json -s 'https://hub.docker.com/v2/repositories/library/celery'
+      - name: Fetch additional data about the tag
+        run: curl -L -o celery.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/celery/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'celery.latest.report.json'
           path: 'celery.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'celery.image.json'
+          path: 'celery.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'celery.latest.tag.json'
+          path: 'celery.latest.tag.json'
           retention-days: 1
 
   percona:
@@ -1196,11 +2188,27 @@ jobs:
           format: 'json'
           output: 'percona.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o percona.image.json -s 'https://hub.docker.com/v2/repositories/library/percona'
+      - name: Fetch additional data about the tag
+        run: curl -L -o percona.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/percona/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'percona.latest.report.json'
           path: 'percona.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'percona.image.json'
+          path: 'percona.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'percona.latest.tag.json'
+          path: 'percona.latest.tag.json'
           retention-days: 1
 
   aerospike:
@@ -1215,11 +2223,27 @@ jobs:
           format: 'json'
           output: 'aerospike.ee-7.0.0.3_1.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o aerospike.image.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
+      - name: Fetch additional data about the tag
+        run: curl -L -o aerospike.ee-7.0.0.3_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.3_1'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'aerospike.ee-7.0.0.3_1.report.json'
           path: 'aerospike.ee-7.0.0.3_1.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'aerospike.image.json'
+          path: 'aerospike.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'aerospike.ee-7.0.0.3_1.tag.json'
+          path: 'aerospike.ee-7.0.0.3_1.tag.json'
           retention-days: 1
 
   logstash:
@@ -1234,11 +2258,27 @@ jobs:
           format: 'json'
           output: 'logstash.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o logstash.image.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
+      - name: Fetch additional data about the tag
+        run: curl -L -o logstash.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.12.0'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'logstash.8.12.0.report.json'
           path: 'logstash.8.12.0.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'logstash.image.json'
+          path: 'logstash.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'logstash.8.12.0.tag.json'
+          path: 'logstash.8.12.0.tag.json'
           retention-days: 1
 
   julia:
@@ -1253,11 +2293,27 @@ jobs:
           format: 'json'
           output: 'julia.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o julia.image.json -s 'https://hub.docker.com/v2/repositories/library/julia'
+      - name: Fetch additional data about the tag
+        run: curl -L -o julia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/julia/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'julia.latest.report.json'
           path: 'julia.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'julia.image.json'
+          path: 'julia.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'julia.latest.tag.json'
+          path: 'julia.latest.tag.json'
           retention-days: 1
 
   alpine:
@@ -1272,11 +2328,27 @@ jobs:
           format: 'json'
           output: 'alpine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o alpine.image.json -s 'https://hub.docker.com/v2/repositories/library/alpine'
+      - name: Fetch additional data about the tag
+        run: curl -L -o alpine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alpine/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'alpine.latest.report.json'
           path: 'alpine.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alpine.image.json'
+          path: 'alpine.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alpine.latest.tag.json'
+          path: 'alpine.latest.tag.json'
           retention-days: 1
 
   rakudo-star:
@@ -1291,11 +2363,27 @@ jobs:
           format: 'json'
           output: 'rakudo-star.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rakudo-star.image.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rakudo-star.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rakudo-star.latest.report.json'
           path: 'rakudo-star.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rakudo-star.image.json'
+          path: 'rakudo-star.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rakudo-star.latest.tag.json'
+          path: 'rakudo-star.latest.tag.json'
           retention-days: 1
 
   drupal:
@@ -1310,11 +2398,27 @@ jobs:
           format: 'json'
           output: 'drupal.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o drupal.image.json -s 'https://hub.docker.com/v2/repositories/library/drupal'
+      - name: Fetch additional data about the tag
+        run: curl -L -o drupal.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/drupal/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'drupal.latest.report.json'
           path: 'drupal.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'drupal.image.json'
+          path: 'drupal.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'drupal.latest.tag.json'
+          path: 'drupal.latest.tag.json'
           retention-days: 1
 
   cassandra:
@@ -1329,11 +2433,27 @@ jobs:
           format: 'json'
           output: 'cassandra.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o cassandra.image.json -s 'https://hub.docker.com/v2/repositories/library/cassandra'
+      - name: Fetch additional data about the tag
+        run: curl -L -o cassandra.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cassandra/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'cassandra.latest.report.json'
           path: 'cassandra.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cassandra.image.json'
+          path: 'cassandra.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'cassandra.latest.tag.json'
+          path: 'cassandra.latest.tag.json'
           retention-days: 1
 
   sonarqube:
@@ -1348,11 +2468,27 @@ jobs:
           format: 'json'
           output: 'sonarqube.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o sonarqube.image.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube'
+      - name: Fetch additional data about the tag
+        run: curl -L -o sonarqube.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'sonarqube.latest.report.json'
           path: 'sonarqube.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sonarqube.image.json'
+          path: 'sonarqube.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sonarqube.latest.tag.json'
+          path: 'sonarqube.latest.tag.json'
           retention-days: 1
 
   couchbase:
@@ -1367,11 +2503,27 @@ jobs:
           format: 'json'
           output: 'couchbase.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o couchbase.image.json -s 'https://hub.docker.com/v2/repositories/library/couchbase'
+      - name: Fetch additional data about the tag
+        run: curl -L -o couchbase.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchbase/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'couchbase.latest.report.json'
           path: 'couchbase.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchbase.image.json'
+          path: 'couchbase.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchbase.latest.tag.json'
+          path: 'couchbase.latest.tag.json'
           retention-days: 1
 
   ros:
@@ -1386,11 +2538,27 @@ jobs:
           format: 'json'
           output: 'ros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ros.image.json -s 'https://hub.docker.com/v2/repositories/library/ros'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ros/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ros.latest.report.json'
           path: 'ros.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ros.image.json'
+          path: 'ros.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ros.latest.tag.json'
+          path: 'ros.latest.tag.json'
           retention-days: 1
 
   kibana:
@@ -1405,11 +2573,27 @@ jobs:
           format: 'json'
           output: 'kibana.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o kibana.image.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
+      - name: Fetch additional data about the tag
+        run: curl -L -o kibana.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.12.0'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'kibana.8.12.0.report.json'
           path: 'kibana.8.12.0.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kibana.image.json'
+          path: 'kibana.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kibana.8.12.0.tag.json'
+          path: 'kibana.8.12.0.tag.json'
           retention-days: 1
 
   kaazing-gateway:
@@ -1424,11 +2608,27 @@ jobs:
           format: 'json'
           output: 'kaazing-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o kaazing-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway'
+      - name: Fetch additional data about the tag
+        run: curl -L -o kaazing-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'kaazing-gateway.latest.report.json'
           path: 'kaazing-gateway.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kaazing-gateway.image.json'
+          path: 'kaazing-gateway.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kaazing-gateway.latest.tag.json'
+          path: 'kaazing-gateway.latest.tag.json'
           retention-days: 1
 
   arangodb:
@@ -1443,11 +2643,27 @@ jobs:
           format: 'json'
           output: 'arangodb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o arangodb.image.json -s 'https://hub.docker.com/v2/repositories/library/arangodb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o arangodb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/arangodb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'arangodb.latest.report.json'
           path: 'arangodb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'arangodb.image.json'
+          path: 'arangodb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'arangodb.latest.tag.json'
+          path: 'arangodb.latest.tag.json'
           retention-days: 1
 
   owncloud:
@@ -1462,11 +2678,27 @@ jobs:
           format: 'json'
           output: 'owncloud.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o owncloud.image.json -s 'https://hub.docker.com/v2/repositories/library/owncloud'
+      - name: Fetch additional data about the tag
+        run: curl -L -o owncloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/owncloud/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'owncloud.latest.report.json'
           path: 'owncloud.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'owncloud.image.json'
+          path: 'owncloud.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'owncloud.latest.tag.json'
+          path: 'owncloud.latest.tag.json'
           retention-days: 1
 
   gazebo:
@@ -1481,11 +2713,27 @@ jobs:
           format: 'json'
           output: 'gazebo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o gazebo.image.json -s 'https://hub.docker.com/v2/repositories/library/gazebo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o gazebo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gazebo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'gazebo.latest.report.json'
           path: 'gazebo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gazebo.image.json'
+          path: 'gazebo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gazebo.latest.tag.json'
+          path: 'gazebo.latest.tag.json'
           retention-days: 1
 
   joomla:
@@ -1500,11 +2748,27 @@ jobs:
           format: 'json'
           output: 'joomla.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o joomla.image.json -s 'https://hub.docker.com/v2/repositories/library/joomla'
+      - name: Fetch additional data about the tag
+        run: curl -L -o joomla.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/joomla/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'joomla.latest.report.json'
           path: 'joomla.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'joomla.image.json'
+          path: 'joomla.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'joomla.latest.tag.json'
+          path: 'joomla.latest.tag.json'
           retention-days: 1
 
   redmine:
@@ -1519,11 +2783,27 @@ jobs:
           format: 'json'
           output: 'redmine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o redmine.image.json -s 'https://hub.docker.com/v2/repositories/library/redmine'
+      - name: Fetch additional data about the tag
+        run: curl -L -o redmine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redmine/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'redmine.latest.report.json'
           path: 'redmine.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redmine.image.json'
+          path: 'redmine.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'redmine.latest.tag.json'
+          path: 'redmine.latest.tag.json'
           retention-days: 1
 
   nats:
@@ -1538,11 +2818,27 @@ jobs:
           format: 'json'
           output: 'nats.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o nats.image.json -s 'https://hub.docker.com/v2/repositories/library/nats'
+      - name: Fetch additional data about the tag
+        run: curl -L -o nats.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'nats.latest.report.json'
           path: 'nats.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats.image.json'
+          path: 'nats.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats.latest.tag.json'
+          path: 'nats.latest.tag.json'
           retention-days: 1
 
   rocket_chat:
@@ -1557,11 +2853,27 @@ jobs:
           format: 'json'
           output: 'rocket.chat.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rocket.chat.image.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rocket.chat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rocket.chat.latest.report.json'
           path: 'rocket.chat.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rocket.chat.image.json'
+          path: 'rocket.chat.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rocket.chat.latest.tag.json'
+          path: 'rocket.chat.latest.tag.json'
           retention-days: 1
 
   docker:
@@ -1576,11 +2888,27 @@ jobs:
           format: 'json'
           output: 'docker.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o docker.image.json -s 'https://hub.docker.com/v2/repositories/library/docker'
+      - name: Fetch additional data about the tag
+        run: curl -L -o docker.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'docker.latest.report.json'
           path: 'docker.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker.image.json'
+          path: 'docker.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'docker.latest.tag.json'
+          path: 'docker.latest.tag.json'
           retention-days: 1
 
   tomee:
@@ -1595,11 +2923,27 @@ jobs:
           format: 'json'
           output: 'tomee.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o tomee.image.json -s 'https://hub.docker.com/v2/repositories/library/tomee'
+      - name: Fetch additional data about the tag
+        run: curl -L -o tomee.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomee/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'tomee.latest.report.json'
           path: 'tomee.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomee.image.json'
+          path: 'tomee.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'tomee.latest.tag.json'
+          path: 'tomee.latest.tag.json'
           retention-days: 1
 
   sourcemage:
@@ -1614,11 +2958,27 @@ jobs:
           format: 'json'
           output: 'sourcemage.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o sourcemage.image.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage'
+      - name: Fetch additional data about the tag
+        run: curl -L -o sourcemage.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'sourcemage.latest.report.json'
           path: 'sourcemage.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sourcemage.image.json'
+          path: 'sourcemage.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sourcemage.latest.tag.json'
+          path: 'sourcemage.latest.tag.json'
           retention-days: 1
 
   bonita:
@@ -1633,11 +2993,27 @@ jobs:
           format: 'json'
           output: 'bonita.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o bonita.image.json -s 'https://hub.docker.com/v2/repositories/library/bonita'
+      - name: Fetch additional data about the tag
+        run: curl -L -o bonita.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bonita/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'bonita.latest.report.json'
           path: 'bonita.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bonita.image.json'
+          path: 'bonita.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bonita.latest.tag.json'
+          path: 'bonita.latest.tag.json'
           retention-days: 1
 
   solr:
@@ -1652,11 +3028,27 @@ jobs:
           format: 'json'
           output: 'solr.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o solr.image.json -s 'https://hub.docker.com/v2/repositories/library/solr'
+      - name: Fetch additional data about the tag
+        run: curl -L -o solr.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/solr/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'solr.latest.report.json'
           path: 'solr.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'solr.image.json'
+          path: 'solr.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'solr.latest.tag.json'
+          path: 'solr.latest.tag.json'
           retention-days: 1
 
   neo4j:
@@ -1671,11 +3063,27 @@ jobs:
           format: 'json'
           output: 'neo4j.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o neo4j.image.json -s 'https://hub.docker.com/v2/repositories/library/neo4j'
+      - name: Fetch additional data about the tag
+        run: curl -L -o neo4j.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neo4j/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'neo4j.latest.report.json'
           path: 'neo4j.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neo4j.image.json'
+          path: 'neo4j.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'neo4j.latest.tag.json'
+          path: 'neo4j.latest.tag.json'
           retention-days: 1
 
   erlang:
@@ -1690,11 +3098,27 @@ jobs:
           format: 'json'
           output: 'erlang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o erlang.image.json -s 'https://hub.docker.com/v2/repositories/library/erlang'
+      - name: Fetch additional data about the tag
+        run: curl -L -o erlang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/erlang/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'erlang.latest.report.json'
           path: 'erlang.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'erlang.image.json'
+          path: 'erlang.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'erlang.latest.tag.json'
+          path: 'erlang.latest.tag.json'
           retention-days: 1
 
   nuxeo:
@@ -1709,11 +3133,27 @@ jobs:
           format: 'json'
           output: 'nuxeo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o nuxeo.image.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o nuxeo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'nuxeo.latest.report.json'
           path: 'nuxeo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nuxeo.image.json'
+          path: 'nuxeo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nuxeo.latest.tag.json'
+          path: 'nuxeo.latest.tag.json'
           retention-days: 1
 
   photon:
@@ -1728,11 +3168,27 @@ jobs:
           format: 'json'
           output: 'photon.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o photon.image.json -s 'https://hub.docker.com/v2/repositories/library/photon'
+      - name: Fetch additional data about the tag
+        run: curl -L -o photon.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/photon/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'photon.latest.report.json'
           path: 'photon.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'photon.image.json'
+          path: 'photon.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'photon.latest.tag.json'
+          path: 'photon.latest.tag.json'
           retention-days: 1
 
   couchdb:
@@ -1747,11 +3203,27 @@ jobs:
           format: 'json'
           output: 'couchdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o couchdb.image.json -s 'https://hub.docker.com/v2/repositories/library/couchdb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o couchdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchdb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'couchdb.latest.report.json'
           path: 'couchdb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchdb.image.json'
+          path: 'couchdb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'couchdb.latest.tag.json'
+          path: 'couchdb.latest.tag.json'
           retention-days: 1
 
   notary:
@@ -1766,11 +3238,27 @@ jobs:
           format: 'json'
           output: 'notary.signer-0.7.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o notary.image.json -s 'https://hub.docker.com/v2/repositories/library/notary'
+      - name: Fetch additional data about the tag
+        run: curl -L -o notary.signer-0.7.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/notary/tags/signer-0.7.0'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'notary.signer-0.7.0.report.json'
           path: 'notary.signer-0.7.0.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'notary.image.json'
+          path: 'notary.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'notary.signer-0.7.0.tag.json'
+          path: 'notary.signer-0.7.0.tag.json'
           retention-days: 1
 
   piwik:
@@ -1785,11 +3273,27 @@ jobs:
           format: 'json'
           output: 'piwik.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o piwik.image.json -s 'https://hub.docker.com/v2/repositories/library/piwik'
+      - name: Fetch additional data about the tag
+        run: curl -L -o piwik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/piwik/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'piwik.latest.report.json'
           path: 'piwik.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'piwik.image.json'
+          path: 'piwik.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'piwik.latest.tag.json'
+          path: 'piwik.latest.tag.json'
           retention-days: 1
 
   elixir:
@@ -1804,11 +3308,27 @@ jobs:
           format: 'json'
           output: 'elixir.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o elixir.image.json -s 'https://hub.docker.com/v2/repositories/library/elixir'
+      - name: Fetch additional data about the tag
+        run: curl -L -o elixir.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/elixir/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'elixir.latest.report.json'
           path: 'elixir.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elixir.image.json'
+          path: 'elixir.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'elixir.latest.tag.json'
+          path: 'elixir.latest.tag.json'
           retention-days: 1
 
   lightstreamer:
@@ -1823,11 +3343,27 @@ jobs:
           format: 'json'
           output: 'lightstreamer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o lightstreamer.image.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer'
+      - name: Fetch additional data about the tag
+        run: curl -L -o lightstreamer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'lightstreamer.latest.report.json'
           path: 'lightstreamer.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'lightstreamer.image.json'
+          path: 'lightstreamer.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'lightstreamer.latest.tag.json'
+          path: 'lightstreamer.latest.tag.json'
           retention-days: 1
 
   orientdb:
@@ -1842,11 +3378,27 @@ jobs:
           format: 'json'
           output: 'orientdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o orientdb.image.json -s 'https://hub.docker.com/v2/repositories/library/orientdb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o orientdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/orientdb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'orientdb.latest.report.json'
           path: 'orientdb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'orientdb.image.json'
+          path: 'orientdb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'orientdb.latest.tag.json'
+          path: 'orientdb.latest.tag.json'
           retention-days: 1
 
   mongo-express:
@@ -1861,11 +3413,27 @@ jobs:
           format: 'json'
           output: 'mongo-express.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mongo-express.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mongo-express.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mongo-express.latest.report.json'
           path: 'mongo-express.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo-express.image.json'
+          path: 'mongo-express.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mongo-express.latest.tag.json'
+          path: 'mongo-express.latest.tag.json'
           retention-days: 1
 
   traefik:
@@ -1880,11 +3448,27 @@ jobs:
           format: 'json'
           output: 'traefik.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o traefik.image.json -s 'https://hub.docker.com/v2/repositories/library/traefik'
+      - name: Fetch additional data about the tag
+        run: curl -L -o traefik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/traefik/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'traefik.latest.report.json'
           path: 'traefik.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'traefik.image.json'
+          path: 'traefik.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'traefik.latest.tag.json'
+          path: 'traefik.latest.tag.json'
           retention-days: 1
 
   backdrop:
@@ -1899,11 +3483,27 @@ jobs:
           format: 'json'
           output: 'backdrop.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o backdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/backdrop'
+      - name: Fetch additional data about the tag
+        run: curl -L -o backdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/backdrop/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'backdrop.latest.report.json'
           path: 'backdrop.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'backdrop.image.json'
+          path: 'backdrop.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'backdrop.latest.tag.json'
+          path: 'backdrop.latest.tag.json'
           retention-days: 1
 
   consul:
@@ -1918,11 +3518,27 @@ jobs:
           format: 'json'
           output: 'consul.1.15.4.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o consul.image.json -s 'https://hub.docker.com/v2/repositories/library/consul'
+      - name: Fetch additional data about the tag
+        run: curl -L -o consul.1.15.4.tag.json -s 'https://hub.docker.com/v2/repositories/library/consul/tags/1.15.4'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'consul.1.15.4.report.json'
           path: 'consul.1.15.4.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'consul.image.json'
+          path: 'consul.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'consul.1.15.4.tag.json'
+          path: 'consul.1.15.4.tag.json'
           retention-days: 1
 
   chronograf:
@@ -1937,11 +3553,27 @@ jobs:
           format: 'json'
           output: 'chronograf.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o chronograf.image.json -s 'https://hub.docker.com/v2/repositories/library/chronograf'
+      - name: Fetch additional data about the tag
+        run: curl -L -o chronograf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/chronograf/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'chronograf.latest.report.json'
           path: 'chronograf.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'chronograf.image.json'
+          path: 'chronograf.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'chronograf.latest.tag.json'
+          path: 'chronograf.latest.tag.json'
           retention-days: 1
 
   influxdb:
@@ -1956,11 +3588,27 @@ jobs:
           format: 'json'
           output: 'influxdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o influxdb.image.json -s 'https://hub.docker.com/v2/repositories/library/influxdb'
+      - name: Fetch additional data about the tag
+        run: curl -L -o influxdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/influxdb/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'influxdb.latest.report.json'
           path: 'influxdb.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'influxdb.image.json'
+          path: 'influxdb.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'influxdb.latest.tag.json'
+          path: 'influxdb.latest.tag.json'
           retention-days: 1
 
   kapacitor:
@@ -1975,11 +3623,27 @@ jobs:
           format: 'json'
           output: 'kapacitor.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o kapacitor.image.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor'
+      - name: Fetch additional data about the tag
+        run: curl -L -o kapacitor.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'kapacitor.latest.report.json'
           path: 'kapacitor.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kapacitor.image.json'
+          path: 'kapacitor.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kapacitor.latest.tag.json'
+          path: 'kapacitor.latest.tag.json'
           retention-days: 1
 
   telegraf:
@@ -1994,11 +3658,27 @@ jobs:
           format: 'json'
           output: 'telegraf.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o telegraf.image.json -s 'https://hub.docker.com/v2/repositories/library/telegraf'
+      - name: Fetch additional data about the tag
+        run: curl -L -o telegraf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/telegraf/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'telegraf.latest.report.json'
           path: 'telegraf.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'telegraf.image.json'
+          path: 'telegraf.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'telegraf.latest.tag.json'
+          path: 'telegraf.latest.tag.json'
           retention-days: 1
 
   hello-seattle:
@@ -2013,11 +3693,27 @@ jobs:
           format: 'json'
           output: 'hello-seattle.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hello-seattle.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hello-seattle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hello-seattle.latest.report.json'
           path: 'hello-seattle.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-seattle.image.json'
+          path: 'hello-seattle.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hello-seattle.latest.tag.json'
+          path: 'hello-seattle.latest.tag.json'
           retention-days: 1
 
   hola-mundo:
@@ -2032,11 +3728,27 @@ jobs:
           format: 'json'
           output: 'hola-mundo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hola-mundo.image.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hola-mundo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hola-mundo.latest.report.json'
           path: 'hola-mundo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hola-mundo.image.json'
+          path: 'hola-mundo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hola-mundo.latest.tag.json'
+          path: 'hola-mundo.latest.tag.json'
           retention-days: 1
 
   fsharp:
@@ -2051,11 +3763,27 @@ jobs:
           format: 'json'
           output: 'fsharp.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o fsharp.image.json -s 'https://hub.docker.com/v2/repositories/library/fsharp'
+      - name: Fetch additional data about the tag
+        run: curl -L -o fsharp.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fsharp/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'fsharp.latest.report.json'
           path: 'fsharp.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fsharp.image.json'
+          path: 'fsharp.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fsharp.latest.tag.json'
+          path: 'fsharp.latest.tag.json'
           retention-days: 1
 
   spiped:
@@ -2070,11 +3798,27 @@ jobs:
           format: 'json'
           output: 'spiped.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o spiped.image.json -s 'https://hub.docker.com/v2/repositories/library/spiped'
+      - name: Fetch additional data about the tag
+        run: curl -L -o spiped.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spiped/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'spiped.latest.report.json'
           path: 'spiped.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spiped.image.json'
+          path: 'spiped.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spiped.latest.tag.json'
+          path: 'spiped.latest.tag.json'
           retention-days: 1
 
   vault:
@@ -2089,11 +3833,27 @@ jobs:
           format: 'json'
           output: 'vault.1.13.3.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o vault.image.json -s 'https://hub.docker.com/v2/repositories/library/vault'
+      - name: Fetch additional data about the tag
+        run: curl -L -o vault.1.13.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/vault/tags/1.13.3'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'vault.1.13.3.report.json'
           path: 'vault.1.13.3.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'vault.image.json'
+          path: 'vault.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'vault.1.13.3.tag.json'
+          path: 'vault.1.13.3.tag.json'
           retention-days: 1
 
   clearlinux:
@@ -2108,11 +3868,27 @@ jobs:
           format: 'json'
           output: 'clearlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o clearlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o clearlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'clearlinux.latest.report.json'
           path: 'clearlinux.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clearlinux.image.json'
+          path: 'clearlinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clearlinux.latest.tag.json'
+          path: 'clearlinux.latest.tag.json'
           retention-days: 1
 
   eggdrop:
@@ -2127,11 +3903,27 @@ jobs:
           format: 'json'
           output: 'eggdrop.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o eggdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop'
+      - name: Fetch additional data about the tag
+        run: curl -L -o eggdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'eggdrop.latest.report.json'
           path: 'eggdrop.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eggdrop.image.json'
+          path: 'eggdrop.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eggdrop.latest.tag.json'
+          path: 'eggdrop.latest.tag.json'
           retention-days: 1
 
   ibmjava:
@@ -2146,11 +3938,27 @@ jobs:
           format: 'json'
           output: 'ibmjava.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ibmjava.image.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ibmjava.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ibmjava.latest.report.json'
           path: 'ibmjava.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibmjava.image.json'
+          path: 'ibmjava.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibmjava.latest.tag.json'
+          path: 'ibmjava.latest.tag.json'
           retention-days: 1
 
   openjdk:
@@ -2165,11 +3973,27 @@ jobs:
           format: 'json'
           output: 'openjdk.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o openjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/openjdk'
+      - name: Fetch additional data about the tag
+        run: curl -L -o openjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/openjdk/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'openjdk.latest.report.json'
           path: 'openjdk.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'openjdk.image.json'
+          path: 'openjdk.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'openjdk.latest.tag.json'
+          path: 'openjdk.latest.tag.json'
           retention-days: 1
 
   kong:
@@ -2184,11 +4008,27 @@ jobs:
           format: 'json'
           output: 'kong.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o kong.image.json -s 'https://hub.docker.com/v2/repositories/library/kong'
+      - name: Fetch additional data about the tag
+        run: curl -L -o kong.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kong/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'kong.latest.report.json'
           path: 'kong.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kong.image.json'
+          path: 'kong.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'kong.latest.tag.json'
+          path: 'kong.latest.tag.json'
           retention-days: 1
 
   zookeeper:
@@ -2203,11 +4043,27 @@ jobs:
           format: 'json'
           output: 'zookeeper.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o zookeeper.image.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper'
+      - name: Fetch additional data about the tag
+        run: curl -L -o zookeeper.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'zookeeper.latest.report.json'
           path: 'zookeeper.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'zookeeper.image.json'
+          path: 'zookeeper.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'zookeeper.latest.tag.json'
+          path: 'zookeeper.latest.tag.json'
           retention-days: 1
 
   nats-streaming:
@@ -2222,11 +4078,27 @@ jobs:
           format: 'json'
           output: 'nats-streaming.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o nats-streaming.image.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming'
+      - name: Fetch additional data about the tag
+        run: curl -L -o nats-streaming.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'nats-streaming.latest.report.json'
           path: 'nats-streaming.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats-streaming.image.json'
+          path: 'nats-streaming.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nats-streaming.latest.tag.json'
+          path: 'nats-streaming.latest.tag.json'
           retention-days: 1
 
   storm:
@@ -2241,11 +4113,27 @@ jobs:
           format: 'json'
           output: 'storm.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o storm.image.json -s 'https://hub.docker.com/v2/repositories/library/storm'
+      - name: Fetch additional data about the tag
+        run: curl -L -o storm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/storm/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'storm.latest.report.json'
           path: 'storm.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'storm.image.json'
+          path: 'storm.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'storm.latest.tag.json'
+          path: 'storm.latest.tag.json'
           retention-days: 1
 
   plone:
@@ -2260,11 +4148,27 @@ jobs:
           format: 'json'
           output: 'plone.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o plone.image.json -s 'https://hub.docker.com/v2/repositories/library/plone'
+      - name: Fetch additional data about the tag
+        run: curl -L -o plone.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/plone/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'plone.latest.report.json'
           path: 'plone.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'plone.image.json'
+          path: 'plone.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'plone.latest.tag.json'
+          path: 'plone.latest.tag.json'
           retention-days: 1
 
   bash:
@@ -2279,11 +4183,27 @@ jobs:
           format: 'json'
           output: 'bash.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o bash.image.json -s 'https://hub.docker.com/v2/repositories/library/bash'
+      - name: Fetch additional data about the tag
+        run: curl -L -o bash.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bash/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'bash.latest.report.json'
           path: 'bash.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bash.image.json'
+          path: 'bash.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'bash.latest.tag.json'
+          path: 'bash.latest.tag.json'
           retention-days: 1
 
   amazonlinux:
@@ -2298,11 +4218,27 @@ jobs:
           format: 'json'
           output: 'amazonlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o amazonlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o amazonlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'amazonlinux.latest.report.json'
           path: 'amazonlinux.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazonlinux.image.json'
+          path: 'amazonlinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazonlinux.latest.tag.json'
+          path: 'amazonlinux.latest.tag.json'
           retention-days: 1
 
   composer:
@@ -2317,11 +4253,27 @@ jobs:
           format: 'json'
           output: 'composer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o composer.image.json -s 'https://hub.docker.com/v2/repositories/library/composer'
+      - name: Fetch additional data about the tag
+        run: curl -L -o composer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/composer/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'composer.latest.report.json'
           path: 'composer.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'composer.image.json'
+          path: 'composer.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'composer.latest.tag.json'
+          path: 'composer.latest.tag.json'
           retention-days: 1
 
   known:
@@ -2336,11 +4288,27 @@ jobs:
           format: 'json'
           output: 'known.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o known.image.json -s 'https://hub.docker.com/v2/repositories/library/known'
+      - name: Fetch additional data about the tag
+        run: curl -L -o known.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/known/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'known.latest.report.json'
           path: 'known.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'known.image.json'
+          path: 'known.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'known.latest.tag.json'
+          path: 'known.latest.tag.json'
           retention-days: 1
 
   eclipse-mosquitto:
@@ -2355,11 +4323,27 @@ jobs:
           format: 'json'
           output: 'eclipse-mosquitto.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o eclipse-mosquitto.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto'
+      - name: Fetch additional data about the tag
+        run: curl -L -o eclipse-mosquitto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'eclipse-mosquitto.latest.report.json'
           path: 'eclipse-mosquitto.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-mosquitto.image.json'
+          path: 'eclipse-mosquitto.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-mosquitto.latest.tag.json'
+          path: 'eclipse-mosquitto.latest.tag.json'
           retention-days: 1
 
   nextcloud:
@@ -2374,11 +4358,27 @@ jobs:
           format: 'json'
           output: 'nextcloud.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o nextcloud.image.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud'
+      - name: Fetch additional data about the tag
+        run: curl -L -o nextcloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'nextcloud.latest.report.json'
           path: 'nextcloud.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nextcloud.image.json'
+          path: 'nextcloud.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'nextcloud.latest.tag.json'
+          path: 'nextcloud.latest.tag.json'
           retention-days: 1
 
   silverpeas:
@@ -2393,11 +4393,27 @@ jobs:
           format: 'json'
           output: 'silverpeas.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o silverpeas.image.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas'
+      - name: Fetch additional data about the tag
+        run: curl -L -o silverpeas.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'silverpeas.latest.report.json'
           path: 'silverpeas.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'silverpeas.image.json'
+          path: 'silverpeas.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'silverpeas.latest.tag.json'
+          path: 'silverpeas.latest.tag.json'
           retention-days: 1
 
   swift:
@@ -2412,11 +4428,27 @@ jobs:
           format: 'json'
           output: 'swift.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o swift.image.json -s 'https://hub.docker.com/v2/repositories/library/swift'
+      - name: Fetch additional data about the tag
+        run: curl -L -o swift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swift/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'swift.latest.report.json'
           path: 'swift.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swift.image.json'
+          path: 'swift.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swift.latest.tag.json'
+          path: 'swift.latest.tag.json'
           retention-days: 1
 
   haxe:
@@ -2431,11 +4463,27 @@ jobs:
           format: 'json'
           output: 'haxe.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o haxe.image.json -s 'https://hub.docker.com/v2/repositories/library/haxe'
+      - name: Fetch additional data about the tag
+        run: curl -L -o haxe.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haxe/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'haxe.latest.report.json'
           path: 'haxe.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haxe.image.json'
+          path: 'haxe.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'haxe.latest.tag.json'
+          path: 'haxe.latest.tag.json'
           retention-days: 1
 
   rapidoid:
@@ -2450,11 +4498,27 @@ jobs:
           format: 'json'
           output: 'rapidoid.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rapidoid.image.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rapidoid.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rapidoid.latest.report.json'
           path: 'rapidoid.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rapidoid.image.json'
+          path: 'rapidoid.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rapidoid.latest.tag.json'
+          path: 'rapidoid.latest.tag.json'
           retention-days: 1
 
   adminer:
@@ -2469,11 +4533,27 @@ jobs:
           format: 'json'
           output: 'adminer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o adminer.image.json -s 'https://hub.docker.com/v2/repositories/library/adminer'
+      - name: Fetch additional data about the tag
+        run: curl -L -o adminer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adminer/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'adminer.latest.report.json'
           path: 'adminer.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adminer.image.json'
+          path: 'adminer.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adminer.latest.tag.json'
+          path: 'adminer.latest.tag.json'
           retention-days: 1
 
   geonetwork:
@@ -2488,11 +4568,27 @@ jobs:
           format: 'json'
           output: 'geonetwork.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o geonetwork.image.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork'
+      - name: Fetch additional data about the tag
+        run: curl -L -o geonetwork.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'geonetwork.latest.report.json'
           path: 'geonetwork.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'geonetwork.image.json'
+          path: 'geonetwork.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'geonetwork.latest.tag.json'
+          path: 'geonetwork.latest.tag.json'
           retention-days: 1
 
   xwiki:
@@ -2507,11 +4603,27 @@ jobs:
           format: 'json'
           output: 'xwiki.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o xwiki.image.json -s 'https://hub.docker.com/v2/repositories/library/xwiki'
+      - name: Fetch additional data about the tag
+        run: curl -L -o xwiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/xwiki/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'xwiki.latest.report.json'
           path: 'xwiki.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'xwiki.image.json'
+          path: 'xwiki.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'xwiki.latest.tag.json'
+          path: 'xwiki.latest.tag.json'
           retention-days: 1
 
   groovy:
@@ -2526,11 +4638,27 @@ jobs:
           format: 'json'
           output: 'groovy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o groovy.image.json -s 'https://hub.docker.com/v2/repositories/library/groovy'
+      - name: Fetch additional data about the tag
+        run: curl -L -o groovy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/groovy/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'groovy.latest.report.json'
           path: 'groovy.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'groovy.image.json'
+          path: 'groovy.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'groovy.latest.tag.json'
+          path: 'groovy.latest.tag.json'
           retention-days: 1
 
   znc:
@@ -2545,11 +4673,27 @@ jobs:
           format: 'json'
           output: 'znc.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o znc.image.json -s 'https://hub.docker.com/v2/repositories/library/znc'
+      - name: Fetch additional data about the tag
+        run: curl -L -o znc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/znc/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'znc.latest.report.json'
           path: 'znc.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'znc.image.json'
+          path: 'znc.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'znc.latest.tag.json'
+          path: 'znc.latest.tag.json'
           retention-days: 1
 
   gradle:
@@ -2564,11 +4708,27 @@ jobs:
           format: 'json'
           output: 'gradle.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o gradle.image.json -s 'https://hub.docker.com/v2/repositories/library/gradle'
+      - name: Fetch additional data about the tag
+        run: curl -L -o gradle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gradle/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'gradle.latest.report.json'
           path: 'gradle.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gradle.image.json'
+          path: 'gradle.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'gradle.latest.tag.json'
+          path: 'gradle.latest.tag.json'
           retention-days: 1
 
   convertigo:
@@ -2583,11 +4743,27 @@ jobs:
           format: 'json'
           output: 'convertigo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o convertigo.image.json -s 'https://hub.docker.com/v2/repositories/library/convertigo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o convertigo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/convertigo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'convertigo.latest.report.json'
           path: 'convertigo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'convertigo.image.json'
+          path: 'convertigo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'convertigo.latest.tag.json'
+          path: 'convertigo.latest.tag.json'
           retention-days: 1
 
   flink:
@@ -2602,11 +4778,27 @@ jobs:
           format: 'json'
           output: 'flink.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o flink.image.json -s 'https://hub.docker.com/v2/repositories/library/flink'
+      - name: Fetch additional data about the tag
+        run: curl -L -o flink.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/flink/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'flink.latest.report.json'
           path: 'flink.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'flink.image.json'
+          path: 'flink.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'flink.latest.tag.json'
+          path: 'flink.latest.tag.json'
           retention-days: 1
 
   swipl:
@@ -2621,11 +4813,27 @@ jobs:
           format: 'json'
           output: 'swipl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o swipl.image.json -s 'https://hub.docker.com/v2/repositories/library/swipl'
+      - name: Fetch additional data about the tag
+        run: curl -L -o swipl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swipl/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'swipl.latest.report.json'
           path: 'swipl.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swipl.image.json'
+          path: 'swipl.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'swipl.latest.tag.json'
+          path: 'swipl.latest.tag.json'
           retention-days: 1
 
   rust:
@@ -2640,11 +4848,27 @@ jobs:
           format: 'json'
           output: 'rust.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rust.image.json -s 'https://hub.docker.com/v2/repositories/library/rust'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rust.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rust/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rust.latest.report.json'
           path: 'rust.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rust.image.json'
+          path: 'rust.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rust.latest.tag.json'
+          path: 'rust.latest.tag.json'
           retention-days: 1
 
   mediawiki:
@@ -2659,11 +4883,27 @@ jobs:
           format: 'json'
           output: 'mediawiki.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o mediawiki.image.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki'
+      - name: Fetch additional data about the tag
+        run: curl -L -o mediawiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'mediawiki.latest.report.json'
           path: 'mediawiki.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mediawiki.image.json'
+          path: 'mediawiki.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'mediawiki.latest.tag.json'
+          path: 'mediawiki.latest.tag.json'
           retention-days: 1
 
   euleros:
@@ -2678,11 +4918,27 @@ jobs:
           format: 'json'
           output: 'euleros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o euleros.image.json -s 'https://hub.docker.com/v2/repositories/library/euleros'
+      - name: Fetch additional data about the tag
+        run: curl -L -o euleros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/euleros/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'euleros.latest.report.json'
           path: 'euleros.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'euleros.image.json'
+          path: 'euleros.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'euleros.latest.tag.json'
+          path: 'euleros.latest.tag.json'
           retention-days: 1
 
   sl:
@@ -2697,11 +4953,27 @@ jobs:
           format: 'json'
           output: 'sl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o sl.image.json -s 'https://hub.docker.com/v2/repositories/library/sl'
+      - name: Fetch additional data about the tag
+        run: curl -L -o sl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sl/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'sl.latest.report.json'
           path: 'sl.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sl.image.json'
+          path: 'sl.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sl.latest.tag.json'
+          path: 'sl.latest.tag.json'
           retention-days: 1
 
   open-liberty:
@@ -2716,11 +4988,27 @@ jobs:
           format: 'json'
           output: 'open-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o open-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty'
+      - name: Fetch additional data about the tag
+        run: curl -L -o open-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'open-liberty.latest.report.json'
           path: 'open-liberty.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'open-liberty.image.json'
+          path: 'open-liberty.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'open-liberty.latest.tag.json'
+          path: 'open-liberty.latest.tag.json'
           retention-days: 1
 
   teamspeak:
@@ -2735,11 +5023,27 @@ jobs:
           format: 'json'
           output: 'teamspeak.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o teamspeak.image.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak'
+      - name: Fetch additional data about the tag
+        run: curl -L -o teamspeak.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'teamspeak.latest.report.json'
           path: 'teamspeak.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'teamspeak.image.json'
+          path: 'teamspeak.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'teamspeak.latest.tag.json'
+          path: 'teamspeak.latest.tag.json'
           retention-days: 1
 
   matomo:
@@ -2754,11 +5058,27 @@ jobs:
           format: 'json'
           output: 'matomo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o matomo.image.json -s 'https://hub.docker.com/v2/repositories/library/matomo'
+      - name: Fetch additional data about the tag
+        run: curl -L -o matomo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/matomo/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'matomo.latest.report.json'
           path: 'matomo.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'matomo.image.json'
+          path: 'matomo.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'matomo.latest.tag.json'
+          path: 'matomo.latest.tag.json'
           retention-days: 1
 
   yourls:
@@ -2773,11 +5093,27 @@ jobs:
           format: 'json'
           output: 'yourls.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o yourls.image.json -s 'https://hub.docker.com/v2/repositories/library/yourls'
+      - name: Fetch additional data about the tag
+        run: curl -L -o yourls.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/yourls/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'yourls.latest.report.json'
           path: 'yourls.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'yourls.image.json'
+          path: 'yourls.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'yourls.latest.tag.json'
+          path: 'yourls.latest.tag.json'
           retention-days: 1
 
   alt:
@@ -2792,11 +5128,27 @@ jobs:
           format: 'json'
           output: 'alt.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o alt.image.json -s 'https://hub.docker.com/v2/repositories/library/alt'
+      - name: Fetch additional data about the tag
+        run: curl -L -o alt.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alt/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'alt.latest.report.json'
           path: 'alt.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alt.image.json'
+          path: 'alt.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'alt.latest.tag.json'
+          path: 'alt.latest.tag.json'
           retention-days: 1
 
   amazoncorretto:
@@ -2811,11 +5163,27 @@ jobs:
           format: 'json'
           output: 'amazoncorretto.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o amazoncorretto.image.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto'
+      - name: Fetch additional data about the tag
+        run: curl -L -o amazoncorretto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'amazoncorretto.latest.report.json'
           path: 'amazoncorretto.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazoncorretto.image.json'
+          path: 'amazoncorretto.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'amazoncorretto.latest.tag.json'
+          path: 'amazoncorretto.latest.tag.json'
           retention-days: 1
 
   express-gateway:
@@ -2830,11 +5198,27 @@ jobs:
           format: 'json'
           output: 'express-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o express-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway'
+      - name: Fetch additional data about the tag
+        run: curl -L -o express-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'express-gateway.latest.report.json'
           path: 'express-gateway.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'express-gateway.image.json'
+          path: 'express-gateway.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'express-gateway.latest.tag.json'
+          path: 'express-gateway.latest.tag.json'
           retention-days: 1
 
   postfixadmin:
@@ -2849,11 +5233,27 @@ jobs:
           format: 'json'
           output: 'postfixadmin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o postfixadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin'
+      - name: Fetch additional data about the tag
+        run: curl -L -o postfixadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'postfixadmin.latest.report.json'
           path: 'postfixadmin.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postfixadmin.image.json'
+          path: 'postfixadmin.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'postfixadmin.latest.tag.json'
+          path: 'postfixadmin.latest.tag.json'
           retention-days: 1
 
   fluentd:
@@ -2868,11 +5268,27 @@ jobs:
           format: 'json'
           output: 'fluentd.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o fluentd.image.json -s 'https://hub.docker.com/v2/repositories/library/fluentd'
+      - name: Fetch additional data about the tag
+        run: curl -L -o fluentd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fluentd/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'fluentd.latest.report.json'
           path: 'fluentd.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fluentd.image.json'
+          path: 'fluentd.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'fluentd.latest.tag.json'
+          path: 'fluentd.latest.tag.json'
           retention-days: 1
 
   adoptopenjdk:
@@ -2887,11 +5303,27 @@ jobs:
           format: 'json'
           output: 'adoptopenjdk.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o adoptopenjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk'
+      - name: Fetch additional data about the tag
+        run: curl -L -o adoptopenjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'adoptopenjdk.latest.report.json'
           path: 'adoptopenjdk.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adoptopenjdk.image.json'
+          path: 'adoptopenjdk.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'adoptopenjdk.latest.tag.json'
+          path: 'adoptopenjdk.latest.tag.json'
           retention-days: 1
 
   sapmachine:
@@ -2906,11 +5338,27 @@ jobs:
           format: 'json'
           output: 'sapmachine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o sapmachine.image.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine'
+      - name: Fetch additional data about the tag
+        run: curl -L -o sapmachine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'sapmachine.latest.report.json'
           path: 'sapmachine.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sapmachine.image.json'
+          path: 'sapmachine.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'sapmachine.latest.tag.json'
+          path: 'sapmachine.latest.tag.json'
           retention-days: 1
 
   varnish:
@@ -2925,11 +5373,27 @@ jobs:
           format: 'json'
           output: 'varnish.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o varnish.image.json -s 'https://hub.docker.com/v2/repositories/library/varnish'
+      - name: Fetch additional data about the tag
+        run: curl -L -o varnish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/varnish/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'varnish.latest.report.json'
           path: 'varnish.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'varnish.image.json'
+          path: 'varnish.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'varnish.latest.tag.json'
+          path: 'varnish.latest.tag.json'
           retention-days: 1
 
   jobber:
@@ -2944,11 +5408,27 @@ jobs:
           format: 'json'
           output: 'jobber.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o jobber.image.json -s 'https://hub.docker.com/v2/repositories/library/jobber'
+      - name: Fetch additional data about the tag
+        run: curl -L -o jobber.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jobber/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'jobber.latest.report.json'
           path: 'jobber.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jobber.image.json'
+          path: 'jobber.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'jobber.latest.tag.json'
+          path: 'jobber.latest.tag.json'
           retention-days: 1
 
   archlinux:
@@ -2963,11 +5443,27 @@ jobs:
           format: 'json'
           output: 'archlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o archlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/archlinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o archlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/archlinux/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'archlinux.latest.report.json'
           path: 'archlinux.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'archlinux.image.json'
+          path: 'archlinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'archlinux.latest.tag.json'
+          path: 'archlinux.latest.tag.json'
           retention-days: 1
 
   friendica:
@@ -2982,11 +5478,27 @@ jobs:
           format: 'json'
           output: 'friendica.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o friendica.image.json -s 'https://hub.docker.com/v2/repositories/library/friendica'
+      - name: Fetch additional data about the tag
+        run: curl -L -o friendica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/friendica/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'friendica.latest.report.json'
           path: 'friendica.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'friendica.image.json'
+          path: 'friendica.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'friendica.latest.tag.json'
+          path: 'friendica.latest.tag.json'
           retention-days: 1
 
   caddy:
@@ -3001,11 +5513,27 @@ jobs:
           format: 'json'
           output: 'caddy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o caddy.image.json -s 'https://hub.docker.com/v2/repositories/library/caddy'
+      - name: Fetch additional data about the tag
+        run: curl -L -o caddy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/caddy/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'caddy.latest.report.json'
           path: 'caddy.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'caddy.image.json'
+          path: 'caddy.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'caddy.latest.tag.json'
+          path: 'caddy.latest.tag.json'
           retention-days: 1
 
   monica:
@@ -3020,11 +5548,27 @@ jobs:
           format: 'json'
           output: 'monica.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o monica.image.json -s 'https://hub.docker.com/v2/repositories/library/monica'
+      - name: Fetch additional data about the tag
+        run: curl -L -o monica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/monica/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'monica.latest.report.json'
           path: 'monica.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'monica.image.json'
+          path: 'monica.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'monica.latest.tag.json'
+          path: 'monica.latest.tag.json'
           retention-days: 1
 
   phpmyadmin:
@@ -3039,11 +5583,27 @@ jobs:
           format: 'json'
           output: 'phpmyadmin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o phpmyadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin'
+      - name: Fetch additional data about the tag
+        run: curl -L -o phpmyadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'phpmyadmin.latest.report.json'
           path: 'phpmyadmin.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'phpmyadmin.image.json'
+          path: 'phpmyadmin.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'phpmyadmin.latest.tag.json'
+          path: 'phpmyadmin.latest.tag.json'
           retention-days: 1
 
   hitch:
@@ -3058,11 +5618,27 @@ jobs:
           format: 'json'
           output: 'hitch.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o hitch.image.json -s 'https://hub.docker.com/v2/repositories/library/hitch'
+      - name: Fetch additional data about the tag
+        run: curl -L -o hitch.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hitch/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'hitch.latest.report.json'
           path: 'hitch.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hitch.image.json'
+          path: 'hitch.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'hitch.latest.tag.json'
+          path: 'hitch.latest.tag.json'
           retention-days: 1
 
   almalinux:
@@ -3077,11 +5653,27 @@ jobs:
           format: 'json'
           output: 'almalinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o almalinux.image.json -s 'https://hub.docker.com/v2/repositories/library/almalinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o almalinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/almalinux/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'almalinux.latest.report.json'
           path: 'almalinux.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'almalinux.image.json'
+          path: 'almalinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'almalinux.latest.tag.json'
+          path: 'almalinux.latest.tag.json'
           retention-days: 1
 
   dart:
@@ -3096,11 +5688,27 @@ jobs:
           format: 'json'
           output: 'dart.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o dart.image.json -s 'https://hub.docker.com/v2/repositories/library/dart'
+      - name: Fetch additional data about the tag
+        run: curl -L -o dart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/dart/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'dart.latest.report.json'
           path: 'dart.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'dart.image.json'
+          path: 'dart.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'dart.latest.tag.json'
+          path: 'dart.latest.tag.json'
           retention-days: 1
 
   eclipse-temurin:
@@ -3115,11 +5723,27 @@ jobs:
           format: 'json'
           output: 'eclipse-temurin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o eclipse-temurin.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin'
+      - name: Fetch additional data about the tag
+        run: curl -L -o eclipse-temurin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'eclipse-temurin.latest.report.json'
           path: 'eclipse-temurin.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-temurin.image.json'
+          path: 'eclipse-temurin.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'eclipse-temurin.latest.tag.json'
+          path: 'eclipse-temurin.latest.tag.json'
           retention-days: 1
 
   ibm-semeru-runtimes:
@@ -3134,11 +5758,27 @@ jobs:
           format: 'json'
           output: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o ibm-semeru-runtimes.image.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
+      - name: Fetch additional data about the tag
+        run: curl -L -o ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u392-b08-jre-jammy'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
           path: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibm-semeru-runtimes.image.json'
+          path: 'ibm-semeru-runtimes.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json'
+          path: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json'
           retention-days: 1
 
   rockylinux:
@@ -3153,11 +5793,27 @@ jobs:
           format: 'json'
           output: 'rockylinux.9.3.20231119-minimal.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o rockylinux.image.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux'
+      - name: Fetch additional data about the tag
+        run: curl -L -o rockylinux.9.3.20231119-minimal.tag.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux/tags/9.3.20231119-minimal'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'rockylinux.9.3.20231119-minimal.report.json'
           path: 'rockylinux.9.3.20231119-minimal.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rockylinux.image.json'
+          path: 'rockylinux.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'rockylinux.9.3.20231119-minimal.tag.json'
+          path: 'rockylinux.9.3.20231119-minimal.tag.json'
           retention-days: 1
 
   api-firewall:
@@ -3172,11 +5828,27 @@ jobs:
           format: 'json'
           output: 'api-firewall.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o api-firewall.image.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall'
+      - name: Fetch additional data about the tag
+        run: curl -L -o api-firewall.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'api-firewall.latest.report.json'
           path: 'api-firewall.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'api-firewall.image.json'
+          path: 'api-firewall.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'api-firewall.latest.tag.json'
+          path: 'api-firewall.latest.tag.json'
           retention-days: 1
 
   emqx:
@@ -3191,11 +5863,27 @@ jobs:
           format: 'json'
           output: 'emqx.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o emqx.image.json -s 'https://hub.docker.com/v2/repositories/library/emqx'
+      - name: Fetch additional data about the tag
+        run: curl -L -o emqx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/emqx/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'emqx.latest.report.json'
           path: 'emqx.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'emqx.image.json'
+          path: 'emqx.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'emqx.latest.tag.json'
+          path: 'emqx.latest.tag.json'
           retention-days: 1
 
   satosa:
@@ -3210,11 +5898,27 @@ jobs:
           format: 'json'
           output: 'satosa.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o satosa.image.json -s 'https://hub.docker.com/v2/repositories/library/satosa'
+      - name: Fetch additional data about the tag
+        run: curl -L -o satosa.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/satosa/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'satosa.latest.report.json'
           path: 'satosa.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'satosa.image.json'
+          path: 'satosa.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'satosa.latest.tag.json'
+          path: 'satosa.latest.tag.json'
           retention-days: 1
 
   unit:
@@ -3229,11 +5933,27 @@ jobs:
           format: 'json'
           output: 'unit.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o unit.image.json -s 'https://hub.docker.com/v2/repositories/library/unit'
+      - name: Fetch additional data about the tag
+        run: curl -L -o unit.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/unit/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'unit.latest.report.json'
           path: 'unit.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'unit.image.json'
+          path: 'unit.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'unit.latest.tag.json'
+          path: 'unit.latest.tag.json'
           retention-days: 1
 
   spark:
@@ -3248,11 +5968,27 @@ jobs:
           format: 'json'
           output: 'spark.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Upload report
+      - name: Fetch additional data about the image
+        run: curl -L -o spark.image.json -s 'https://hub.docker.com/v2/repositories/library/spark'
+      - name: Fetch additional data about the tag
+        run: curl -L -o spark.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spark/tags/latest'
+      - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
           name: 'spark.latest.report.json'
           path: 'spark.latest.report.json'
+          retention-days: 1
+      - name: Upload image data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spark.image.json'
+          path: 'spark.image.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'spark.latest.tag.json'
+          path: 'spark.latest.tag.json'
           retention-days: 1
 
   collect:
@@ -3263,7 +5999,7 @@ jobs:
         with:
           pattern: '*.report.json'
       - name: Create archive
-        run: tar cvzf reports.tar.gz *.report.json
+        run: tar cvzf reports.tar.gz *.json
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
