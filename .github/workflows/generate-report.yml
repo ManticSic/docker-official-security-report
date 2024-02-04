@@ -6002,6 +6002,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           pattern: '*.json'
+      - name: test
+        run: ls -la
       - name: Create archive
         run: tar cvzf reports.tar.gz *.json
       - name: Upload artifact
