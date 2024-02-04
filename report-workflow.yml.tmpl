@@ -53,7 +53,13 @@ jobs:{% for image in images %}
         with:
           pattern: '*.report.json'
       - name: Create archive
-        run: tar cvzf reports.tar.gz *.json
+        run: |
+         mkdir files
+         mv */*.json files
+         rmdir *.json
+         mv files/*.json .
+         rmdir files
+         tar cvzf reports.tar.gz *.json
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
