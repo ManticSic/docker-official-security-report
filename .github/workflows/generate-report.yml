@@ -9,6 +9,10 @@ jobs:
   centos:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o centos.image.json -s 'https://hub.docker.com/v2/repositories/library/centos'
+      - name: Fetch data about the tag
+        run: curl -L -o centos.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/centos/tags/latest'
       - name: Pull image
         run: docker pull centos:latest
       - name: Create report
@@ -18,10 +22,6 @@ jobs:
           format: 'json'
           output: 'centos.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o centos.image.json -s 'https://hub.docker.com/v2/repositories/library/centos'
-      - name: Fetch additional data about the tag
-        run: curl -L -o centos.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/centos/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -44,6 +44,10 @@ jobs:
   busybox:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o busybox.image.json -s 'https://hub.docker.com/v2/repositories/library/busybox'
+      - name: Fetch data about the tag
+        run: curl -L -o busybox.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/busybox/tags/latest'
       - name: Pull image
         run: docker pull busybox:latest
       - name: Create report
@@ -53,10 +57,6 @@ jobs:
           format: 'json'
           output: 'busybox.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o busybox.image.json -s 'https://hub.docker.com/v2/repositories/library/busybox'
-      - name: Fetch additional data about the tag
-        run: curl -L -o busybox.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/busybox/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -79,6 +79,10 @@ jobs:
   ubuntu:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ubuntu.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu'
+      - name: Fetch data about the tag
+        run: curl -L -o ubuntu.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu/tags/latest'
       - name: Pull image
         run: docker pull ubuntu:latest
       - name: Create report
@@ -88,10 +92,6 @@ jobs:
           format: 'json'
           output: 'ubuntu.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ubuntu.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ubuntu.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -114,6 +114,10 @@ jobs:
   fedora:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o fedora.image.json -s 'https://hub.docker.com/v2/repositories/library/fedora'
+      - name: Fetch data about the tag
+        run: curl -L -o fedora.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fedora/tags/latest'
       - name: Pull image
         run: docker pull fedora:latest
       - name: Create report
@@ -123,10 +127,6 @@ jobs:
           format: 'json'
           output: 'fedora.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o fedora.image.json -s 'https://hub.docker.com/v2/repositories/library/fedora'
-      - name: Fetch additional data about the tag
-        run: curl -L -o fedora.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fedora/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -149,6 +149,10 @@ jobs:
   registry:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o registry.image.json -s 'https://hub.docker.com/v2/repositories/library/registry'
+      - name: Fetch data about the tag
+        run: curl -L -o registry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/registry/tags/latest'
       - name: Pull image
         run: docker pull registry:latest
       - name: Create report
@@ -158,10 +162,6 @@ jobs:
           format: 'json'
           output: 'registry.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o registry.image.json -s 'https://hub.docker.com/v2/repositories/library/registry'
-      - name: Fetch additional data about the tag
-        run: curl -L -o registry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/registry/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -184,6 +184,10 @@ jobs:
   hipache:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hipache.image.json -s 'https://hub.docker.com/v2/repositories/library/hipache'
+      - name: Fetch data about the tag
+        run: curl -L -o hipache.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hipache/tags/latest'
       - name: Pull image
         run: docker pull hipache:latest
       - name: Create report
@@ -193,10 +197,6 @@ jobs:
           format: 'json'
           output: 'hipache.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hipache.image.json -s 'https://hub.docker.com/v2/repositories/library/hipache'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hipache.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hipache/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -219,6 +219,10 @@ jobs:
   docker-dev:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o docker-dev.image.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev'
+      - name: Fetch data about the tag
+        run: curl -L -o docker-dev.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev/tags/1'
       - name: Pull image
         run: docker pull docker-dev:1
       - name: Create report
@@ -228,10 +232,6 @@ jobs:
           format: 'json'
           output: 'docker-dev.1.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o docker-dev.image.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev'
-      - name: Fetch additional data about the tag
-        run: curl -L -o docker-dev.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker-dev/tags/1'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -254,6 +254,10 @@ jobs:
   debian:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o debian.image.json -s 'https://hub.docker.com/v2/repositories/library/debian'
+      - name: Fetch data about the tag
+        run: curl -L -o debian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/debian/tags/latest'
       - name: Pull image
         run: docker pull debian:latest
       - name: Create report
@@ -263,10 +267,6 @@ jobs:
           format: 'json'
           output: 'debian.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o debian.image.json -s 'https://hub.docker.com/v2/repositories/library/debian'
-      - name: Fetch additional data about the tag
-        run: curl -L -o debian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/debian/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -289,6 +289,10 @@ jobs:
   cirros:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o cirros.image.json -s 'https://hub.docker.com/v2/repositories/library/cirros'
+      - name: Fetch data about the tag
+        run: curl -L -o cirros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cirros/tags/latest'
       - name: Pull image
         run: docker pull cirros:latest
       - name: Create report
@@ -298,10 +302,6 @@ jobs:
           format: 'json'
           output: 'cirros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o cirros.image.json -s 'https://hub.docker.com/v2/repositories/library/cirros'
-      - name: Fetch additional data about the tag
-        run: curl -L -o cirros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cirros/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -324,6 +324,10 @@ jobs:
   crux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o crux.image.json -s 'https://hub.docker.com/v2/repositories/library/crux'
+      - name: Fetch data about the tag
+        run: curl -L -o crux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crux/tags/latest'
       - name: Pull image
         run: docker pull crux:latest
       - name: Create report
@@ -333,10 +337,6 @@ jobs:
           format: 'json'
           output: 'crux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o crux.image.json -s 'https://hub.docker.com/v2/repositories/library/crux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o crux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crux/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -359,6 +359,10 @@ jobs:
   ubuntu-upstart:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ubuntu-upstart.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart'
+      - name: Fetch data about the tag
+        run: curl -L -o ubuntu-upstart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart/tags/latest'
       - name: Pull image
         run: docker pull ubuntu-upstart:latest
       - name: Create report
@@ -368,10 +372,6 @@ jobs:
           format: 'json'
           output: 'ubuntu-upstart.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ubuntu-upstart.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ubuntu-upstart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-upstart/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -394,6 +394,10 @@ jobs:
   buildpack-deps:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o buildpack-deps.image.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps'
+      - name: Fetch data about the tag
+        run: curl -L -o buildpack-deps.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps/tags/latest'
       - name: Pull image
         run: docker pull buildpack-deps:latest
       - name: Create report
@@ -403,10 +407,6 @@ jobs:
           format: 'json'
           output: 'buildpack-deps.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o buildpack-deps.image.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps'
-      - name: Fetch additional data about the tag
-        run: curl -L -o buildpack-deps.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/buildpack-deps/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -429,6 +429,10 @@ jobs:
   nginx:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o nginx.image.json -s 'https://hub.docker.com/v2/repositories/library/nginx'
+      - name: Fetch data about the tag
+        run: curl -L -o nginx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nginx/tags/latest'
       - name: Pull image
         run: docker pull nginx:latest
       - name: Create report
@@ -438,10 +442,6 @@ jobs:
           format: 'json'
           output: 'nginx.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o nginx.image.json -s 'https://hub.docker.com/v2/repositories/library/nginx'
-      - name: Fetch additional data about the tag
-        run: curl -L -o nginx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nginx/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -464,6 +464,10 @@ jobs:
   node:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o node.image.json -s 'https://hub.docker.com/v2/repositories/library/node'
+      - name: Fetch data about the tag
+        run: curl -L -o node.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/node/tags/latest'
       - name: Pull image
         run: docker pull node:latest
       - name: Create report
@@ -473,10 +477,6 @@ jobs:
           format: 'json'
           output: 'node.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o node.image.json -s 'https://hub.docker.com/v2/repositories/library/node'
-      - name: Fetch additional data about the tag
-        run: curl -L -o node.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/node/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -499,6 +499,10 @@ jobs:
   mysql:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mysql.image.json -s 'https://hub.docker.com/v2/repositories/library/mysql'
+      - name: Fetch data about the tag
+        run: curl -L -o mysql.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mysql/tags/latest'
       - name: Pull image
         run: docker pull mysql:latest
       - name: Create report
@@ -508,10 +512,6 @@ jobs:
           format: 'json'
           output: 'mysql.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mysql.image.json -s 'https://hub.docker.com/v2/repositories/library/mysql'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mysql.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mysql/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -534,6 +534,10 @@ jobs:
   wordpress:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o wordpress.image.json -s 'https://hub.docker.com/v2/repositories/library/wordpress'
+      - name: Fetch data about the tag
+        run: curl -L -o wordpress.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/wordpress/tags/latest'
       - name: Pull image
         run: docker pull wordpress:latest
       - name: Create report
@@ -543,10 +547,6 @@ jobs:
           format: 'json'
           output: 'wordpress.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o wordpress.image.json -s 'https://hub.docker.com/v2/repositories/library/wordpress'
-      - name: Fetch additional data about the tag
-        run: curl -L -o wordpress.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/wordpress/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -569,6 +569,10 @@ jobs:
   postgres:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o postgres.image.json -s 'https://hub.docker.com/v2/repositories/library/postgres'
+      - name: Fetch data about the tag
+        run: curl -L -o postgres.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postgres/tags/latest'
       - name: Pull image
         run: docker pull postgres:latest
       - name: Create report
@@ -578,10 +582,6 @@ jobs:
           format: 'json'
           output: 'postgres.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o postgres.image.json -s 'https://hub.docker.com/v2/repositories/library/postgres'
-      - name: Fetch additional data about the tag
-        run: curl -L -o postgres.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postgres/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -604,6 +604,10 @@ jobs:
   redis:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o redis.image.json -s 'https://hub.docker.com/v2/repositories/library/redis'
+      - name: Fetch data about the tag
+        run: curl -L -o redis.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redis/tags/latest'
       - name: Pull image
         run: docker pull redis:latest
       - name: Create report
@@ -613,10 +617,6 @@ jobs:
           format: 'json'
           output: 'redis.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o redis.image.json -s 'https://hub.docker.com/v2/repositories/library/redis'
-      - name: Fetch additional data about the tag
-        run: curl -L -o redis.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redis/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -639,6 +639,10 @@ jobs:
   mongo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mongo.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo'
+      - name: Fetch data about the tag
+        run: curl -L -o mongo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo/tags/latest'
       - name: Pull image
         run: docker pull mongo:latest
       - name: Create report
@@ -648,10 +652,6 @@ jobs:
           format: 'json'
           output: 'mongo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mongo.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mongo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -674,6 +674,10 @@ jobs:
   rails:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rails.image.json -s 'https://hub.docker.com/v2/repositories/library/rails'
+      - name: Fetch data about the tag
+        run: curl -L -o rails.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rails/tags/latest'
       - name: Pull image
         run: docker pull rails:latest
       - name: Create report
@@ -683,10 +687,6 @@ jobs:
           format: 'json'
           output: 'rails.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rails.image.json -s 'https://hub.docker.com/v2/repositories/library/rails'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rails.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rails/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -709,6 +709,10 @@ jobs:
   ruby:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ruby.image.json -s 'https://hub.docker.com/v2/repositories/library/ruby'
+      - name: Fetch data about the tag
+        run: curl -L -o ruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ruby/tags/latest'
       - name: Pull image
         run: docker pull ruby:latest
       - name: Create report
@@ -718,10 +722,6 @@ jobs:
           format: 'json'
           output: 'ruby.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ruby.image.json -s 'https://hub.docker.com/v2/repositories/library/ruby'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ruby/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -744,6 +744,10 @@ jobs:
   python:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o python.image.json -s 'https://hub.docker.com/v2/repositories/library/python'
+      - name: Fetch data about the tag
+        run: curl -L -o python.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/python/tags/latest'
       - name: Pull image
         run: docker pull python:latest
       - name: Create report
@@ -753,10 +757,6 @@ jobs:
           format: 'json'
           output: 'python.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o python.image.json -s 'https://hub.docker.com/v2/repositories/library/python'
-      - name: Fetch additional data about the tag
-        run: curl -L -o python.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/python/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -779,6 +779,10 @@ jobs:
   ubuntu-debootstrap:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ubuntu-debootstrap.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap'
+      - name: Fetch data about the tag
+        run: curl -L -o ubuntu-debootstrap.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap/tags/latest'
       - name: Pull image
         run: docker pull ubuntu-debootstrap:latest
       - name: Create report
@@ -788,10 +792,6 @@ jobs:
           format: 'json'
           output: 'ubuntu-debootstrap.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ubuntu-debootstrap.image.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ubuntu-debootstrap.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ubuntu-debootstrap/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -814,6 +814,10 @@ jobs:
   perl:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o perl.image.json -s 'https://hub.docker.com/v2/repositories/library/perl'
+      - name: Fetch data about the tag
+        run: curl -L -o perl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/perl/tags/latest'
       - name: Pull image
         run: docker pull perl:latest
       - name: Create report
@@ -823,10 +827,6 @@ jobs:
           format: 'json'
           output: 'perl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o perl.image.json -s 'https://hub.docker.com/v2/repositories/library/perl'
-      - name: Fetch additional data about the tag
-        run: curl -L -o perl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/perl/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -849,6 +849,10 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hello-world.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-world'
+      - name: Fetch data about the tag
+        run: curl -L -o hello-world.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-world/tags/latest'
       - name: Pull image
         run: docker pull hello-world:latest
       - name: Create report
@@ -858,10 +862,6 @@ jobs:
           format: 'json'
           output: 'hello-world.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hello-world.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-world'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hello-world.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-world/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -884,6 +884,10 @@ jobs:
   hylang:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hylang.image.json -s 'https://hub.docker.com/v2/repositories/library/hylang'
+      - name: Fetch data about the tag
+        run: curl -L -o hylang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hylang/tags/latest'
       - name: Pull image
         run: docker pull hylang:latest
       - name: Create report
@@ -893,10 +897,6 @@ jobs:
           format: 'json'
           output: 'hylang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hylang.image.json -s 'https://hub.docker.com/v2/repositories/library/hylang'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hylang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hylang/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -919,6 +919,10 @@ jobs:
   gcc:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o gcc.image.json -s 'https://hub.docker.com/v2/repositories/library/gcc'
+      - name: Fetch data about the tag
+        run: curl -L -o gcc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gcc/tags/latest'
       - name: Pull image
         run: docker pull gcc:latest
       - name: Create report
@@ -928,10 +932,6 @@ jobs:
           format: 'json'
           output: 'gcc.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o gcc.image.json -s 'https://hub.docker.com/v2/repositories/library/gcc'
-      - name: Fetch additional data about the tag
-        run: curl -L -o gcc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gcc/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -954,6 +954,10 @@ jobs:
   jenkins:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o jenkins.image.json -s 'https://hub.docker.com/v2/repositories/library/jenkins'
+      - name: Fetch data about the tag
+        run: curl -L -o jenkins.2.60.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/jenkins/tags/2.60.3'
       - name: Pull image
         run: docker pull jenkins:2.60.3
       - name: Create report
@@ -963,10 +967,6 @@ jobs:
           format: 'json'
           output: 'jenkins.2.60.3.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o jenkins.image.json -s 'https://hub.docker.com/v2/repositories/library/jenkins'
-      - name: Fetch additional data about the tag
-        run: curl -L -o jenkins.2.60.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/jenkins/tags/2.60.3'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -989,6 +989,10 @@ jobs:
   golang:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o golang.image.json -s 'https://hub.docker.com/v2/repositories/library/golang'
+      - name: Fetch data about the tag
+        run: curl -L -o golang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/golang/tags/latest'
       - name: Pull image
         run: docker pull golang:latest
       - name: Create report
@@ -998,10 +1002,6 @@ jobs:
           format: 'json'
           output: 'golang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o golang.image.json -s 'https://hub.docker.com/v2/repositories/library/golang'
-      - name: Fetch additional data about the tag
-        run: curl -L -o golang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/golang/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1024,6 +1024,10 @@ jobs:
   neurodebian:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o neurodebian.image.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian'
+      - name: Fetch data about the tag
+        run: curl -L -o neurodebian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian/tags/latest'
       - name: Pull image
         run: docker pull neurodebian:latest
       - name: Create report
@@ -1033,10 +1037,6 @@ jobs:
           format: 'json'
           output: 'neurodebian.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o neurodebian.image.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian'
-      - name: Fetch additional data about the tag
-        run: curl -L -o neurodebian.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neurodebian/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1059,6 +1059,10 @@ jobs:
   clojure:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o clojure.image.json -s 'https://hub.docker.com/v2/repositories/library/clojure'
+      - name: Fetch data about the tag
+        run: curl -L -o clojure.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clojure/tags/latest'
       - name: Pull image
         run: docker pull clojure:latest
       - name: Create report
@@ -1068,10 +1072,6 @@ jobs:
           format: 'json'
           output: 'clojure.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o clojure.image.json -s 'https://hub.docker.com/v2/repositories/library/clojure'
-      - name: Fetch additional data about the tag
-        run: curl -L -o clojure.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clojure/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1094,6 +1094,10 @@ jobs:
   php:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o php.image.json -s 'https://hub.docker.com/v2/repositories/library/php'
+      - name: Fetch data about the tag
+        run: curl -L -o php.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php/tags/latest'
       - name: Pull image
         run: docker pull php:latest
       - name: Create report
@@ -1103,10 +1107,6 @@ jobs:
           format: 'json'
           output: 'php.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o php.image.json -s 'https://hub.docker.com/v2/repositories/library/php'
-      - name: Fetch additional data about the tag
-        run: curl -L -o php.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1129,6 +1129,10 @@ jobs:
   jruby:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o jruby.image.json -s 'https://hub.docker.com/v2/repositories/library/jruby'
+      - name: Fetch data about the tag
+        run: curl -L -o jruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jruby/tags/latest'
       - name: Pull image
         run: docker pull jruby:latest
       - name: Create report
@@ -1138,10 +1142,6 @@ jobs:
           format: 'json'
           output: 'jruby.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o jruby.image.json -s 'https://hub.docker.com/v2/repositories/library/jruby'
-      - name: Fetch additional data about the tag
-        run: curl -L -o jruby.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jruby/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1164,6 +1164,10 @@ jobs:
   mageia:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mageia.image.json -s 'https://hub.docker.com/v2/repositories/library/mageia'
+      - name: Fetch data about the tag
+        run: curl -L -o mageia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mageia/tags/latest'
       - name: Pull image
         run: docker pull mageia:latest
       - name: Create report
@@ -1173,10 +1177,6 @@ jobs:
           format: 'json'
           output: 'mageia.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mageia.image.json -s 'https://hub.docker.com/v2/repositories/library/mageia'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mageia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mageia/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1199,6 +1199,10 @@ jobs:
   crate:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o crate.image.json -s 'https://hub.docker.com/v2/repositories/library/crate'
+      - name: Fetch data about the tag
+        run: curl -L -o crate.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crate/tags/latest'
       - name: Pull image
         run: docker pull crate:latest
       - name: Create report
@@ -1208,10 +1212,6 @@ jobs:
           format: 'json'
           output: 'crate.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o crate.image.json -s 'https://hub.docker.com/v2/repositories/library/crate'
-      - name: Fetch additional data about the tag
-        run: curl -L -o crate.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/crate/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1234,6 +1234,10 @@ jobs:
   php-zendserver:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o php-zendserver.image.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver'
+      - name: Fetch data about the tag
+        run: curl -L -o php-zendserver.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver/tags/latest'
       - name: Pull image
         run: docker pull php-zendserver:latest
       - name: Create report
@@ -1243,10 +1247,6 @@ jobs:
           format: 'json'
           output: 'php-zendserver.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o php-zendserver.image.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver'
-      - name: Fetch additional data about the tag
-        run: curl -L -o php-zendserver.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/php-zendserver/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1269,6 +1269,10 @@ jobs:
   tomcat:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o tomcat.image.json -s 'https://hub.docker.com/v2/repositories/library/tomcat'
+      - name: Fetch data about the tag
+        run: curl -L -o tomcat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomcat/tags/latest'
       - name: Pull image
         run: docker pull tomcat:latest
       - name: Create report
@@ -1278,10 +1282,6 @@ jobs:
           format: 'json'
           output: 'tomcat.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o tomcat.image.json -s 'https://hub.docker.com/v2/repositories/library/tomcat'
-      - name: Fetch additional data about the tag
-        run: curl -L -o tomcat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomcat/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1304,6 +1304,10 @@ jobs:
   mono:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mono.image.json -s 'https://hub.docker.com/v2/repositories/library/mono'
+      - name: Fetch data about the tag
+        run: curl -L -o mono.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mono/tags/latest'
       - name: Pull image
         run: docker pull mono:latest
       - name: Create report
@@ -1313,10 +1317,6 @@ jobs:
           format: 'json'
           output: 'mono.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mono.image.json -s 'https://hub.docker.com/v2/repositories/library/mono'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mono.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mono/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1339,6 +1339,10 @@ jobs:
   haskell:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o haskell.image.json -s 'https://hub.docker.com/v2/repositories/library/haskell'
+      - name: Fetch data about the tag
+        run: curl -L -o haskell.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haskell/tags/latest'
       - name: Pull image
         run: docker pull haskell:latest
       - name: Create report
@@ -1348,10 +1352,6 @@ jobs:
           format: 'json'
           output: 'haskell.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o haskell.image.json -s 'https://hub.docker.com/v2/repositories/library/haskell'
-      - name: Fetch additional data about the tag
-        run: curl -L -o haskell.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haskell/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1374,6 +1374,10 @@ jobs:
   glassfish:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o glassfish.image.json -s 'https://hub.docker.com/v2/repositories/library/glassfish'
+      - name: Fetch data about the tag
+        run: curl -L -o glassfish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/glassfish/tags/latest'
       - name: Pull image
         run: docker pull glassfish:latest
       - name: Create report
@@ -1383,10 +1387,6 @@ jobs:
           format: 'json'
           output: 'glassfish.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o glassfish.image.json -s 'https://hub.docker.com/v2/repositories/library/glassfish'
-      - name: Fetch additional data about the tag
-        run: curl -L -o glassfish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/glassfish/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1409,6 +1409,10 @@ jobs:
   maven:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o maven.image.json -s 'https://hub.docker.com/v2/repositories/library/maven'
+      - name: Fetch data about the tag
+        run: curl -L -o maven.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/maven/tags/latest'
       - name: Pull image
         run: docker pull maven:latest
       - name: Create report
@@ -1418,10 +1422,6 @@ jobs:
           format: 'json'
           output: 'maven.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o maven.image.json -s 'https://hub.docker.com/v2/repositories/library/maven'
-      - name: Fetch additional data about the tag
-        run: curl -L -o maven.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/maven/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1444,6 +1444,10 @@ jobs:
   httpd:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o httpd.image.json -s 'https://hub.docker.com/v2/repositories/library/httpd'
+      - name: Fetch data about the tag
+        run: curl -L -o httpd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/httpd/tags/latest'
       - name: Pull image
         run: docker pull httpd:latest
       - name: Create report
@@ -1453,10 +1457,6 @@ jobs:
           format: 'json'
           output: 'httpd.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o httpd.image.json -s 'https://hub.docker.com/v2/repositories/library/httpd'
-      - name: Fetch additional data about the tag
-        run: curl -L -o httpd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/httpd/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1479,6 +1479,10 @@ jobs:
   sentry:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o sentry.image.json -s 'https://hub.docker.com/v2/repositories/library/sentry'
+      - name: Fetch data about the tag
+        run: curl -L -o sentry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sentry/tags/latest'
       - name: Pull image
         run: docker pull sentry:latest
       - name: Create report
@@ -1488,10 +1492,6 @@ jobs:
           format: 'json'
           output: 'sentry.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o sentry.image.json -s 'https://hub.docker.com/v2/repositories/library/sentry'
-      - name: Fetch additional data about the tag
-        run: curl -L -o sentry.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sentry/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1514,6 +1514,10 @@ jobs:
   r-base:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o r-base.image.json -s 'https://hub.docker.com/v2/repositories/library/r-base'
+      - name: Fetch data about the tag
+        run: curl -L -o r-base.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/r-base/tags/latest'
       - name: Pull image
         run: docker pull r-base:latest
       - name: Create report
@@ -1523,10 +1527,6 @@ jobs:
           format: 'json'
           output: 'r-base.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o r-base.image.json -s 'https://hub.docker.com/v2/repositories/library/r-base'
-      - name: Fetch additional data about the tag
-        run: curl -L -o r-base.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/r-base/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1549,6 +1549,10 @@ jobs:
   mariadb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mariadb.image.json -s 'https://hub.docker.com/v2/repositories/library/mariadb'
+      - name: Fetch data about the tag
+        run: curl -L -o mariadb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mariadb/tags/latest'
       - name: Pull image
         run: docker pull mariadb:latest
       - name: Create report
@@ -1558,10 +1562,6 @@ jobs:
           format: 'json'
           output: 'mariadb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mariadb.image.json -s 'https://hub.docker.com/v2/repositories/library/mariadb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mariadb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mariadb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1584,6 +1584,10 @@ jobs:
   thrift:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o thrift.image.json -s 'https://hub.docker.com/v2/repositories/library/thrift'
+      - name: Fetch data about the tag
+        run: curl -L -o thrift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/thrift/tags/latest'
       - name: Pull image
         run: docker pull thrift:latest
       - name: Create report
@@ -1593,10 +1597,6 @@ jobs:
           format: 'json'
           output: 'thrift.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o thrift.image.json -s 'https://hub.docker.com/v2/repositories/library/thrift'
-      - name: Fetch additional data about the tag
-        run: curl -L -o thrift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/thrift/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1619,6 +1619,10 @@ jobs:
   pypy:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o pypy.image.json -s 'https://hub.docker.com/v2/repositories/library/pypy'
+      - name: Fetch data about the tag
+        run: curl -L -o pypy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/pypy/tags/latest'
       - name: Pull image
         run: docker pull pypy:latest
       - name: Create report
@@ -1628,10 +1632,6 @@ jobs:
           format: 'json'
           output: 'pypy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o pypy.image.json -s 'https://hub.docker.com/v2/repositories/library/pypy'
-      - name: Fetch additional data about the tag
-        run: curl -L -o pypy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/pypy/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1654,6 +1654,10 @@ jobs:
   django:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o django.image.json -s 'https://hub.docker.com/v2/repositories/library/django'
+      - name: Fetch data about the tag
+        run: curl -L -o django.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/django/tags/latest'
       - name: Pull image
         run: docker pull django:latest
       - name: Create report
@@ -1663,10 +1667,6 @@ jobs:
           format: 'json'
           output: 'django.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o django.image.json -s 'https://hub.docker.com/v2/repositories/library/django'
-      - name: Fetch additional data about the tag
-        run: curl -L -o django.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/django/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1689,6 +1689,10 @@ jobs:
   haproxy:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o haproxy.image.json -s 'https://hub.docker.com/v2/repositories/library/haproxy'
+      - name: Fetch data about the tag
+        run: curl -L -o haproxy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haproxy/tags/latest'
       - name: Pull image
         run: docker pull haproxy:latest
       - name: Create report
@@ -1698,10 +1702,6 @@ jobs:
           format: 'json'
           output: 'haproxy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o haproxy.image.json -s 'https://hub.docker.com/v2/repositories/library/haproxy'
-      - name: Fetch additional data about the tag
-        run: curl -L -o haproxy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haproxy/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1724,6 +1724,10 @@ jobs:
   memcached:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o memcached.image.json -s 'https://hub.docker.com/v2/repositories/library/memcached'
+      - name: Fetch data about the tag
+        run: curl -L -o memcached.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/memcached/tags/latest'
       - name: Pull image
         run: docker pull memcached:latest
       - name: Create report
@@ -1733,10 +1737,6 @@ jobs:
           format: 'json'
           output: 'memcached.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o memcached.image.json -s 'https://hub.docker.com/v2/repositories/library/memcached'
-      - name: Fetch additional data about the tag
-        run: curl -L -o memcached.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/memcached/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1759,6 +1759,10 @@ jobs:
   rabbitmq:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rabbitmq.image.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq'
+      - name: Fetch data about the tag
+        run: curl -L -o rabbitmq.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq/tags/latest'
       - name: Pull image
         run: docker pull rabbitmq:latest
       - name: Create report
@@ -1768,10 +1772,6 @@ jobs:
           format: 'json'
           output: 'rabbitmq.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rabbitmq.image.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rabbitmq.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rabbitmq/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1794,6 +1794,10 @@ jobs:
   oraclelinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o oraclelinux.image.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
+      - name: Fetch data about the tag
+        run: curl -L -o oraclelinux.9-slim.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9-slim'
       - name: Pull image
         run: docker pull oraclelinux:9-slim
       - name: Create report
@@ -1803,10 +1807,6 @@ jobs:
           format: 'json'
           output: 'oraclelinux.9-slim.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o oraclelinux.image.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o oraclelinux.9-slim.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9-slim'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1829,6 +1829,10 @@ jobs:
   odoo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o odoo.image.json -s 'https://hub.docker.com/v2/repositories/library/odoo'
+      - name: Fetch data about the tag
+        run: curl -L -o odoo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/odoo/tags/latest'
       - name: Pull image
         run: docker pull odoo:latest
       - name: Create report
@@ -1838,10 +1842,6 @@ jobs:
           format: 'json'
           output: 'odoo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o odoo.image.json -s 'https://hub.docker.com/v2/repositories/library/odoo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o odoo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/odoo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1864,6 +1864,10 @@ jobs:
   rethinkdb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rethinkdb.image.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb'
+      - name: Fetch data about the tag
+        run: curl -L -o rethinkdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb/tags/latest'
       - name: Pull image
         run: docker pull rethinkdb:latest
       - name: Create report
@@ -1873,10 +1877,6 @@ jobs:
           format: 'json'
           output: 'rethinkdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rethinkdb.image.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rethinkdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rethinkdb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1899,6 +1899,10 @@ jobs:
   iojs:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o iojs.image.json -s 'https://hub.docker.com/v2/repositories/library/iojs'
+      - name: Fetch data about the tag
+        run: curl -L -o iojs.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/iojs/tags/latest'
       - name: Pull image
         run: docker pull iojs:latest
       - name: Create report
@@ -1908,10 +1912,6 @@ jobs:
           format: 'json'
           output: 'iojs.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o iojs.image.json -s 'https://hub.docker.com/v2/repositories/library/iojs'
-      - name: Fetch additional data about the tag
-        run: curl -L -o iojs.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/iojs/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1934,6 +1934,10 @@ jobs:
   websphere-liberty:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o websphere-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty'
+      - name: Fetch data about the tag
+        run: curl -L -o websphere-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty/tags/latest'
       - name: Pull image
         run: docker pull websphere-liberty:latest
       - name: Create report
@@ -1943,10 +1947,6 @@ jobs:
           format: 'json'
           output: 'websphere-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o websphere-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty'
-      - name: Fetch additional data about the tag
-        run: curl -L -o websphere-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/websphere-liberty/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -1969,6 +1969,10 @@ jobs:
   irssi:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o irssi.image.json -s 'https://hub.docker.com/v2/repositories/library/irssi'
+      - name: Fetch data about the tag
+        run: curl -L -o irssi.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/irssi/tags/latest'
       - name: Pull image
         run: docker pull irssi:latest
       - name: Create report
@@ -1978,10 +1982,6 @@ jobs:
           format: 'json'
           output: 'irssi.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o irssi.image.json -s 'https://hub.docker.com/v2/repositories/library/irssi'
-      - name: Fetch additional data about the tag
-        run: curl -L -o irssi.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/irssi/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2004,6 +2004,10 @@ jobs:
   swarm:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o swarm.image.json -s 'https://hub.docker.com/v2/repositories/library/swarm'
+      - name: Fetch data about the tag
+        run: curl -L -o swarm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swarm/tags/latest'
       - name: Pull image
         run: docker pull swarm:latest
       - name: Create report
@@ -2013,10 +2017,6 @@ jobs:
           format: 'json'
           output: 'swarm.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o swarm.image.json -s 'https://hub.docker.com/v2/repositories/library/swarm'
-      - name: Fetch additional data about the tag
-        run: curl -L -o swarm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swarm/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2039,6 +2039,10 @@ jobs:
   elasticsearch:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o elasticsearch.image.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
+      - name: Fetch data about the tag
+        run: curl -L -o elasticsearch.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.12.0'
       - name: Pull image
         run: docker pull elasticsearch:8.12.0
       - name: Create report
@@ -2048,10 +2052,6 @@ jobs:
           format: 'json'
           output: 'elasticsearch.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o elasticsearch.image.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
-      - name: Fetch additional data about the tag
-        run: curl -L -o elasticsearch.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.12.0'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2074,6 +2074,10 @@ jobs:
   jetty:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o jetty.image.json -s 'https://hub.docker.com/v2/repositories/library/jetty'
+      - name: Fetch data about the tag
+        run: curl -L -o jetty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jetty/tags/latest'
       - name: Pull image
         run: docker pull jetty:latest
       - name: Create report
@@ -2083,10 +2087,6 @@ jobs:
           format: 'json'
           output: 'jetty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o jetty.image.json -s 'https://hub.docker.com/v2/repositories/library/jetty'
-      - name: Fetch additional data about the tag
-        run: curl -L -o jetty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jetty/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2109,6 +2109,10 @@ jobs:
   ghost:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ghost.image.json -s 'https://hub.docker.com/v2/repositories/library/ghost'
+      - name: Fetch data about the tag
+        run: curl -L -o ghost.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ghost/tags/latest'
       - name: Pull image
         run: docker pull ghost:latest
       - name: Create report
@@ -2118,10 +2122,6 @@ jobs:
           format: 'json'
           output: 'ghost.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ghost.image.json -s 'https://hub.docker.com/v2/repositories/library/ghost'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ghost.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ghost/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2144,6 +2144,10 @@ jobs:
   celery:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o celery.image.json -s 'https://hub.docker.com/v2/repositories/library/celery'
+      - name: Fetch data about the tag
+        run: curl -L -o celery.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/celery/tags/latest'
       - name: Pull image
         run: docker pull celery:latest
       - name: Create report
@@ -2153,10 +2157,6 @@ jobs:
           format: 'json'
           output: 'celery.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o celery.image.json -s 'https://hub.docker.com/v2/repositories/library/celery'
-      - name: Fetch additional data about the tag
-        run: curl -L -o celery.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/celery/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2179,6 +2179,10 @@ jobs:
   percona:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o percona.image.json -s 'https://hub.docker.com/v2/repositories/library/percona'
+      - name: Fetch data about the tag
+        run: curl -L -o percona.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/percona/tags/latest'
       - name: Pull image
         run: docker pull percona:latest
       - name: Create report
@@ -2188,10 +2192,6 @@ jobs:
           format: 'json'
           output: 'percona.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o percona.image.json -s 'https://hub.docker.com/v2/repositories/library/percona'
-      - name: Fetch additional data about the tag
-        run: curl -L -o percona.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/percona/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2214,6 +2214,10 @@ jobs:
   aerospike:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o aerospike.image.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
+      - name: Fetch data about the tag
+        run: curl -L -o aerospike.ee-7.0.0.3_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.3_1'
       - name: Pull image
         run: docker pull aerospike:ee-7.0.0.3_1
       - name: Create report
@@ -2223,10 +2227,6 @@ jobs:
           format: 'json'
           output: 'aerospike.ee-7.0.0.3_1.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o aerospike.image.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
-      - name: Fetch additional data about the tag
-        run: curl -L -o aerospike.ee-7.0.0.3_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.3_1'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2249,6 +2249,10 @@ jobs:
   logstash:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o logstash.image.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
+      - name: Fetch data about the tag
+        run: curl -L -o logstash.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.12.0'
       - name: Pull image
         run: docker pull logstash:8.12.0
       - name: Create report
@@ -2258,10 +2262,6 @@ jobs:
           format: 'json'
           output: 'logstash.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o logstash.image.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
-      - name: Fetch additional data about the tag
-        run: curl -L -o logstash.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.12.0'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2284,6 +2284,10 @@ jobs:
   julia:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o julia.image.json -s 'https://hub.docker.com/v2/repositories/library/julia'
+      - name: Fetch data about the tag
+        run: curl -L -o julia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/julia/tags/latest'
       - name: Pull image
         run: docker pull julia:latest
       - name: Create report
@@ -2293,10 +2297,6 @@ jobs:
           format: 'json'
           output: 'julia.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o julia.image.json -s 'https://hub.docker.com/v2/repositories/library/julia'
-      - name: Fetch additional data about the tag
-        run: curl -L -o julia.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/julia/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2319,6 +2319,10 @@ jobs:
   alpine:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o alpine.image.json -s 'https://hub.docker.com/v2/repositories/library/alpine'
+      - name: Fetch data about the tag
+        run: curl -L -o alpine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alpine/tags/latest'
       - name: Pull image
         run: docker pull alpine:latest
       - name: Create report
@@ -2328,10 +2332,6 @@ jobs:
           format: 'json'
           output: 'alpine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o alpine.image.json -s 'https://hub.docker.com/v2/repositories/library/alpine'
-      - name: Fetch additional data about the tag
-        run: curl -L -o alpine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alpine/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2354,6 +2354,10 @@ jobs:
   rakudo-star:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rakudo-star.image.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star'
+      - name: Fetch data about the tag
+        run: curl -L -o rakudo-star.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star/tags/latest'
       - name: Pull image
         run: docker pull rakudo-star:latest
       - name: Create report
@@ -2363,10 +2367,6 @@ jobs:
           format: 'json'
           output: 'rakudo-star.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rakudo-star.image.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rakudo-star.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rakudo-star/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2389,6 +2389,10 @@ jobs:
   drupal:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o drupal.image.json -s 'https://hub.docker.com/v2/repositories/library/drupal'
+      - name: Fetch data about the tag
+        run: curl -L -o drupal.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/drupal/tags/latest'
       - name: Pull image
         run: docker pull drupal:latest
       - name: Create report
@@ -2398,10 +2402,6 @@ jobs:
           format: 'json'
           output: 'drupal.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o drupal.image.json -s 'https://hub.docker.com/v2/repositories/library/drupal'
-      - name: Fetch additional data about the tag
-        run: curl -L -o drupal.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/drupal/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2424,6 +2424,10 @@ jobs:
   cassandra:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o cassandra.image.json -s 'https://hub.docker.com/v2/repositories/library/cassandra'
+      - name: Fetch data about the tag
+        run: curl -L -o cassandra.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cassandra/tags/latest'
       - name: Pull image
         run: docker pull cassandra:latest
       - name: Create report
@@ -2433,10 +2437,6 @@ jobs:
           format: 'json'
           output: 'cassandra.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o cassandra.image.json -s 'https://hub.docker.com/v2/repositories/library/cassandra'
-      - name: Fetch additional data about the tag
-        run: curl -L -o cassandra.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/cassandra/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2459,6 +2459,10 @@ jobs:
   sonarqube:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o sonarqube.image.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube'
+      - name: Fetch data about the tag
+        run: curl -L -o sonarqube.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube/tags/latest'
       - name: Pull image
         run: docker pull sonarqube:latest
       - name: Create report
@@ -2468,10 +2472,6 @@ jobs:
           format: 'json'
           output: 'sonarqube.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o sonarqube.image.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube'
-      - name: Fetch additional data about the tag
-        run: curl -L -o sonarqube.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sonarqube/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2494,6 +2494,10 @@ jobs:
   couchbase:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o couchbase.image.json -s 'https://hub.docker.com/v2/repositories/library/couchbase'
+      - name: Fetch data about the tag
+        run: curl -L -o couchbase.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchbase/tags/latest'
       - name: Pull image
         run: docker pull couchbase:latest
       - name: Create report
@@ -2503,10 +2507,6 @@ jobs:
           format: 'json'
           output: 'couchbase.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o couchbase.image.json -s 'https://hub.docker.com/v2/repositories/library/couchbase'
-      - name: Fetch additional data about the tag
-        run: curl -L -o couchbase.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchbase/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2529,6 +2529,10 @@ jobs:
   ros:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ros.image.json -s 'https://hub.docker.com/v2/repositories/library/ros'
+      - name: Fetch data about the tag
+        run: curl -L -o ros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ros/tags/latest'
       - name: Pull image
         run: docker pull ros:latest
       - name: Create report
@@ -2538,10 +2542,6 @@ jobs:
           format: 'json'
           output: 'ros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ros.image.json -s 'https://hub.docker.com/v2/repositories/library/ros'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ros/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2564,6 +2564,10 @@ jobs:
   kibana:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o kibana.image.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
+      - name: Fetch data about the tag
+        run: curl -L -o kibana.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.12.0'
       - name: Pull image
         run: docker pull kibana:8.12.0
       - name: Create report
@@ -2573,10 +2577,6 @@ jobs:
           format: 'json'
           output: 'kibana.8.12.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o kibana.image.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
-      - name: Fetch additional data about the tag
-        run: curl -L -o kibana.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.12.0'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2599,6 +2599,10 @@ jobs:
   kaazing-gateway:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o kaazing-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway'
+      - name: Fetch data about the tag
+        run: curl -L -o kaazing-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway/tags/latest'
       - name: Pull image
         run: docker pull kaazing-gateway:latest
       - name: Create report
@@ -2608,10 +2612,6 @@ jobs:
           format: 'json'
           output: 'kaazing-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o kaazing-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway'
-      - name: Fetch additional data about the tag
-        run: curl -L -o kaazing-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kaazing-gateway/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2634,6 +2634,10 @@ jobs:
   arangodb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o arangodb.image.json -s 'https://hub.docker.com/v2/repositories/library/arangodb'
+      - name: Fetch data about the tag
+        run: curl -L -o arangodb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/arangodb/tags/latest'
       - name: Pull image
         run: docker pull arangodb:latest
       - name: Create report
@@ -2643,10 +2647,6 @@ jobs:
           format: 'json'
           output: 'arangodb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o arangodb.image.json -s 'https://hub.docker.com/v2/repositories/library/arangodb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o arangodb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/arangodb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2669,6 +2669,10 @@ jobs:
   owncloud:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o owncloud.image.json -s 'https://hub.docker.com/v2/repositories/library/owncloud'
+      - name: Fetch data about the tag
+        run: curl -L -o owncloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/owncloud/tags/latest'
       - name: Pull image
         run: docker pull owncloud:latest
       - name: Create report
@@ -2678,10 +2682,6 @@ jobs:
           format: 'json'
           output: 'owncloud.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o owncloud.image.json -s 'https://hub.docker.com/v2/repositories/library/owncloud'
-      - name: Fetch additional data about the tag
-        run: curl -L -o owncloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/owncloud/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2704,6 +2704,10 @@ jobs:
   gazebo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o gazebo.image.json -s 'https://hub.docker.com/v2/repositories/library/gazebo'
+      - name: Fetch data about the tag
+        run: curl -L -o gazebo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gazebo/tags/latest'
       - name: Pull image
         run: docker pull gazebo:latest
       - name: Create report
@@ -2713,10 +2717,6 @@ jobs:
           format: 'json'
           output: 'gazebo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o gazebo.image.json -s 'https://hub.docker.com/v2/repositories/library/gazebo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o gazebo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gazebo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2739,6 +2739,10 @@ jobs:
   joomla:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o joomla.image.json -s 'https://hub.docker.com/v2/repositories/library/joomla'
+      - name: Fetch data about the tag
+        run: curl -L -o joomla.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/joomla/tags/latest'
       - name: Pull image
         run: docker pull joomla:latest
       - name: Create report
@@ -2748,10 +2752,6 @@ jobs:
           format: 'json'
           output: 'joomla.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o joomla.image.json -s 'https://hub.docker.com/v2/repositories/library/joomla'
-      - name: Fetch additional data about the tag
-        run: curl -L -o joomla.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/joomla/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2774,6 +2774,10 @@ jobs:
   redmine:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o redmine.image.json -s 'https://hub.docker.com/v2/repositories/library/redmine'
+      - name: Fetch data about the tag
+        run: curl -L -o redmine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redmine/tags/latest'
       - name: Pull image
         run: docker pull redmine:latest
       - name: Create report
@@ -2783,10 +2787,6 @@ jobs:
           format: 'json'
           output: 'redmine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o redmine.image.json -s 'https://hub.docker.com/v2/repositories/library/redmine'
-      - name: Fetch additional data about the tag
-        run: curl -L -o redmine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/redmine/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2809,6 +2809,10 @@ jobs:
   nats:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o nats.image.json -s 'https://hub.docker.com/v2/repositories/library/nats'
+      - name: Fetch data about the tag
+        run: curl -L -o nats.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats/tags/latest'
       - name: Pull image
         run: docker pull nats:latest
       - name: Create report
@@ -2818,10 +2822,6 @@ jobs:
           format: 'json'
           output: 'nats.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o nats.image.json -s 'https://hub.docker.com/v2/repositories/library/nats'
-      - name: Fetch additional data about the tag
-        run: curl -L -o nats.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2844,6 +2844,10 @@ jobs:
   rocket_chat:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rocket.chat.image.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat'
+      - name: Fetch data about the tag
+        run: curl -L -o rocket.chat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat/tags/latest'
       - name: Pull image
         run: docker pull rocket.chat:latest
       - name: Create report
@@ -2853,10 +2857,6 @@ jobs:
           format: 'json'
           output: 'rocket.chat.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rocket.chat.image.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rocket.chat.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rocket.chat/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2879,6 +2879,10 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o docker.image.json -s 'https://hub.docker.com/v2/repositories/library/docker'
+      - name: Fetch data about the tag
+        run: curl -L -o docker.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker/tags/latest'
       - name: Pull image
         run: docker pull docker:latest
       - name: Create report
@@ -2888,10 +2892,6 @@ jobs:
           format: 'json'
           output: 'docker.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o docker.image.json -s 'https://hub.docker.com/v2/repositories/library/docker'
-      - name: Fetch additional data about the tag
-        run: curl -L -o docker.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/docker/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2914,6 +2914,10 @@ jobs:
   tomee:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o tomee.image.json -s 'https://hub.docker.com/v2/repositories/library/tomee'
+      - name: Fetch data about the tag
+        run: curl -L -o tomee.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomee/tags/latest'
       - name: Pull image
         run: docker pull tomee:latest
       - name: Create report
@@ -2923,10 +2927,6 @@ jobs:
           format: 'json'
           output: 'tomee.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o tomee.image.json -s 'https://hub.docker.com/v2/repositories/library/tomee'
-      - name: Fetch additional data about the tag
-        run: curl -L -o tomee.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/tomee/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2949,6 +2949,10 @@ jobs:
   sourcemage:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o sourcemage.image.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage'
+      - name: Fetch data about the tag
+        run: curl -L -o sourcemage.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage/tags/latest'
       - name: Pull image
         run: docker pull sourcemage:latest
       - name: Create report
@@ -2958,10 +2962,6 @@ jobs:
           format: 'json'
           output: 'sourcemage.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o sourcemage.image.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage'
-      - name: Fetch additional data about the tag
-        run: curl -L -o sourcemage.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sourcemage/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -2984,6 +2984,10 @@ jobs:
   bonita:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o bonita.image.json -s 'https://hub.docker.com/v2/repositories/library/bonita'
+      - name: Fetch data about the tag
+        run: curl -L -o bonita.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bonita/tags/latest'
       - name: Pull image
         run: docker pull bonita:latest
       - name: Create report
@@ -2993,10 +2997,6 @@ jobs:
           format: 'json'
           output: 'bonita.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o bonita.image.json -s 'https://hub.docker.com/v2/repositories/library/bonita'
-      - name: Fetch additional data about the tag
-        run: curl -L -o bonita.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bonita/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3019,6 +3019,10 @@ jobs:
   solr:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o solr.image.json -s 'https://hub.docker.com/v2/repositories/library/solr'
+      - name: Fetch data about the tag
+        run: curl -L -o solr.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/solr/tags/latest'
       - name: Pull image
         run: docker pull solr:latest
       - name: Create report
@@ -3028,10 +3032,6 @@ jobs:
           format: 'json'
           output: 'solr.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o solr.image.json -s 'https://hub.docker.com/v2/repositories/library/solr'
-      - name: Fetch additional data about the tag
-        run: curl -L -o solr.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/solr/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3054,6 +3054,10 @@ jobs:
   neo4j:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o neo4j.image.json -s 'https://hub.docker.com/v2/repositories/library/neo4j'
+      - name: Fetch data about the tag
+        run: curl -L -o neo4j.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neo4j/tags/latest'
       - name: Pull image
         run: docker pull neo4j:latest
       - name: Create report
@@ -3063,10 +3067,6 @@ jobs:
           format: 'json'
           output: 'neo4j.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o neo4j.image.json -s 'https://hub.docker.com/v2/repositories/library/neo4j'
-      - name: Fetch additional data about the tag
-        run: curl -L -o neo4j.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/neo4j/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3089,6 +3089,10 @@ jobs:
   erlang:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o erlang.image.json -s 'https://hub.docker.com/v2/repositories/library/erlang'
+      - name: Fetch data about the tag
+        run: curl -L -o erlang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/erlang/tags/latest'
       - name: Pull image
         run: docker pull erlang:latest
       - name: Create report
@@ -3098,10 +3102,6 @@ jobs:
           format: 'json'
           output: 'erlang.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o erlang.image.json -s 'https://hub.docker.com/v2/repositories/library/erlang'
-      - name: Fetch additional data about the tag
-        run: curl -L -o erlang.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/erlang/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3124,6 +3124,10 @@ jobs:
   nuxeo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o nuxeo.image.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo'
+      - name: Fetch data about the tag
+        run: curl -L -o nuxeo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo/tags/latest'
       - name: Pull image
         run: docker pull nuxeo:latest
       - name: Create report
@@ -3133,10 +3137,6 @@ jobs:
           format: 'json'
           output: 'nuxeo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o nuxeo.image.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o nuxeo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nuxeo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3159,6 +3159,10 @@ jobs:
   photon:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o photon.image.json -s 'https://hub.docker.com/v2/repositories/library/photon'
+      - name: Fetch data about the tag
+        run: curl -L -o photon.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/photon/tags/latest'
       - name: Pull image
         run: docker pull photon:latest
       - name: Create report
@@ -3168,10 +3172,6 @@ jobs:
           format: 'json'
           output: 'photon.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o photon.image.json -s 'https://hub.docker.com/v2/repositories/library/photon'
-      - name: Fetch additional data about the tag
-        run: curl -L -o photon.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/photon/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3194,6 +3194,10 @@ jobs:
   couchdb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o couchdb.image.json -s 'https://hub.docker.com/v2/repositories/library/couchdb'
+      - name: Fetch data about the tag
+        run: curl -L -o couchdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchdb/tags/latest'
       - name: Pull image
         run: docker pull couchdb:latest
       - name: Create report
@@ -3203,10 +3207,6 @@ jobs:
           format: 'json'
           output: 'couchdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o couchdb.image.json -s 'https://hub.docker.com/v2/repositories/library/couchdb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o couchdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/couchdb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3229,6 +3229,10 @@ jobs:
   notary:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o notary.image.json -s 'https://hub.docker.com/v2/repositories/library/notary'
+      - name: Fetch data about the tag
+        run: curl -L -o notary.signer-0.7.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/notary/tags/signer-0.7.0'
       - name: Pull image
         run: docker pull notary:signer-0.7.0
       - name: Create report
@@ -3238,10 +3242,6 @@ jobs:
           format: 'json'
           output: 'notary.signer-0.7.0.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o notary.image.json -s 'https://hub.docker.com/v2/repositories/library/notary'
-      - name: Fetch additional data about the tag
-        run: curl -L -o notary.signer-0.7.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/notary/tags/signer-0.7.0'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3264,6 +3264,10 @@ jobs:
   piwik:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o piwik.image.json -s 'https://hub.docker.com/v2/repositories/library/piwik'
+      - name: Fetch data about the tag
+        run: curl -L -o piwik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/piwik/tags/latest'
       - name: Pull image
         run: docker pull piwik:latest
       - name: Create report
@@ -3273,10 +3277,6 @@ jobs:
           format: 'json'
           output: 'piwik.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o piwik.image.json -s 'https://hub.docker.com/v2/repositories/library/piwik'
-      - name: Fetch additional data about the tag
-        run: curl -L -o piwik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/piwik/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3299,6 +3299,10 @@ jobs:
   elixir:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o elixir.image.json -s 'https://hub.docker.com/v2/repositories/library/elixir'
+      - name: Fetch data about the tag
+        run: curl -L -o elixir.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/elixir/tags/latest'
       - name: Pull image
         run: docker pull elixir:latest
       - name: Create report
@@ -3308,10 +3312,6 @@ jobs:
           format: 'json'
           output: 'elixir.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o elixir.image.json -s 'https://hub.docker.com/v2/repositories/library/elixir'
-      - name: Fetch additional data about the tag
-        run: curl -L -o elixir.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/elixir/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3334,6 +3334,10 @@ jobs:
   lightstreamer:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o lightstreamer.image.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer'
+      - name: Fetch data about the tag
+        run: curl -L -o lightstreamer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer/tags/latest'
       - name: Pull image
         run: docker pull lightstreamer:latest
       - name: Create report
@@ -3343,10 +3347,6 @@ jobs:
           format: 'json'
           output: 'lightstreamer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o lightstreamer.image.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer'
-      - name: Fetch additional data about the tag
-        run: curl -L -o lightstreamer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/lightstreamer/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3369,6 +3369,10 @@ jobs:
   orientdb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o orientdb.image.json -s 'https://hub.docker.com/v2/repositories/library/orientdb'
+      - name: Fetch data about the tag
+        run: curl -L -o orientdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/orientdb/tags/latest'
       - name: Pull image
         run: docker pull orientdb:latest
       - name: Create report
@@ -3378,10 +3382,6 @@ jobs:
           format: 'json'
           output: 'orientdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o orientdb.image.json -s 'https://hub.docker.com/v2/repositories/library/orientdb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o orientdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/orientdb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3404,6 +3404,10 @@ jobs:
   mongo-express:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mongo-express.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express'
+      - name: Fetch data about the tag
+        run: curl -L -o mongo-express.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express/tags/latest'
       - name: Pull image
         run: docker pull mongo-express:latest
       - name: Create report
@@ -3413,10 +3417,6 @@ jobs:
           format: 'json'
           output: 'mongo-express.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mongo-express.image.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mongo-express.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mongo-express/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3439,6 +3439,10 @@ jobs:
   traefik:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o traefik.image.json -s 'https://hub.docker.com/v2/repositories/library/traefik'
+      - name: Fetch data about the tag
+        run: curl -L -o traefik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/traefik/tags/latest'
       - name: Pull image
         run: docker pull traefik:latest
       - name: Create report
@@ -3448,10 +3452,6 @@ jobs:
           format: 'json'
           output: 'traefik.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o traefik.image.json -s 'https://hub.docker.com/v2/repositories/library/traefik'
-      - name: Fetch additional data about the tag
-        run: curl -L -o traefik.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/traefik/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3474,6 +3474,10 @@ jobs:
   backdrop:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o backdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/backdrop'
+      - name: Fetch data about the tag
+        run: curl -L -o backdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/backdrop/tags/latest'
       - name: Pull image
         run: docker pull backdrop:latest
       - name: Create report
@@ -3483,10 +3487,6 @@ jobs:
           format: 'json'
           output: 'backdrop.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o backdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/backdrop'
-      - name: Fetch additional data about the tag
-        run: curl -L -o backdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/backdrop/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3509,6 +3509,10 @@ jobs:
   consul:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o consul.image.json -s 'https://hub.docker.com/v2/repositories/library/consul'
+      - name: Fetch data about the tag
+        run: curl -L -o consul.1.15.4.tag.json -s 'https://hub.docker.com/v2/repositories/library/consul/tags/1.15.4'
       - name: Pull image
         run: docker pull consul:1.15.4
       - name: Create report
@@ -3518,10 +3522,6 @@ jobs:
           format: 'json'
           output: 'consul.1.15.4.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o consul.image.json -s 'https://hub.docker.com/v2/repositories/library/consul'
-      - name: Fetch additional data about the tag
-        run: curl -L -o consul.1.15.4.tag.json -s 'https://hub.docker.com/v2/repositories/library/consul/tags/1.15.4'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3544,6 +3544,10 @@ jobs:
   chronograf:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o chronograf.image.json -s 'https://hub.docker.com/v2/repositories/library/chronograf'
+      - name: Fetch data about the tag
+        run: curl -L -o chronograf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/chronograf/tags/latest'
       - name: Pull image
         run: docker pull chronograf:latest
       - name: Create report
@@ -3553,10 +3557,6 @@ jobs:
           format: 'json'
           output: 'chronograf.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o chronograf.image.json -s 'https://hub.docker.com/v2/repositories/library/chronograf'
-      - name: Fetch additional data about the tag
-        run: curl -L -o chronograf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/chronograf/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3579,6 +3579,10 @@ jobs:
   influxdb:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o influxdb.image.json -s 'https://hub.docker.com/v2/repositories/library/influxdb'
+      - name: Fetch data about the tag
+        run: curl -L -o influxdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/influxdb/tags/latest'
       - name: Pull image
         run: docker pull influxdb:latest
       - name: Create report
@@ -3588,10 +3592,6 @@ jobs:
           format: 'json'
           output: 'influxdb.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o influxdb.image.json -s 'https://hub.docker.com/v2/repositories/library/influxdb'
-      - name: Fetch additional data about the tag
-        run: curl -L -o influxdb.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/influxdb/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3614,6 +3614,10 @@ jobs:
   kapacitor:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o kapacitor.image.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor'
+      - name: Fetch data about the tag
+        run: curl -L -o kapacitor.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor/tags/latest'
       - name: Pull image
         run: docker pull kapacitor:latest
       - name: Create report
@@ -3623,10 +3627,6 @@ jobs:
           format: 'json'
           output: 'kapacitor.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o kapacitor.image.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor'
-      - name: Fetch additional data about the tag
-        run: curl -L -o kapacitor.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kapacitor/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3649,6 +3649,10 @@ jobs:
   telegraf:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o telegraf.image.json -s 'https://hub.docker.com/v2/repositories/library/telegraf'
+      - name: Fetch data about the tag
+        run: curl -L -o telegraf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/telegraf/tags/latest'
       - name: Pull image
         run: docker pull telegraf:latest
       - name: Create report
@@ -3658,10 +3662,6 @@ jobs:
           format: 'json'
           output: 'telegraf.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o telegraf.image.json -s 'https://hub.docker.com/v2/repositories/library/telegraf'
-      - name: Fetch additional data about the tag
-        run: curl -L -o telegraf.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/telegraf/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3684,6 +3684,10 @@ jobs:
   hello-seattle:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hello-seattle.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle'
+      - name: Fetch data about the tag
+        run: curl -L -o hello-seattle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle/tags/latest'
       - name: Pull image
         run: docker pull hello-seattle:latest
       - name: Create report
@@ -3693,10 +3697,6 @@ jobs:
           format: 'json'
           output: 'hello-seattle.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hello-seattle.image.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hello-seattle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hello-seattle/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3719,6 +3719,10 @@ jobs:
   hola-mundo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hola-mundo.image.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo'
+      - name: Fetch data about the tag
+        run: curl -L -o hola-mundo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo/tags/latest'
       - name: Pull image
         run: docker pull hola-mundo:latest
       - name: Create report
@@ -3728,10 +3732,6 @@ jobs:
           format: 'json'
           output: 'hola-mundo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hola-mundo.image.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hola-mundo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hola-mundo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3754,6 +3754,10 @@ jobs:
   fsharp:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o fsharp.image.json -s 'https://hub.docker.com/v2/repositories/library/fsharp'
+      - name: Fetch data about the tag
+        run: curl -L -o fsharp.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fsharp/tags/latest'
       - name: Pull image
         run: docker pull fsharp:latest
       - name: Create report
@@ -3763,10 +3767,6 @@ jobs:
           format: 'json'
           output: 'fsharp.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o fsharp.image.json -s 'https://hub.docker.com/v2/repositories/library/fsharp'
-      - name: Fetch additional data about the tag
-        run: curl -L -o fsharp.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fsharp/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3789,6 +3789,10 @@ jobs:
   spiped:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o spiped.image.json -s 'https://hub.docker.com/v2/repositories/library/spiped'
+      - name: Fetch data about the tag
+        run: curl -L -o spiped.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spiped/tags/latest'
       - name: Pull image
         run: docker pull spiped:latest
       - name: Create report
@@ -3798,10 +3802,6 @@ jobs:
           format: 'json'
           output: 'spiped.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o spiped.image.json -s 'https://hub.docker.com/v2/repositories/library/spiped'
-      - name: Fetch additional data about the tag
-        run: curl -L -o spiped.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spiped/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3824,6 +3824,10 @@ jobs:
   vault:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o vault.image.json -s 'https://hub.docker.com/v2/repositories/library/vault'
+      - name: Fetch data about the tag
+        run: curl -L -o vault.1.13.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/vault/tags/1.13.3'
       - name: Pull image
         run: docker pull vault:1.13.3
       - name: Create report
@@ -3833,10 +3837,6 @@ jobs:
           format: 'json'
           output: 'vault.1.13.3.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o vault.image.json -s 'https://hub.docker.com/v2/repositories/library/vault'
-      - name: Fetch additional data about the tag
-        run: curl -L -o vault.1.13.3.tag.json -s 'https://hub.docker.com/v2/repositories/library/vault/tags/1.13.3'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3859,6 +3859,10 @@ jobs:
   clearlinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o clearlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux'
+      - name: Fetch data about the tag
+        run: curl -L -o clearlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux/tags/latest'
       - name: Pull image
         run: docker pull clearlinux:latest
       - name: Create report
@@ -3868,10 +3872,6 @@ jobs:
           format: 'json'
           output: 'clearlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o clearlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o clearlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/clearlinux/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3894,6 +3894,10 @@ jobs:
   eggdrop:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o eggdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop'
+      - name: Fetch data about the tag
+        run: curl -L -o eggdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop/tags/latest'
       - name: Pull image
         run: docker pull eggdrop:latest
       - name: Create report
@@ -3903,10 +3907,6 @@ jobs:
           format: 'json'
           output: 'eggdrop.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o eggdrop.image.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop'
-      - name: Fetch additional data about the tag
-        run: curl -L -o eggdrop.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eggdrop/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3929,6 +3929,10 @@ jobs:
   ibmjava:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ibmjava.image.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava'
+      - name: Fetch data about the tag
+        run: curl -L -o ibmjava.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava/tags/latest'
       - name: Pull image
         run: docker pull ibmjava:latest
       - name: Create report
@@ -3938,10 +3942,6 @@ jobs:
           format: 'json'
           output: 'ibmjava.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ibmjava.image.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ibmjava.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibmjava/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3964,6 +3964,10 @@ jobs:
   openjdk:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o openjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/openjdk'
+      - name: Fetch data about the tag
+        run: curl -L -o openjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/openjdk/tags/latest'
       - name: Pull image
         run: docker pull openjdk:latest
       - name: Create report
@@ -3973,10 +3977,6 @@ jobs:
           format: 'json'
           output: 'openjdk.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o openjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/openjdk'
-      - name: Fetch additional data about the tag
-        run: curl -L -o openjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/openjdk/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -3999,6 +3999,10 @@ jobs:
   kong:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o kong.image.json -s 'https://hub.docker.com/v2/repositories/library/kong'
+      - name: Fetch data about the tag
+        run: curl -L -o kong.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kong/tags/latest'
       - name: Pull image
         run: docker pull kong:latest
       - name: Create report
@@ -4008,10 +4012,6 @@ jobs:
           format: 'json'
           output: 'kong.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o kong.image.json -s 'https://hub.docker.com/v2/repositories/library/kong'
-      - name: Fetch additional data about the tag
-        run: curl -L -o kong.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/kong/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4034,6 +4034,10 @@ jobs:
   zookeeper:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o zookeeper.image.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper'
+      - name: Fetch data about the tag
+        run: curl -L -o zookeeper.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper/tags/latest'
       - name: Pull image
         run: docker pull zookeeper:latest
       - name: Create report
@@ -4043,10 +4047,6 @@ jobs:
           format: 'json'
           output: 'zookeeper.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o zookeeper.image.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper'
-      - name: Fetch additional data about the tag
-        run: curl -L -o zookeeper.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/zookeeper/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4069,6 +4069,10 @@ jobs:
   nats-streaming:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o nats-streaming.image.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming'
+      - name: Fetch data about the tag
+        run: curl -L -o nats-streaming.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming/tags/latest'
       - name: Pull image
         run: docker pull nats-streaming:latest
       - name: Create report
@@ -4078,10 +4082,6 @@ jobs:
           format: 'json'
           output: 'nats-streaming.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o nats-streaming.image.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming'
-      - name: Fetch additional data about the tag
-        run: curl -L -o nats-streaming.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nats-streaming/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4104,6 +4104,10 @@ jobs:
   storm:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o storm.image.json -s 'https://hub.docker.com/v2/repositories/library/storm'
+      - name: Fetch data about the tag
+        run: curl -L -o storm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/storm/tags/latest'
       - name: Pull image
         run: docker pull storm:latest
       - name: Create report
@@ -4113,10 +4117,6 @@ jobs:
           format: 'json'
           output: 'storm.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o storm.image.json -s 'https://hub.docker.com/v2/repositories/library/storm'
-      - name: Fetch additional data about the tag
-        run: curl -L -o storm.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/storm/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4139,6 +4139,10 @@ jobs:
   plone:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o plone.image.json -s 'https://hub.docker.com/v2/repositories/library/plone'
+      - name: Fetch data about the tag
+        run: curl -L -o plone.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/plone/tags/latest'
       - name: Pull image
         run: docker pull plone:latest
       - name: Create report
@@ -4148,10 +4152,6 @@ jobs:
           format: 'json'
           output: 'plone.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o plone.image.json -s 'https://hub.docker.com/v2/repositories/library/plone'
-      - name: Fetch additional data about the tag
-        run: curl -L -o plone.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/plone/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4174,6 +4174,10 @@ jobs:
   bash:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o bash.image.json -s 'https://hub.docker.com/v2/repositories/library/bash'
+      - name: Fetch data about the tag
+        run: curl -L -o bash.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bash/tags/latest'
       - name: Pull image
         run: docker pull bash:latest
       - name: Create report
@@ -4183,10 +4187,6 @@ jobs:
           format: 'json'
           output: 'bash.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o bash.image.json -s 'https://hub.docker.com/v2/repositories/library/bash'
-      - name: Fetch additional data about the tag
-        run: curl -L -o bash.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/bash/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4209,6 +4209,10 @@ jobs:
   amazonlinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o amazonlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux'
+      - name: Fetch data about the tag
+        run: curl -L -o amazonlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux/tags/latest'
       - name: Pull image
         run: docker pull amazonlinux:latest
       - name: Create report
@@ -4218,10 +4222,6 @@ jobs:
           format: 'json'
           output: 'amazonlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o amazonlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o amazonlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazonlinux/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4244,6 +4244,10 @@ jobs:
   composer:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o composer.image.json -s 'https://hub.docker.com/v2/repositories/library/composer'
+      - name: Fetch data about the tag
+        run: curl -L -o composer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/composer/tags/latest'
       - name: Pull image
         run: docker pull composer:latest
       - name: Create report
@@ -4253,10 +4257,6 @@ jobs:
           format: 'json'
           output: 'composer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o composer.image.json -s 'https://hub.docker.com/v2/repositories/library/composer'
-      - name: Fetch additional data about the tag
-        run: curl -L -o composer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/composer/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4279,6 +4279,10 @@ jobs:
   known:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o known.image.json -s 'https://hub.docker.com/v2/repositories/library/known'
+      - name: Fetch data about the tag
+        run: curl -L -o known.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/known/tags/latest'
       - name: Pull image
         run: docker pull known:latest
       - name: Create report
@@ -4288,10 +4292,6 @@ jobs:
           format: 'json'
           output: 'known.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o known.image.json -s 'https://hub.docker.com/v2/repositories/library/known'
-      - name: Fetch additional data about the tag
-        run: curl -L -o known.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/known/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4314,6 +4314,10 @@ jobs:
   eclipse-mosquitto:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o eclipse-mosquitto.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto'
+      - name: Fetch data about the tag
+        run: curl -L -o eclipse-mosquitto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto/tags/latest'
       - name: Pull image
         run: docker pull eclipse-mosquitto:latest
       - name: Create report
@@ -4323,10 +4327,6 @@ jobs:
           format: 'json'
           output: 'eclipse-mosquitto.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o eclipse-mosquitto.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto'
-      - name: Fetch additional data about the tag
-        run: curl -L -o eclipse-mosquitto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-mosquitto/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4349,6 +4349,10 @@ jobs:
   nextcloud:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o nextcloud.image.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud'
+      - name: Fetch data about the tag
+        run: curl -L -o nextcloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud/tags/latest'
       - name: Pull image
         run: docker pull nextcloud:latest
       - name: Create report
@@ -4358,10 +4362,6 @@ jobs:
           format: 'json'
           output: 'nextcloud.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o nextcloud.image.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud'
-      - name: Fetch additional data about the tag
-        run: curl -L -o nextcloud.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/nextcloud/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4384,6 +4384,10 @@ jobs:
   silverpeas:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o silverpeas.image.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas'
+      - name: Fetch data about the tag
+        run: curl -L -o silverpeas.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas/tags/latest'
       - name: Pull image
         run: docker pull silverpeas:latest
       - name: Create report
@@ -4393,10 +4397,6 @@ jobs:
           format: 'json'
           output: 'silverpeas.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o silverpeas.image.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas'
-      - name: Fetch additional data about the tag
-        run: curl -L -o silverpeas.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/silverpeas/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4419,6 +4419,10 @@ jobs:
   swift:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o swift.image.json -s 'https://hub.docker.com/v2/repositories/library/swift'
+      - name: Fetch data about the tag
+        run: curl -L -o swift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swift/tags/latest'
       - name: Pull image
         run: docker pull swift:latest
       - name: Create report
@@ -4428,10 +4432,6 @@ jobs:
           format: 'json'
           output: 'swift.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o swift.image.json -s 'https://hub.docker.com/v2/repositories/library/swift'
-      - name: Fetch additional data about the tag
-        run: curl -L -o swift.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swift/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4454,6 +4454,10 @@ jobs:
   haxe:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o haxe.image.json -s 'https://hub.docker.com/v2/repositories/library/haxe'
+      - name: Fetch data about the tag
+        run: curl -L -o haxe.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haxe/tags/latest'
       - name: Pull image
         run: docker pull haxe:latest
       - name: Create report
@@ -4463,10 +4467,6 @@ jobs:
           format: 'json'
           output: 'haxe.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o haxe.image.json -s 'https://hub.docker.com/v2/repositories/library/haxe'
-      - name: Fetch additional data about the tag
-        run: curl -L -o haxe.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/haxe/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4489,6 +4489,10 @@ jobs:
   rapidoid:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rapidoid.image.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid'
+      - name: Fetch data about the tag
+        run: curl -L -o rapidoid.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid/tags/latest'
       - name: Pull image
         run: docker pull rapidoid:latest
       - name: Create report
@@ -4498,10 +4502,6 @@ jobs:
           format: 'json'
           output: 'rapidoid.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rapidoid.image.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rapidoid.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rapidoid/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4524,6 +4524,10 @@ jobs:
   adminer:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o adminer.image.json -s 'https://hub.docker.com/v2/repositories/library/adminer'
+      - name: Fetch data about the tag
+        run: curl -L -o adminer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adminer/tags/latest'
       - name: Pull image
         run: docker pull adminer:latest
       - name: Create report
@@ -4533,10 +4537,6 @@ jobs:
           format: 'json'
           output: 'adminer.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o adminer.image.json -s 'https://hub.docker.com/v2/repositories/library/adminer'
-      - name: Fetch additional data about the tag
-        run: curl -L -o adminer.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adminer/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4559,6 +4559,10 @@ jobs:
   geonetwork:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o geonetwork.image.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork'
+      - name: Fetch data about the tag
+        run: curl -L -o geonetwork.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork/tags/latest'
       - name: Pull image
         run: docker pull geonetwork:latest
       - name: Create report
@@ -4568,10 +4572,6 @@ jobs:
           format: 'json'
           output: 'geonetwork.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o geonetwork.image.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork'
-      - name: Fetch additional data about the tag
-        run: curl -L -o geonetwork.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/geonetwork/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4594,6 +4594,10 @@ jobs:
   xwiki:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o xwiki.image.json -s 'https://hub.docker.com/v2/repositories/library/xwiki'
+      - name: Fetch data about the tag
+        run: curl -L -o xwiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/xwiki/tags/latest'
       - name: Pull image
         run: docker pull xwiki:latest
       - name: Create report
@@ -4603,10 +4607,6 @@ jobs:
           format: 'json'
           output: 'xwiki.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o xwiki.image.json -s 'https://hub.docker.com/v2/repositories/library/xwiki'
-      - name: Fetch additional data about the tag
-        run: curl -L -o xwiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/xwiki/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4629,6 +4629,10 @@ jobs:
   groovy:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o groovy.image.json -s 'https://hub.docker.com/v2/repositories/library/groovy'
+      - name: Fetch data about the tag
+        run: curl -L -o groovy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/groovy/tags/latest'
       - name: Pull image
         run: docker pull groovy:latest
       - name: Create report
@@ -4638,10 +4642,6 @@ jobs:
           format: 'json'
           output: 'groovy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o groovy.image.json -s 'https://hub.docker.com/v2/repositories/library/groovy'
-      - name: Fetch additional data about the tag
-        run: curl -L -o groovy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/groovy/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4664,6 +4664,10 @@ jobs:
   znc:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o znc.image.json -s 'https://hub.docker.com/v2/repositories/library/znc'
+      - name: Fetch data about the tag
+        run: curl -L -o znc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/znc/tags/latest'
       - name: Pull image
         run: docker pull znc:latest
       - name: Create report
@@ -4673,10 +4677,6 @@ jobs:
           format: 'json'
           output: 'znc.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o znc.image.json -s 'https://hub.docker.com/v2/repositories/library/znc'
-      - name: Fetch additional data about the tag
-        run: curl -L -o znc.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/znc/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4699,6 +4699,10 @@ jobs:
   gradle:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o gradle.image.json -s 'https://hub.docker.com/v2/repositories/library/gradle'
+      - name: Fetch data about the tag
+        run: curl -L -o gradle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gradle/tags/latest'
       - name: Pull image
         run: docker pull gradle:latest
       - name: Create report
@@ -4708,10 +4712,6 @@ jobs:
           format: 'json'
           output: 'gradle.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o gradle.image.json -s 'https://hub.docker.com/v2/repositories/library/gradle'
-      - name: Fetch additional data about the tag
-        run: curl -L -o gradle.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/gradle/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4734,6 +4734,10 @@ jobs:
   convertigo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o convertigo.image.json -s 'https://hub.docker.com/v2/repositories/library/convertigo'
+      - name: Fetch data about the tag
+        run: curl -L -o convertigo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/convertigo/tags/latest'
       - name: Pull image
         run: docker pull convertigo:latest
       - name: Create report
@@ -4743,10 +4747,6 @@ jobs:
           format: 'json'
           output: 'convertigo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o convertigo.image.json -s 'https://hub.docker.com/v2/repositories/library/convertigo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o convertigo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/convertigo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4769,6 +4769,10 @@ jobs:
   flink:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o flink.image.json -s 'https://hub.docker.com/v2/repositories/library/flink'
+      - name: Fetch data about the tag
+        run: curl -L -o flink.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/flink/tags/latest'
       - name: Pull image
         run: docker pull flink:latest
       - name: Create report
@@ -4778,10 +4782,6 @@ jobs:
           format: 'json'
           output: 'flink.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o flink.image.json -s 'https://hub.docker.com/v2/repositories/library/flink'
-      - name: Fetch additional data about the tag
-        run: curl -L -o flink.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/flink/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4804,6 +4804,10 @@ jobs:
   swipl:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o swipl.image.json -s 'https://hub.docker.com/v2/repositories/library/swipl'
+      - name: Fetch data about the tag
+        run: curl -L -o swipl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swipl/tags/latest'
       - name: Pull image
         run: docker pull swipl:latest
       - name: Create report
@@ -4813,10 +4817,6 @@ jobs:
           format: 'json'
           output: 'swipl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o swipl.image.json -s 'https://hub.docker.com/v2/repositories/library/swipl'
-      - name: Fetch additional data about the tag
-        run: curl -L -o swipl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/swipl/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4839,6 +4839,10 @@ jobs:
   rust:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rust.image.json -s 'https://hub.docker.com/v2/repositories/library/rust'
+      - name: Fetch data about the tag
+        run: curl -L -o rust.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rust/tags/latest'
       - name: Pull image
         run: docker pull rust:latest
       - name: Create report
@@ -4848,10 +4852,6 @@ jobs:
           format: 'json'
           output: 'rust.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rust.image.json -s 'https://hub.docker.com/v2/repositories/library/rust'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rust.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/rust/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4874,6 +4874,10 @@ jobs:
   mediawiki:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o mediawiki.image.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki'
+      - name: Fetch data about the tag
+        run: curl -L -o mediawiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki/tags/latest'
       - name: Pull image
         run: docker pull mediawiki:latest
       - name: Create report
@@ -4883,10 +4887,6 @@ jobs:
           format: 'json'
           output: 'mediawiki.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o mediawiki.image.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki'
-      - name: Fetch additional data about the tag
-        run: curl -L -o mediawiki.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/mediawiki/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4909,6 +4909,10 @@ jobs:
   euleros:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o euleros.image.json -s 'https://hub.docker.com/v2/repositories/library/euleros'
+      - name: Fetch data about the tag
+        run: curl -L -o euleros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/euleros/tags/latest'
       - name: Pull image
         run: docker pull euleros:latest
       - name: Create report
@@ -4918,10 +4922,6 @@ jobs:
           format: 'json'
           output: 'euleros.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o euleros.image.json -s 'https://hub.docker.com/v2/repositories/library/euleros'
-      - name: Fetch additional data about the tag
-        run: curl -L -o euleros.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/euleros/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4944,6 +4944,10 @@ jobs:
   sl:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o sl.image.json -s 'https://hub.docker.com/v2/repositories/library/sl'
+      - name: Fetch data about the tag
+        run: curl -L -o sl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sl/tags/latest'
       - name: Pull image
         run: docker pull sl:latest
       - name: Create report
@@ -4953,10 +4957,6 @@ jobs:
           format: 'json'
           output: 'sl.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o sl.image.json -s 'https://hub.docker.com/v2/repositories/library/sl'
-      - name: Fetch additional data about the tag
-        run: curl -L -o sl.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sl/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -4979,6 +4979,10 @@ jobs:
   open-liberty:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o open-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty'
+      - name: Fetch data about the tag
+        run: curl -L -o open-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty/tags/latest'
       - name: Pull image
         run: docker pull open-liberty:latest
       - name: Create report
@@ -4988,10 +4992,6 @@ jobs:
           format: 'json'
           output: 'open-liberty.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o open-liberty.image.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty'
-      - name: Fetch additional data about the tag
-        run: curl -L -o open-liberty.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/open-liberty/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5014,6 +5014,10 @@ jobs:
   teamspeak:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o teamspeak.image.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak'
+      - name: Fetch data about the tag
+        run: curl -L -o teamspeak.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak/tags/latest'
       - name: Pull image
         run: docker pull teamspeak:latest
       - name: Create report
@@ -5023,10 +5027,6 @@ jobs:
           format: 'json'
           output: 'teamspeak.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o teamspeak.image.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak'
-      - name: Fetch additional data about the tag
-        run: curl -L -o teamspeak.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/teamspeak/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5049,6 +5049,10 @@ jobs:
   matomo:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o matomo.image.json -s 'https://hub.docker.com/v2/repositories/library/matomo'
+      - name: Fetch data about the tag
+        run: curl -L -o matomo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/matomo/tags/latest'
       - name: Pull image
         run: docker pull matomo:latest
       - name: Create report
@@ -5058,10 +5062,6 @@ jobs:
           format: 'json'
           output: 'matomo.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o matomo.image.json -s 'https://hub.docker.com/v2/repositories/library/matomo'
-      - name: Fetch additional data about the tag
-        run: curl -L -o matomo.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/matomo/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5084,6 +5084,10 @@ jobs:
   yourls:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o yourls.image.json -s 'https://hub.docker.com/v2/repositories/library/yourls'
+      - name: Fetch data about the tag
+        run: curl -L -o yourls.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/yourls/tags/latest'
       - name: Pull image
         run: docker pull yourls:latest
       - name: Create report
@@ -5093,10 +5097,6 @@ jobs:
           format: 'json'
           output: 'yourls.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o yourls.image.json -s 'https://hub.docker.com/v2/repositories/library/yourls'
-      - name: Fetch additional data about the tag
-        run: curl -L -o yourls.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/yourls/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5119,6 +5119,10 @@ jobs:
   alt:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o alt.image.json -s 'https://hub.docker.com/v2/repositories/library/alt'
+      - name: Fetch data about the tag
+        run: curl -L -o alt.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alt/tags/latest'
       - name: Pull image
         run: docker pull alt:latest
       - name: Create report
@@ -5128,10 +5132,6 @@ jobs:
           format: 'json'
           output: 'alt.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o alt.image.json -s 'https://hub.docker.com/v2/repositories/library/alt'
-      - name: Fetch additional data about the tag
-        run: curl -L -o alt.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/alt/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5154,6 +5154,10 @@ jobs:
   amazoncorretto:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o amazoncorretto.image.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto'
+      - name: Fetch data about the tag
+        run: curl -L -o amazoncorretto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto/tags/latest'
       - name: Pull image
         run: docker pull amazoncorretto:latest
       - name: Create report
@@ -5163,10 +5167,6 @@ jobs:
           format: 'json'
           output: 'amazoncorretto.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o amazoncorretto.image.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto'
-      - name: Fetch additional data about the tag
-        run: curl -L -o amazoncorretto.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/amazoncorretto/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5189,6 +5189,10 @@ jobs:
   express-gateway:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o express-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway'
+      - name: Fetch data about the tag
+        run: curl -L -o express-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway/tags/latest'
       - name: Pull image
         run: docker pull express-gateway:latest
       - name: Create report
@@ -5198,10 +5202,6 @@ jobs:
           format: 'json'
           output: 'express-gateway.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o express-gateway.image.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway'
-      - name: Fetch additional data about the tag
-        run: curl -L -o express-gateway.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/express-gateway/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5224,6 +5224,10 @@ jobs:
   postfixadmin:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o postfixadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin'
+      - name: Fetch data about the tag
+        run: curl -L -o postfixadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin/tags/latest'
       - name: Pull image
         run: docker pull postfixadmin:latest
       - name: Create report
@@ -5233,10 +5237,6 @@ jobs:
           format: 'json'
           output: 'postfixadmin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o postfixadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin'
-      - name: Fetch additional data about the tag
-        run: curl -L -o postfixadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/postfixadmin/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5259,6 +5259,10 @@ jobs:
   fluentd:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o fluentd.image.json -s 'https://hub.docker.com/v2/repositories/library/fluentd'
+      - name: Fetch data about the tag
+        run: curl -L -o fluentd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fluentd/tags/latest'
       - name: Pull image
         run: docker pull fluentd:latest
       - name: Create report
@@ -5268,10 +5272,6 @@ jobs:
           format: 'json'
           output: 'fluentd.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o fluentd.image.json -s 'https://hub.docker.com/v2/repositories/library/fluentd'
-      - name: Fetch additional data about the tag
-        run: curl -L -o fluentd.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/fluentd/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5294,6 +5294,10 @@ jobs:
   adoptopenjdk:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o adoptopenjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk'
+      - name: Fetch data about the tag
+        run: curl -L -o adoptopenjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk/tags/latest'
       - name: Pull image
         run: docker pull adoptopenjdk:latest
       - name: Create report
@@ -5303,10 +5307,6 @@ jobs:
           format: 'json'
           output: 'adoptopenjdk.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o adoptopenjdk.image.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk'
-      - name: Fetch additional data about the tag
-        run: curl -L -o adoptopenjdk.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/adoptopenjdk/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5329,6 +5329,10 @@ jobs:
   sapmachine:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o sapmachine.image.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine'
+      - name: Fetch data about the tag
+        run: curl -L -o sapmachine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine/tags/latest'
       - name: Pull image
         run: docker pull sapmachine:latest
       - name: Create report
@@ -5338,10 +5342,6 @@ jobs:
           format: 'json'
           output: 'sapmachine.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o sapmachine.image.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine'
-      - name: Fetch additional data about the tag
-        run: curl -L -o sapmachine.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/sapmachine/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5364,6 +5364,10 @@ jobs:
   varnish:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o varnish.image.json -s 'https://hub.docker.com/v2/repositories/library/varnish'
+      - name: Fetch data about the tag
+        run: curl -L -o varnish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/varnish/tags/latest'
       - name: Pull image
         run: docker pull varnish:latest
       - name: Create report
@@ -5373,10 +5377,6 @@ jobs:
           format: 'json'
           output: 'varnish.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o varnish.image.json -s 'https://hub.docker.com/v2/repositories/library/varnish'
-      - name: Fetch additional data about the tag
-        run: curl -L -o varnish.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/varnish/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5399,6 +5399,10 @@ jobs:
   jobber:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o jobber.image.json -s 'https://hub.docker.com/v2/repositories/library/jobber'
+      - name: Fetch data about the tag
+        run: curl -L -o jobber.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jobber/tags/latest'
       - name: Pull image
         run: docker pull jobber:latest
       - name: Create report
@@ -5408,10 +5412,6 @@ jobs:
           format: 'json'
           output: 'jobber.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o jobber.image.json -s 'https://hub.docker.com/v2/repositories/library/jobber'
-      - name: Fetch additional data about the tag
-        run: curl -L -o jobber.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/jobber/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5434,6 +5434,10 @@ jobs:
   archlinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o archlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/archlinux'
+      - name: Fetch data about the tag
+        run: curl -L -o archlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/archlinux/tags/latest'
       - name: Pull image
         run: docker pull archlinux:latest
       - name: Create report
@@ -5443,10 +5447,6 @@ jobs:
           format: 'json'
           output: 'archlinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o archlinux.image.json -s 'https://hub.docker.com/v2/repositories/library/archlinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o archlinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/archlinux/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5469,6 +5469,10 @@ jobs:
   friendica:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o friendica.image.json -s 'https://hub.docker.com/v2/repositories/library/friendica'
+      - name: Fetch data about the tag
+        run: curl -L -o friendica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/friendica/tags/latest'
       - name: Pull image
         run: docker pull friendica:latest
       - name: Create report
@@ -5478,10 +5482,6 @@ jobs:
           format: 'json'
           output: 'friendica.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o friendica.image.json -s 'https://hub.docker.com/v2/repositories/library/friendica'
-      - name: Fetch additional data about the tag
-        run: curl -L -o friendica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/friendica/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5504,6 +5504,10 @@ jobs:
   caddy:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o caddy.image.json -s 'https://hub.docker.com/v2/repositories/library/caddy'
+      - name: Fetch data about the tag
+        run: curl -L -o caddy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/caddy/tags/latest'
       - name: Pull image
         run: docker pull caddy:latest
       - name: Create report
@@ -5513,10 +5517,6 @@ jobs:
           format: 'json'
           output: 'caddy.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o caddy.image.json -s 'https://hub.docker.com/v2/repositories/library/caddy'
-      - name: Fetch additional data about the tag
-        run: curl -L -o caddy.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/caddy/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5539,6 +5539,10 @@ jobs:
   monica:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o monica.image.json -s 'https://hub.docker.com/v2/repositories/library/monica'
+      - name: Fetch data about the tag
+        run: curl -L -o monica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/monica/tags/latest'
       - name: Pull image
         run: docker pull monica:latest
       - name: Create report
@@ -5548,10 +5552,6 @@ jobs:
           format: 'json'
           output: 'monica.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o monica.image.json -s 'https://hub.docker.com/v2/repositories/library/monica'
-      - name: Fetch additional data about the tag
-        run: curl -L -o monica.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/monica/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5574,6 +5574,10 @@ jobs:
   phpmyadmin:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o phpmyadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin'
+      - name: Fetch data about the tag
+        run: curl -L -o phpmyadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin/tags/latest'
       - name: Pull image
         run: docker pull phpmyadmin:latest
       - name: Create report
@@ -5583,10 +5587,6 @@ jobs:
           format: 'json'
           output: 'phpmyadmin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o phpmyadmin.image.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin'
-      - name: Fetch additional data about the tag
-        run: curl -L -o phpmyadmin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/phpmyadmin/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5609,6 +5609,10 @@ jobs:
   hitch:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o hitch.image.json -s 'https://hub.docker.com/v2/repositories/library/hitch'
+      - name: Fetch data about the tag
+        run: curl -L -o hitch.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hitch/tags/latest'
       - name: Pull image
         run: docker pull hitch:latest
       - name: Create report
@@ -5618,10 +5622,6 @@ jobs:
           format: 'json'
           output: 'hitch.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o hitch.image.json -s 'https://hub.docker.com/v2/repositories/library/hitch'
-      - name: Fetch additional data about the tag
-        run: curl -L -o hitch.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/hitch/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5644,6 +5644,10 @@ jobs:
   almalinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o almalinux.image.json -s 'https://hub.docker.com/v2/repositories/library/almalinux'
+      - name: Fetch data about the tag
+        run: curl -L -o almalinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/almalinux/tags/latest'
       - name: Pull image
         run: docker pull almalinux:latest
       - name: Create report
@@ -5653,10 +5657,6 @@ jobs:
           format: 'json'
           output: 'almalinux.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o almalinux.image.json -s 'https://hub.docker.com/v2/repositories/library/almalinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o almalinux.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/almalinux/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5679,6 +5679,10 @@ jobs:
   dart:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o dart.image.json -s 'https://hub.docker.com/v2/repositories/library/dart'
+      - name: Fetch data about the tag
+        run: curl -L -o dart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/dart/tags/latest'
       - name: Pull image
         run: docker pull dart:latest
       - name: Create report
@@ -5688,10 +5692,6 @@ jobs:
           format: 'json'
           output: 'dart.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o dart.image.json -s 'https://hub.docker.com/v2/repositories/library/dart'
-      - name: Fetch additional data about the tag
-        run: curl -L -o dart.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/dart/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5714,6 +5714,10 @@ jobs:
   eclipse-temurin:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o eclipse-temurin.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin'
+      - name: Fetch data about the tag
+        run: curl -L -o eclipse-temurin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin/tags/latest'
       - name: Pull image
         run: docker pull eclipse-temurin:latest
       - name: Create report
@@ -5723,10 +5727,6 @@ jobs:
           format: 'json'
           output: 'eclipse-temurin.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o eclipse-temurin.image.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin'
-      - name: Fetch additional data about the tag
-        run: curl -L -o eclipse-temurin.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/eclipse-temurin/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5749,6 +5749,10 @@ jobs:
   ibm-semeru-runtimes:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o ibm-semeru-runtimes.image.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
+      - name: Fetch data about the tag
+        run: curl -L -o ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u392-b08-jre-jammy'
       - name: Pull image
         run: docker pull ibm-semeru-runtimes:open-8u392-b08-jre-jammy
       - name: Create report
@@ -5758,10 +5762,6 @@ jobs:
           format: 'json'
           output: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o ibm-semeru-runtimes.image.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
-      - name: Fetch additional data about the tag
-        run: curl -L -o ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u392-b08-jre-jammy'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5784,6 +5784,10 @@ jobs:
   rockylinux:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o rockylinux.image.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux'
+      - name: Fetch data about the tag
+        run: curl -L -o rockylinux.9.3.20231119-minimal.tag.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux/tags/9.3.20231119-minimal'
       - name: Pull image
         run: docker pull rockylinux:9.3.20231119-minimal
       - name: Create report
@@ -5793,10 +5797,6 @@ jobs:
           format: 'json'
           output: 'rockylinux.9.3.20231119-minimal.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o rockylinux.image.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux'
-      - name: Fetch additional data about the tag
-        run: curl -L -o rockylinux.9.3.20231119-minimal.tag.json -s 'https://hub.docker.com/v2/repositories/library/rockylinux/tags/9.3.20231119-minimal'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5819,6 +5819,10 @@ jobs:
   api-firewall:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o api-firewall.image.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall'
+      - name: Fetch data about the tag
+        run: curl -L -o api-firewall.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall/tags/latest'
       - name: Pull image
         run: docker pull api-firewall:latest
       - name: Create report
@@ -5828,10 +5832,6 @@ jobs:
           format: 'json'
           output: 'api-firewall.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o api-firewall.image.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall'
-      - name: Fetch additional data about the tag
-        run: curl -L -o api-firewall.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/api-firewall/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5854,6 +5854,10 @@ jobs:
   emqx:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o emqx.image.json -s 'https://hub.docker.com/v2/repositories/library/emqx'
+      - name: Fetch data about the tag
+        run: curl -L -o emqx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/emqx/tags/latest'
       - name: Pull image
         run: docker pull emqx:latest
       - name: Create report
@@ -5863,10 +5867,6 @@ jobs:
           format: 'json'
           output: 'emqx.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o emqx.image.json -s 'https://hub.docker.com/v2/repositories/library/emqx'
-      - name: Fetch additional data about the tag
-        run: curl -L -o emqx.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/emqx/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5889,6 +5889,10 @@ jobs:
   satosa:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o satosa.image.json -s 'https://hub.docker.com/v2/repositories/library/satosa'
+      - name: Fetch data about the tag
+        run: curl -L -o satosa.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/satosa/tags/latest'
       - name: Pull image
         run: docker pull satosa:latest
       - name: Create report
@@ -5898,10 +5902,6 @@ jobs:
           format: 'json'
           output: 'satosa.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o satosa.image.json -s 'https://hub.docker.com/v2/repositories/library/satosa'
-      - name: Fetch additional data about the tag
-        run: curl -L -o satosa.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/satosa/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5924,6 +5924,10 @@ jobs:
   unit:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o unit.image.json -s 'https://hub.docker.com/v2/repositories/library/unit'
+      - name: Fetch data about the tag
+        run: curl -L -o unit.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/unit/tags/latest'
       - name: Pull image
         run: docker pull unit:latest
       - name: Create report
@@ -5933,10 +5937,6 @@ jobs:
           format: 'json'
           output: 'unit.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o unit.image.json -s 'https://hub.docker.com/v2/repositories/library/unit'
-      - name: Fetch additional data about the tag
-        run: curl -L -o unit.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/unit/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
@@ -5959,6 +5959,10 @@ jobs:
   spark:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o spark.image.json -s 'https://hub.docker.com/v2/repositories/library/spark'
+      - name: Fetch data about the tag
+        run: curl -L -o spark.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spark/tags/latest'
       - name: Pull image
         run: docker pull spark:latest
       - name: Create report
@@ -5968,10 +5972,6 @@ jobs:
           format: 'json'
           output: 'spark.latest.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o spark.image.json -s 'https://hub.docker.com/v2/repositories/library/spark'
-      - name: Fetch additional data about the tag
-        run: curl -L -o spark.latest.tag.json -s 'https://hub.docker.com/v2/repositories/library/spark/tags/latest'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:

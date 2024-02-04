@@ -9,6 +9,10 @@ jobs:{% for image in images %}
   {{ image.name | replace(".", "_") }}:
     runs-on: ubuntu-latest
     steps:
+      - name: Fetch data about the image
+        run: curl -L -o {{ image.name  }}.image.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}'
+      - name: Fetch data about the tag
+        run: curl -L -o {{ image.name  }}.{{ image.tag }}.tag.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}/tags/{{ image.tag }}'
       - name: Pull image
         run: docker pull {{ image.name }}:{{ image.tag }}
       - name: Create report
@@ -18,10 +22,6 @@ jobs:{% for image in images %}
           format: 'json'
           output: '{{ image.name }}.{{ image.tag }}.report.json'
           scanners: 'vuln,secret,config'
-      - name: Fetch additional data about the image
-        run: curl -L -o {{ image.name  }}.image.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}'
-      - name: Fetch additional data about the tag
-        run: curl -L -o {{ image.name  }}.{{ image.tag }}.tag.json -s 'https://hub.docker.com/v2/repositories/library/{{ image.name }}/tags/{{ image.tag }}'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
