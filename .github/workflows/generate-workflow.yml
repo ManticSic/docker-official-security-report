@@ -1,0 +1,19 @@
+name: Generate Workflow
+
+on:
+  schedule:
+    - cron: "0 12 * * 6"
+  workflow_dispatch:
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+      - run: pip install -r requirements.txt
+      - run: python generate-workflow.py
+      - uses: EndBug/add-and-commit@v9
+        with:
+          add: .github/workflows/generate-report.yml
+          message: 'Update Generate Report Workflow'
