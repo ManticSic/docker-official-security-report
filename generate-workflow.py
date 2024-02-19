@@ -1,6 +1,6 @@
 import json
 import logging
-import urllib.request
+import urllib3
 import jinja2
 import requests
 import datetime
@@ -56,10 +56,10 @@ def get_last_updated_tag(image):
     result = []
 
     while tag_list_url is not None:
-        with urllib.request.urlopen(tag_list_url) as request:
-            data = json.load(request)
-            tag_list_url = data["next"]
-            result = result + data["results"]
+        response = urllib3.request("GET", tag_list_url, retries=urllib3.Retry())
+        data = json.loads(response.data.decode('utf-8'))
+        tag_list_url = data["next"]
+        result = result + data["results"]
 
     result = sorted(result, key=lambda tag: parse_datetime_string(tag["last_updated"]), reverse=True)
 
@@ -82,10 +82,10 @@ def fetch_library_images():
     result = []
 
     while image_list_url is not None:
-        with urllib.request.urlopen(image_list_url) as request:
-            data = json.load(request)
-            image_list_url = data["next"]
-            result = result + list(map(map_image_list, data["results"]))
+        response = urllib3.request("GET", image_list_url, retries=urllib3.Retry())
+        data = json.loads(response.data.decode('utf-8'))
+        image_list_url = data["next"]
+        result = result + list(map(map_image_list, data["results"]))
 
     logging.info(f"Fetched {len(result)} images")
 
