@@ -1,9 +1,12 @@
 import json
+import logging
 import urllib.request
 import jinja2
 import requests
 import datetime
 import re
+
+logging.basicConfig(level=logging.INFO)
 
 repository_api = "https://hub.docker.com/v2/repositories/library"
 page_query = "?page=1&page_size=100"
@@ -68,11 +71,13 @@ def add_tag_to_image(image):
     has_latest_tag = requests.head(latest_tag_url).status_code == 200
 
     image["tag"] = default_tag if has_latest_tag else get_last_updated_tag(image)
+    logging.info(f"Add tag {image['tag']} to {image['name']}")
 
     return image
 
 
 def fetch_library_images():
+    logging.info("Start fetching library images")
     image_list_url = f"{repository_api}/{page_query}"
     result = []
 
@@ -82,13 +87,18 @@ def fetch_library_images():
             image_list_url = data["next"]
             result = result + list(map(map_image_list, data["results"]))
 
-    result = filter(filter_image_list, result)
+    logging.info(f"Fetched {len(result)} images")
+
+    result = list(filter(filter_image_list, result))
+    logging.info(f"Reduce images to {len(result)} images")
+
     result = [add_tag_to_image(image) for image in result]
 
     return result
 
 
 def create_workflow_file(data):
+    logging.info("Create workflow file")
     templateLoader = jinja2.FileSystemLoader(searchpath="./")
     templateEnv = jinja2.Environment(loader=templateLoader)
     TEMPLATE_FILE = "report-workflow.yml.tmpl"
@@ -100,7 +110,9 @@ def create_workflow_file(data):
 
 
 if __name__ == '__main__':
+    logging.info("Starting workflow")
     images = fetch_library_images()
     create_workflow_file(images)
+    logging.info("Finished workflow")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
