@@ -1,3 +1,4 @@
+import argparse
 import json
 import logging
 import urllib3
@@ -9,11 +10,28 @@ import re
 logging.basicConfig(level=logging.INFO)
 
 repository_api = "https://hub.docker.com/v2/repositories/library"
+auth_token = "<PASSWORD>"
 page_query = "?page=1&page_size=100"
 default_tag = "latest"
 regex_datetime_string_has_no_microseconds = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 datetime_format_microseconds = "%Y-%m-%dT%H:%M:%S.%fZ"
 datetime_format_no_microseconds = "%Y-%m-%dT%H:%M:%SZ"
+
+
+def authenticate_at_dockerhub(username, token):
+    logging.info(f"Authenticating")
+    response = urllib3.request(
+        "POST",
+        "https://hub.docker.com/v2/users/login",
+        headers={"Content-Type": "application/json"},
+        body=json.dumps({"username": username, "password": token}),
+    )
+
+    if response.status != 200:
+        raise "Failed to authenticate at DockerHub"
+
+    return json.loads(response.data)["token"]
+
 
 
 def map_image_list(image):
@@ -56,7 +74,11 @@ def get_last_updated_tag(image):
     result = []
 
     while tag_list_url is not None:
-        response = urllib3.request("GET", tag_list_url, retries=urllib3.Retry())
+        response = urllib3.request(
+            "GET",
+            tag_list_url,
+            headers={"Authorization": f"Bearer {auth_token}"},
+        )
         data = json.loads(response.data.decode('utf-8'))
         tag_list_url = data["next"]
         result = result + data["results"]
@@ -82,7 +104,11 @@ def fetch_library_images():
     result = []
 
     while image_list_url is not None:
-        response = urllib3.request("GET", image_list_url, retries=urllib3.Retry())
+        response = urllib3.request(
+            "GET",
+            image_list_url,
+            headers={"Authorization": f"Bearer {auth_token}"},
+        )
         data = json.loads(response.data.decode('utf-8'))
         image_list_url = data["next"]
         result = result + list(map(map_image_list, data["results"]))
@@ -110,6 +136,12 @@ def create_workflow_file(data):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-u", "--username", required=True)
+    parser.add_argument("-t", "--token", required=True)
+    args = parser.parse_args()
+
+    auth_token = authenticate_at_dockerhub(args.username, args.token)
     logging.info("Starting workflow")
     images = fetch_library_images()
     create_workflow_file(images)
