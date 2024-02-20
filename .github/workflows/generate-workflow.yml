@@ -8,9 +8,7 @@ on:
 jobs:
   create:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      actions: write
+    permissions: write-all
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
