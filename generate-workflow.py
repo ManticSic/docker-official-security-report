@@ -33,7 +33,6 @@ def authenticate_at_dockerhub(username, token):
     return json.loads(response.data)["token"]
 
 
-
 def map_image_list(image):
     return {
         "name": image["name"],
@@ -125,14 +124,14 @@ def fetch_library_images():
 
 def create_workflow_file(data):
     logging.info("Create workflow file")
-    templateLoader = jinja2.FileSystemLoader(searchpath="./")
-    templateEnv = jinja2.Environment(loader=templateLoader)
-    TEMPLATE_FILE = "report-workflow.yml.tmpl"
-    template = templateEnv.get_template(TEMPLATE_FILE)
-    outputText = template.render(images=data)
+    template_loader = jinja2.FileSystemLoader(searchpath="./")
+    template_env = jinja2.Environment(loader=template_loader)
+    template_file = "report-workflow.yml.tmpl"
+    template = template_env.get_template(template_file)
+    output_text = template.render(images=data)
 
     with open(".github/workflows/generate-report.yml", 'w') as f:
-        print(outputText, file=f)
+        print(output_text, file=f)
 
 
 if __name__ == '__main__':
