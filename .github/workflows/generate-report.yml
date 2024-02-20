@@ -2042,21 +2042,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o elasticsearch.image.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
       - name: Fetch data about the tag
-        run: curl -L -o elasticsearch.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.12.0'
+        run: curl -L -o elasticsearch.8.12.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.12.1'
       - name: Pull image
-        run: docker pull elasticsearch:8.12.0
+        run: docker pull elasticsearch:8.12.1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elasticsearch:8.12.0'
+          image-ref: 'elasticsearch:8.12.1'
           format: 'json'
-          output: 'elasticsearch.8.12.0.report.json'
+          output: 'elasticsearch.8.12.1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'elasticsearch.8.12.0.report.json'
-          path: 'elasticsearch.8.12.0.report.json'
+          name: 'elasticsearch.8.12.1.report.json'
+          path: 'elasticsearch.8.12.1.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -2067,8 +2067,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'elasticsearch.8.12.0.tag.json'
-          path: 'elasticsearch.8.12.0.tag.json'
+          name: 'elasticsearch.8.12.1.tag.json'
+          path: 'elasticsearch.8.12.1.tag.json'
           retention-days: 1
 
   jetty:
@@ -2217,21 +2217,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o aerospike.image.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
       - name: Fetch data about the tag
-        run: curl -L -o aerospike.ee-7.0.0.3_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.3_1'
+        run: curl -L -o aerospike.ee-7.0.0.4_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.4_1'
       - name: Pull image
-        run: docker pull aerospike:ee-7.0.0.3_1
+        run: docker pull aerospike:ee-7.0.0.4_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike:ee-7.0.0.3_1'
+          image-ref: 'aerospike:ee-7.0.0.4_1'
           format: 'json'
-          output: 'aerospike.ee-7.0.0.3_1.report.json'
+          output: 'aerospike.ee-7.0.0.4_1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'aerospike.ee-7.0.0.3_1.report.json'
-          path: 'aerospike.ee-7.0.0.3_1.report.json'
+          name: 'aerospike.ee-7.0.0.4_1.report.json'
+          path: 'aerospike.ee-7.0.0.4_1.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -2242,8 +2242,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'aerospike.ee-7.0.0.3_1.tag.json'
-          path: 'aerospike.ee-7.0.0.3_1.tag.json'
+          name: 'aerospike.ee-7.0.0.4_1.tag.json'
+          path: 'aerospike.ee-7.0.0.4_1.tag.json'
           retention-days: 1
 
   logstash:
@@ -2252,21 +2252,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o logstash.image.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
       - name: Fetch data about the tag
-        run: curl -L -o logstash.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.12.0'
+        run: curl -L -o logstash.8.12.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.12.1'
       - name: Pull image
-        run: docker pull logstash:8.12.0
+        run: docker pull logstash:8.12.1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'logstash:8.12.0'
+          image-ref: 'logstash:8.12.1'
           format: 'json'
-          output: 'logstash.8.12.0.report.json'
+          output: 'logstash.8.12.1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'logstash.8.12.0.report.json'
-          path: 'logstash.8.12.0.report.json'
+          name: 'logstash.8.12.1.report.json'
+          path: 'logstash.8.12.1.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -2277,8 +2277,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'logstash.8.12.0.tag.json'
-          path: 'logstash.8.12.0.tag.json'
+          name: 'logstash.8.12.1.tag.json'
+          path: 'logstash.8.12.1.tag.json'
           retention-days: 1
 
   julia:
@@ -2567,21 +2567,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o kibana.image.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
       - name: Fetch data about the tag
-        run: curl -L -o kibana.8.12.0.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.12.0'
+        run: curl -L -o kibana.8.12.1.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.12.1'
       - name: Pull image
-        run: docker pull kibana:8.12.0
+        run: docker pull kibana:8.12.1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kibana:8.12.0'
+          image-ref: 'kibana:8.12.1'
           format: 'json'
-          output: 'kibana.8.12.0.report.json'
+          output: 'kibana.8.12.1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'kibana.8.12.0.report.json'
-          path: 'kibana.8.12.0.report.json'
+          name: 'kibana.8.12.1.report.json'
+          path: 'kibana.8.12.1.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -2592,8 +2592,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'kibana.8.12.0.tag.json'
-          path: 'kibana.8.12.0.tag.json'
+          name: 'kibana.8.12.1.tag.json'
+          path: 'kibana.8.12.1.tag.json'
           retention-days: 1
 
   kaazing-gateway:
@@ -5752,21 +5752,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o ibm-semeru-runtimes.image.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
       - name: Fetch data about the tag
-        run: curl -L -o ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u392-b08-jre-jammy'
+        run: curl -L -o ibm-semeru-runtimes.open-8u402-b06-jre-jammy.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u402-b06-jre-jammy'
       - name: Pull image
-        run: docker pull ibm-semeru-runtimes:open-8u392-b08-jre-jammy
+        run: docker pull ibm-semeru-runtimes:open-8u402-b06-jre-jammy
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibm-semeru-runtimes:open-8u392-b08-jre-jammy'
+          image-ref: 'ibm-semeru-runtimes:open-8u402-b06-jre-jammy'
           format: 'json'
-          output: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
+          output: 'ibm-semeru-runtimes.open-8u402-b06-jre-jammy.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
-          path: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.report.json'
+          name: 'ibm-semeru-runtimes.open-8u402-b06-jre-jammy.report.json'
+          path: 'ibm-semeru-runtimes.open-8u402-b06-jre-jammy.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -5777,8 +5777,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json'
-          path: 'ibm-semeru-runtimes.open-8u392-b08-jre-jammy.tag.json'
+          name: 'ibm-semeru-runtimes.open-8u402-b06-jre-jammy.tag.json'
+          path: 'ibm-semeru-runtimes.open-8u402-b06-jre-jammy.tag.json'
           retention-days: 1
 
   rockylinux:
