@@ -2217,21 +2217,21 @@ jobs:
       - name: Fetch data about the image
         run: curl -L -o aerospike.image.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
       - name: Fetch data about the tag
-        run: curl -L -o aerospike.ee-7.0.0.4_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.4_1'
+        run: curl -L -o aerospike.ee-7.0.0.5_1.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.5_1'
       - name: Pull image
-        run: docker pull aerospike:ee-7.0.0.4_1
+        run: docker pull aerospike:ee-7.0.0.5_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike:ee-7.0.0.4_1'
+          image-ref: 'aerospike:ee-7.0.0.5_1'
           format: 'json'
-          output: 'aerospike.ee-7.0.0.4_1.report.json'
+          output: 'aerospike.ee-7.0.0.5_1.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: 'aerospike.ee-7.0.0.4_1.report.json'
-          path: 'aerospike.ee-7.0.0.4_1.report.json'
+          name: 'aerospike.ee-7.0.0.5_1.report.json'
+          path: 'aerospike.ee-7.0.0.5_1.report.json'
           retention-days: 1
       - name: Upload image data
         uses: actions/upload-artifact@v4
@@ -2242,8 +2242,8 @@ jobs:
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: 'aerospike.ee-7.0.0.4_1.tag.json'
-          path: 'aerospike.ee-7.0.0.4_1.tag.json'
+          name: 'aerospike.ee-7.0.0.5_1.tag.json'
+          path: 'aerospike.ee-7.0.0.5_1.tag.json'
           retention-days: 1
 
   logstash:
