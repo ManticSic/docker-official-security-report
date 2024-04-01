@@ -33,27 +33,27 @@ def authenticate_at_dockerhub(username, token):
     return json.loads(response.data)["token"]
 
 
-def map_image_list(image):
+def map_repository_list(repository):
     return {
-        "name": image["name"],
-        "description": image["description"],
-        "star_count": image["star_count"],
-        "pull_count": image["pull_count"],
+        "name": repository["name"],
+        "description": repository["description"],
+        "star_count": repository["star_count"],
+        "pull_count": repository["pull_count"],
     }
 
 
-def filter_image_list(image):
-    # Exclude the scratch image, you cannot pull it
-    if image["name"] == "scratch":
+def filter_repository_list(repository):
+    # Exclude the scratch repository, you cannot pull it
+    if repository["name"] == "scratch":
         return False
     # as no tags
-    elif image["name"] == "opensuse":
+    elif repository["name"] == "opensuse":
         return False
     # no longer readable
-    elif image["name"] == "java":
+    elif repository["name"] == "java":
         return False
     # not available for used architecture
-    elif image["name"] == "clefos":
+    elif repository["name"] == "clefos":
         return False
 
     return True
@@ -68,8 +68,8 @@ def parse_datetime_string(datetime_string):
     return datetime.datetime.strptime(datetime_string, datetime_format)
 
 
-def get_last_updated_tag(image):
-    tag_list_url = f"{repository_api}/{image['name']}/tags/{page_query}"
+def get_last_updated_tag(repository):
+    tag_list_url = f"{repository_api}/{repository['name']}/tags/{page_query}"
     result = []
 
     while tag_list_url is not None:
@@ -87,48 +87,48 @@ def get_last_updated_tag(image):
     return result[0]["name"]
 
 
-def add_tag_to_image(image):
-    latest_tag_url = f"{repository_api}/{image['name']}/tags/{default_tag}"
+def add_tag_to_repository(repository):
+    latest_tag_url = f"{repository_api}/{repository['name']}/tags/{default_tag}"
     has_latest_tag = requests.head(latest_tag_url).status_code == 200
 
-    image["tag"] = default_tag if has_latest_tag else get_last_updated_tag(image)
-    logging.info(f"Add tag {image['tag']} to {image['name']}")
+    repository["tag"] = default_tag if has_latest_tag else get_last_updated_tag(repository)
+    logging.info(f"Add tag {repository['tag']} to {repository['name']}")
 
-    return image
+    return repository
 
 
-def fetch_library_images():
-    logging.info("Start fetching library images")
-    image_list_url = f"{repository_api}/{page_query}"
+def fetch_library_repositories():
+    logging.info("Start fetching library repositories")
+    repository_list_url = f"{repository_api}/{page_query}"
     result = []
 
-    while image_list_url is not None:
+    while repository_list_url is not None:
         response = urllib3.request(
             "GET",
-            image_list_url,
+            repository_list_url,
             headers={"Authorization": f"Bearer {auth_token}"},
         )
         data = json.loads(response.data.decode('utf-8'))
-        image_list_url = data["next"]
-        result = result + list(map(map_image_list, data["results"]))
+        repository_list_url = data["next"]
+        result = result + list(map(map_repository_list, data["results"]))
 
-    logging.info(f"Fetched {len(result)} images")
+    logging.info(f"Fetched {len(result)} repositories")
 
-    result = list(filter(filter_image_list, result))
-    logging.info(f"Reduce images to {len(result)} images")
+    result = list(filter(filter_repository_list, result))
+    logging.info(f"Reduce repositories to {len(result)} repositories")
 
-    result = [add_tag_to_image(image) for image in result]
+    result = [add_tag_to_repository(repository) for repository in result]
 
     return result
 
 
-def create_workflow_file(data):
+def create_workflow_file(repositories):
     logging.info("Create workflow file")
     template_loader = jinja2.FileSystemLoader(searchpath="./")
     template_env = jinja2.Environment(loader=template_loader)
     template_file = "report-workflow.yml.tmpl"
     template = template_env.get_template(template_file)
-    output_text = template.render(images=data)
+    output_text = template.render(repositories=repositories)
 
     with open(".github/workflows/generate-report.yml", 'w') as f:
         print(output_text, file=f)
@@ -142,8 +142,8 @@ if __name__ == '__main__':
 
     auth_token = authenticate_at_dockerhub(args.username, args.token)
     logging.info("Starting workflow")
-    images = fetch_library_images()
-    create_workflow_file(images)
+    repositories = fetch_library_repositories()
+    create_workflow_file(repositories)
     logging.info("Finished workflow")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
