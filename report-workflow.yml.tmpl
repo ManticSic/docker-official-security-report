@@ -12,7 +12,7 @@ jobs:{% for repository in repositories %}
       - name: Fetch data about the repository
         run: curl -L -o {{ repository.name  }}.repository.json -s 'https://hub.docker.com/v2/repositories/library/{{ repository.name }}'
       - name: Fetch data about the tag
-        run: curl -L -o {{ repository.name  }}.{{ repository.tag }}.tag.json -s 'https://hub.docker.com/v2/repositories/library/{{ repository.name }}/tags/{{ repository.tag }}'
+        run: curl -L -o {{ repository.name  }}.tag.json -s 'https://hub.docker.com/v2/repositories/library/{{ repository.name }}/tags/{{ repository.tag }}'
       - name: Pull image
         run: docker pull {{ repository.name }}:{{ repository.tag }}
       - name: Create report
@@ -20,13 +20,13 @@ jobs:{% for repository in repositories %}
         with:
           image-ref: '{{ repository.name }}:{{ repository.tag }}'
           format: 'json'
-          output: '{{ repository.name }}.{{ repository.tag }}.report.json'
+          output: '{{ repository.name }}.report.json'
           scanners: 'vuln,secret,config'
       - name: Upload scan report
         uses: actions/upload-artifact@v4
         with:
-          name: '{{ repository.name }}.{{ repository.tag }}.report.json'
-          path: '{{ repository.name }}.{{ repository.tag }}.report.json'
+          name: '{{ repository.name }}.report.json'
+          path: '{{ repository.name }}.report.json'
           retention-days: 1
       - name: Upload repository data
         uses: actions/upload-artifact@v4
@@ -37,8 +37,8 @@ jobs:{% for repository in repositories %}
       - name: Upload tag data
         uses: actions/upload-artifact@v4
         with:
-          name: '{{ repository.name  }}.{{ repository.tag }}.tag.json'
-          path: '{{ repository.name  }}.{{ repository.tag }}.tag.json'
+          name: '{{ repository.name  }}'
+          path: '{{ repository.name  }}'
           retention-days: 1
 {% endfor %}
   collect:
