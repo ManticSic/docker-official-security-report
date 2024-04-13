@@ -2042,13 +2042,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o elasticsearch.repository.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
       - name: Fetch data about the tag
-        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.13.0'
+        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/7.17.20'
       - name: Pull image
-        run: docker pull elasticsearch:8.13.0
+        run: docker pull elasticsearch:7.17.20
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elasticsearch:8.13.0'
+          image-ref: 'elasticsearch:7.17.20'
           format: 'json'
           output: 'elasticsearch.report.json'
           scanners: 'vuln,secret,config'
@@ -2252,13 +2252,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o logstash.repository.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
       - name: Fetch data about the tag
-        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.13.0'
+        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/7.17.20'
       - name: Pull image
-        run: docker pull logstash:8.13.0
+        run: docker pull logstash:7.17.20
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'logstash:8.13.0'
+          image-ref: 'logstash:7.17.20'
           format: 'json'
           output: 'logstash.report.json'
           scanners: 'vuln,secret,config'
@@ -2567,13 +2567,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o kibana.repository.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
       - name: Fetch data about the tag
-        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.13.0'
+        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/7.17.20'
       - name: Pull image
-        run: docker pull kibana:8.13.0
+        run: docker pull kibana:7.17.20
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kibana:8.13.0'
+          image-ref: 'kibana:7.17.20'
           format: 'json'
           output: 'kibana.report.json'
           scanners: 'vuln,secret,config'
@@ -5991,9 +5991,44 @@ jobs:
           path: 'spark'
           retention-days: 1
 
+  liquibase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch data about the repository
+        run: curl -L -o liquibase.repository.json -s 'https://hub.docker.com/v2/repositories/library/liquibase'
+      - name: Fetch data about the tag
+        run: curl -L -o liquibase.tag.json -s 'https://hub.docker.com/v2/repositories/library/liquibase/tags/latest'
+      - name: Pull image
+        run: docker pull liquibase:latest
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'liquibase:latest'
+          format: 'json'
+          output: 'liquibase.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload scan report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'liquibase.report.json'
+          path: 'liquibase.report.json'
+          retention-days: 1
+      - name: Upload repository data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'liquibase.repository.json'
+          path: 'liquibase.repository.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'liquibase'
+          path: 'liquibase'
+          retention-days: 1
+
   collect:
     runs-on: ubuntu-latest
-    needs: [centos, busybox, ubuntu, fedora, registry, hipache, docker-dev, debian, cirros, crux, ubuntu-upstart, buildpack-deps, nginx, node, mysql, wordpress, postgres, redis, mongo, rails, ruby, python, ubuntu-debootstrap, perl, hello-world, hylang, gcc, jenkins, golang, neurodebian, clojure, php, jruby, mageia, crate, php-zendserver, tomcat, mono, haskell, glassfish, maven, httpd, sentry, r-base, mariadb, thrift, pypy, django, haproxy, memcached, rabbitmq, oraclelinux, odoo, rethinkdb, iojs, websphere-liberty, irssi, swarm, elasticsearch, jetty, ghost, celery, percona, aerospike, logstash, julia, alpine, rakudo-star, drupal, cassandra, sonarqube, couchbase, ros, kibana, kaazing-gateway, arangodb, owncloud, gazebo, joomla, redmine, nats, rocket_chat, docker, tomee, sourcemage, bonita, solr, neo4j, erlang, nuxeo, photon, couchdb, notary, piwik, elixir, lightstreamer, orientdb, mongo-express, traefik, backdrop, consul, chronograf, influxdb, kapacitor, telegraf, hello-seattle, hola-mundo, fsharp, spiped, vault, clearlinux, eggdrop, ibmjava, openjdk, kong, zookeeper, nats-streaming, storm, plone, bash, amazonlinux, composer, known, eclipse-mosquitto, nextcloud, silverpeas, swift, haxe, rapidoid, adminer, geonetwork, xwiki, groovy, znc, gradle, convertigo, flink, swipl, rust, mediawiki, euleros, sl, open-liberty, teamspeak, matomo, yourls, alt, amazoncorretto, express-gateway, postfixadmin, fluentd, adoptopenjdk, sapmachine, varnish, jobber, archlinux, friendica, caddy, monica, phpmyadmin, hitch, almalinux, dart, eclipse-temurin, ibm-semeru-runtimes, rockylinux, api-firewall, emqx, satosa, unit, spark]
+    needs: [centos, busybox, ubuntu, fedora, registry, hipache, docker-dev, debian, cirros, crux, ubuntu-upstart, buildpack-deps, nginx, node, mysql, wordpress, postgres, redis, mongo, rails, ruby, python, ubuntu-debootstrap, perl, hello-world, hylang, gcc, jenkins, golang, neurodebian, clojure, php, jruby, mageia, crate, php-zendserver, tomcat, mono, haskell, glassfish, maven, httpd, sentry, r-base, mariadb, thrift, pypy, django, haproxy, memcached, rabbitmq, oraclelinux, odoo, rethinkdb, iojs, websphere-liberty, irssi, swarm, elasticsearch, jetty, ghost, celery, percona, aerospike, logstash, julia, alpine, rakudo-star, drupal, cassandra, sonarqube, couchbase, ros, kibana, kaazing-gateway, arangodb, owncloud, gazebo, joomla, redmine, nats, rocket_chat, docker, tomee, sourcemage, bonita, solr, neo4j, erlang, nuxeo, photon, couchdb, notary, piwik, elixir, lightstreamer, orientdb, mongo-express, traefik, backdrop, consul, chronograf, influxdb, kapacitor, telegraf, hello-seattle, hola-mundo, fsharp, spiped, vault, clearlinux, eggdrop, ibmjava, openjdk, kong, zookeeper, nats-streaming, storm, plone, bash, amazonlinux, composer, known, eclipse-mosquitto, nextcloud, silverpeas, swift, haxe, rapidoid, adminer, geonetwork, xwiki, groovy, znc, gradle, convertigo, flink, swipl, rust, mediawiki, euleros, sl, open-liberty, teamspeak, matomo, yourls, alt, amazoncorretto, express-gateway, postfixadmin, fluentd, adoptopenjdk, sapmachine, varnish, jobber, archlinux, friendica, caddy, monica, phpmyadmin, hitch, almalinux, dart, eclipse-temurin, ibm-semeru-runtimes, rockylinux, api-firewall, emqx, satosa, unit, spark, liquibase]
     steps:
       - name: Get current date
         id: date
