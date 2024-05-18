@@ -2217,13 +2217,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o aerospike.repository.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
       - name: Fetch data about the tag
-        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.0.0.9_1'
+        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.1.0.0_1'
       - name: Pull image
-        run: docker pull aerospike:ee-7.0.0.9_1
+        run: docker pull aerospike:ee-7.1.0.0_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike:ee-7.0.0.9_1'
+          image-ref: 'aerospike:ee-7.1.0.0_1'
           format: 'json'
           output: 'aerospike.report.json'
           scanners: 'vuln,secret,config'
