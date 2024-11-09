@@ -1797,13 +1797,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o oraclelinux.repository.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
       - name: Fetch data about the tag
-        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9'
+        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/8.10'
       - name: Pull image
-        run: docker pull oraclelinux:9
+        run: docker pull oraclelinux:8.10
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'oraclelinux:9'
+          image-ref: 'oraclelinux:8.10'
           format: 'json'
           output: 'oraclelinux.report.json'
           scanners: 'vuln,secret,config'
@@ -2217,13 +2217,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o aerospike.repository.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
       - name: Fetch data about the tag
-        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.2.0.1_2'
+        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-7.2.0.3_1'
       - name: Pull image
-        run: docker pull aerospike:ee-7.2.0.1_2
+        run: docker pull aerospike:ee-7.2.0.3_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike:ee-7.2.0.1_2'
+          image-ref: 'aerospike:ee-7.2.0.3_1'
           format: 'json'
           output: 'aerospike.report.json'
           scanners: 'vuln,secret,config'
@@ -5752,13 +5752,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o ibm-semeru-runtimes.repository.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
       - name: Fetch data about the tag
-        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u422-b05-jre-focal'
+        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-21.0.4.1_7-jre-jammy'
       - name: Pull image
-        run: docker pull ibm-semeru-runtimes:open-8u422-b05-jre-focal
+        run: docker pull ibm-semeru-runtimes:open-21.0.4.1_7-jre-jammy
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibm-semeru-runtimes:open-8u422-b05-jre-focal'
+          image-ref: 'ibm-semeru-runtimes:open-21.0.4.1_7-jre-jammy'
           format: 'json'
           output: 'ibm-semeru-runtimes.report.json'
           scanners: 'vuln,secret,config'
@@ -6026,9 +6026,44 @@ jobs:
           path: 'liquibase'
           retention-days: 1
 
+  clickhouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch data about the repository
+        run: curl -L -o clickhouse.repository.json -s 'https://hub.docker.com/v2/repositories/library/clickhouse'
+      - name: Fetch data about the tag
+        run: curl -L -o clickhouse.tag.json -s 'https://hub.docker.com/v2/repositories/library/clickhouse/tags/latest'
+      - name: Pull image
+        run: docker pull clickhouse:latest
+      - name: Create report
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'clickhouse:latest'
+          format: 'json'
+          output: 'clickhouse.report.json'
+          scanners: 'vuln,secret,config'
+      - name: Upload scan report
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clickhouse.report.json'
+          path: 'clickhouse.report.json'
+          retention-days: 1
+      - name: Upload repository data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clickhouse.repository.json'
+          path: 'clickhouse.repository.json'
+          retention-days: 1
+      - name: Upload tag data
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'clickhouse'
+          path: 'clickhouse'
+          retention-days: 1
+
   collect:
     runs-on: ubuntu-latest
-    needs: [centos, busybox, ubuntu, fedora, registry, hipache, docker-dev, debian, cirros, crux, ubuntu-upstart, buildpack-deps, nginx, node, mysql, wordpress, postgres, redis, mongo, rails, ruby, python, ubuntu-debootstrap, perl, hello-world, hylang, gcc, jenkins, golang, neurodebian, clojure, php, jruby, mageia, crate, php-zendserver, tomcat, mono, haskell, glassfish, maven, httpd, sentry, r-base, mariadb, thrift, pypy, django, haproxy, memcached, rabbitmq, oraclelinux, odoo, rethinkdb, iojs, websphere-liberty, irssi, swarm, elasticsearch, jetty, ghost, celery, percona, aerospike, logstash, julia, alpine, rakudo-star, drupal, cassandra, sonarqube, couchbase, ros, kibana, kaazing-gateway, arangodb, owncloud, gazebo, joomla, redmine, nats, rocket_chat, docker, tomee, sourcemage, bonita, solr, neo4j, erlang, nuxeo, photon, couchdb, notary, piwik, elixir, lightstreamer, orientdb, mongo-express, traefik, backdrop, consul, chronograf, influxdb, kapacitor, telegraf, hello-seattle, hola-mundo, fsharp, spiped, vault, clearlinux, eggdrop, ibmjava, openjdk, kong, zookeeper, nats-streaming, storm, plone, bash, amazonlinux, composer, known, eclipse-mosquitto, nextcloud, silverpeas, swift, haxe, rapidoid, adminer, geonetwork, xwiki, groovy, znc, gradle, convertigo, flink, swipl, rust, mediawiki, euleros, sl, open-liberty, teamspeak, matomo, yourls, alt, amazoncorretto, express-gateway, postfixadmin, fluentd, adoptopenjdk, sapmachine, varnish, jobber, archlinux, friendica, caddy, monica, phpmyadmin, hitch, almalinux, dart, eclipse-temurin, ibm-semeru-runtimes, rockylinux, api-firewall, emqx, satosa, unit, spark, liquibase]
+    needs: [centos, busybox, ubuntu, fedora, registry, hipache, docker-dev, debian, cirros, crux, ubuntu-upstart, buildpack-deps, nginx, node, mysql, wordpress, postgres, redis, mongo, rails, ruby, python, ubuntu-debootstrap, perl, hello-world, hylang, gcc, jenkins, golang, neurodebian, clojure, php, jruby, mageia, crate, php-zendserver, tomcat, mono, haskell, glassfish, maven, httpd, sentry, r-base, mariadb, thrift, pypy, django, haproxy, memcached, rabbitmq, oraclelinux, odoo, rethinkdb, iojs, websphere-liberty, irssi, swarm, elasticsearch, jetty, ghost, celery, percona, aerospike, logstash, julia, alpine, rakudo-star, drupal, cassandra, sonarqube, couchbase, ros, kibana, kaazing-gateway, arangodb, owncloud, gazebo, joomla, redmine, nats, rocket_chat, docker, tomee, sourcemage, bonita, solr, neo4j, erlang, nuxeo, photon, couchdb, notary, piwik, elixir, lightstreamer, orientdb, mongo-express, traefik, backdrop, consul, chronograf, influxdb, kapacitor, telegraf, hello-seattle, hola-mundo, fsharp, spiped, vault, clearlinux, eggdrop, ibmjava, openjdk, kong, zookeeper, nats-streaming, storm, plone, bash, amazonlinux, composer, known, eclipse-mosquitto, nextcloud, silverpeas, swift, haxe, rapidoid, adminer, geonetwork, xwiki, groovy, znc, gradle, convertigo, flink, swipl, rust, mediawiki, euleros, sl, open-liberty, teamspeak, matomo, yourls, alt, amazoncorretto, express-gateway, postfixadmin, fluentd, adoptopenjdk, sapmachine, varnish, jobber, archlinux, friendica, caddy, monica, phpmyadmin, hitch, almalinux, dart, eclipse-temurin, ibm-semeru-runtimes, rockylinux, api-firewall, emqx, satosa, unit, spark, liquibase, clickhouse]
     steps:
       - name: Get current date
         id: date
