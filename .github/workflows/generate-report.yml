@@ -2042,13 +2042,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o elasticsearch.repository.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
       - name: Fetch data about the tag
-        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/7.17.25'
+        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.16.0'
       - name: Pull image
-        run: docker pull elasticsearch:7.17.25
+        run: docker pull elasticsearch:8.16.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elasticsearch:7.17.25'
+          image-ref: 'elasticsearch:8.16.0'
           format: 'json'
           output: 'elasticsearch.report.json'
           scanners: 'vuln,secret,config'
@@ -2252,13 +2252,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o logstash.repository.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
       - name: Fetch data about the tag
-        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/7.17.25'
+        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.16.0'
       - name: Pull image
-        run: docker pull logstash:7.17.25
+        run: docker pull logstash:8.16.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'logstash:7.17.25'
+          image-ref: 'logstash:8.16.0'
           format: 'json'
           output: 'logstash.report.json'
           scanners: 'vuln,secret,config'
@@ -2567,13 +2567,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o kibana.repository.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
       - name: Fetch data about the tag
-        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/7.17.25'
+        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.16.0'
       - name: Pull image
-        run: docker pull kibana:7.17.25
+        run: docker pull kibana:8.16.0
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kibana:7.17.25'
+          image-ref: 'kibana:8.16.0'
           format: 'json'
           output: 'kibana.report.json'
           scanners: 'vuln,secret,config'
