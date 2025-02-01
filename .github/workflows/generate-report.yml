@@ -1797,13 +1797,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o oraclelinux.repository.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
       - name: Fetch data about the tag
-        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9'
+        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/8.10'
       - name: Pull image
-        run: docker pull oraclelinux:9
+        run: docker pull oraclelinux:8.10
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'oraclelinux:9'
+          image-ref: 'oraclelinux:8.10'
           format: 'json'
           output: 'oraclelinux.report.json'
           scanners: 'vuln,secret,config'
