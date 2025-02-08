@@ -1797,13 +1797,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o oraclelinux.repository.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux'
       - name: Fetch data about the tag
-        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/8.10'
+        run: curl -L -o oraclelinux.tag.json -s 'https://hub.docker.com/v2/repositories/library/oraclelinux/tags/9-slim-fips'
       - name: Pull image
-        run: docker pull oraclelinux:8.10
+        run: docker pull oraclelinux:9-slim-fips
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'oraclelinux:8.10'
+          image-ref: 'oraclelinux:9-slim-fips'
           format: 'json'
           output: 'oraclelinux.report.json'
           scanners: 'vuln,secret,config'
@@ -2217,13 +2217,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o aerospike.repository.json -s 'https://hub.docker.com/v2/repositories/library/aerospike'
       - name: Fetch data about the tag
-        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-8.0.0.1_1'
+        run: curl -L -o aerospike.tag.json -s 'https://hub.docker.com/v2/repositories/library/aerospike/tags/ee-8.0.0.2_1'
       - name: Pull image
-        run: docker pull aerospike:ee-8.0.0.1_1
+        run: docker pull aerospike:ee-8.0.0.2_1
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'aerospike:ee-8.0.0.1_1'
+          image-ref: 'aerospike:ee-8.0.0.2_1'
           format: 'json'
           output: 'aerospike.report.json'
           scanners: 'vuln,secret,config'
@@ -5752,13 +5752,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o ibm-semeru-runtimes.repository.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
       - name: Fetch data about the tag
-        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u432-b06-jre-jammy'
+        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-21.0.5_11-jre-jammy'
       - name: Pull image
-        run: docker pull ibm-semeru-runtimes:open-8u432-b06-jre-jammy
+        run: docker pull ibm-semeru-runtimes:open-21.0.5_11-jre-jammy
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibm-semeru-runtimes:open-8u432-b06-jre-jammy'
+          image-ref: 'ibm-semeru-runtimes:open-21.0.5_11-jre-jammy'
           format: 'json'
           output: 'ibm-semeru-runtimes.report.json'
           scanners: 'vuln,secret,config'
