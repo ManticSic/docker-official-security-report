@@ -2042,13 +2042,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o elasticsearch.repository.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch'
       - name: Fetch data about the tag
-        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.17.1'
+        run: curl -L -o elasticsearch.tag.json -s 'https://hub.docker.com/v2/repositories/library/elasticsearch/tags/8.17.2'
       - name: Pull image
-        run: docker pull elasticsearch:8.17.1
+        run: docker pull elasticsearch:8.17.2
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'elasticsearch:8.17.1'
+          image-ref: 'elasticsearch:8.17.2'
           format: 'json'
           output: 'elasticsearch.report.json'
           scanners: 'vuln,secret,config'
@@ -2252,13 +2252,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o logstash.repository.json -s 'https://hub.docker.com/v2/repositories/library/logstash'
       - name: Fetch data about the tag
-        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.17.1'
+        run: curl -L -o logstash.tag.json -s 'https://hub.docker.com/v2/repositories/library/logstash/tags/8.17.2'
       - name: Pull image
-        run: docker pull logstash:8.17.1
+        run: docker pull logstash:8.17.2
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'logstash:8.17.1'
+          image-ref: 'logstash:8.17.2'
           format: 'json'
           output: 'logstash.report.json'
           scanners: 'vuln,secret,config'
@@ -2567,13 +2567,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o kibana.repository.json -s 'https://hub.docker.com/v2/repositories/library/kibana'
       - name: Fetch data about the tag
-        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.17.1'
+        run: curl -L -o kibana.tag.json -s 'https://hub.docker.com/v2/repositories/library/kibana/tags/8.17.2'
       - name: Pull image
-        run: docker pull kibana:8.17.1
+        run: docker pull kibana:8.17.2
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'kibana:8.17.1'
+          image-ref: 'kibana:8.17.2'
           format: 'json'
           output: 'kibana.report.json'
           scanners: 'vuln,secret,config'
@@ -5752,13 +5752,13 @@ jobs:
       - name: Fetch data about the repository
         run: curl -L -o ibm-semeru-runtimes.repository.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes'
       - name: Fetch data about the tag
-        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-21.0.5_11-jre-jammy'
+        run: curl -L -o ibm-semeru-runtimes.tag.json -s 'https://hub.docker.com/v2/repositories/library/ibm-semeru-runtimes/tags/open-8u442-b06-jre-noble'
       - name: Pull image
-        run: docker pull ibm-semeru-runtimes:open-21.0.5_11-jre-jammy
+        run: docker pull ibm-semeru-runtimes:open-8u442-b06-jre-noble
       - name: Create report
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'ibm-semeru-runtimes:open-21.0.5_11-jre-jammy'
+          image-ref: 'ibm-semeru-runtimes:open-8u442-b06-jre-noble'
           format: 'json'
           output: 'ibm-semeru-runtimes.report.json'
           scanners: 'vuln,secret,config'
